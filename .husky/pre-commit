@@ -1,0 +1,2 @@
+./vendor/bin/pint
+./vendor/bin/phpstan analyse ./app
