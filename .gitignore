@@ -12,6 +12,7 @@
 .env.production
 .phpactor.json
 .phpunit.result.cache
+.cursorrules
 Homestead.json
 Homestead.yaml
 auth.json
