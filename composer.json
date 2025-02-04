@@ -1,8 +1,8 @@
 {
   "$schema": "https://getcomposer.org/schema.json",
-  "name": "laravel/react-starter-kit",
+  "name": "avosalmon/artisan-airlines",
   "type": "project",
-  "description": "The skeleton application for the Laravel framework.",
+  "description": "The demo application for the modular Inertia application",
   "keywords": [
     "laravel",
     "framework"
