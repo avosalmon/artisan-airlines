@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "67593f7e524b24249a1029f0716bc27a",
+  "content-hash": "f3366042ea778db7bd6f568026cccb05",
   "packages": [
     {
       "name": "brick/math",
@@ -2852,6 +2852,38 @@
         }
       ],
       "time": "2024-12-08T08:18:47+00:00"
+    },
+    {
+      "name": "modules/flight",
+      "version": "1.0",
+      "dist": {
+        "type": "path",
+        "url": "app-modules/flight",
+        "reference": "6fdd0fbcd13ab0a967703fe6b1116c8fce1775a2"
+      },
+      "type": "library",
+      "extra": {
+        "laravel": {
+          "providers": [
+            "Modules\\Flight\\Providers\\FlightServiceProvider"
+          ]
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Modules\\Flight\\": "src/",
+          "Modules\\Flight\\Tests\\": "tests/",
+          "Modules\\Flight\\Database\\Factories\\": "database/factories/",
+          "Modules\\Flight\\Database\\Seeders\\": "database/seeders/"
+        }
+      },
+      "license": [
+        "proprietary"
+      ],
+      "transport-options": {
+        "symlink": true,
+        "relative": true
+      }
     },
     {
       "name": "monolog/monolog",
