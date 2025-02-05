@@ -17,6 +17,7 @@
     "modules/booking": "*",
     "modules/checkin": "*",
     "modules/flight": "*",
+    "modules/payment": "*",
     "tightenco/ziggy": "^2.4"
   },
   "require-dev": {

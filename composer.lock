@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "ad6c9a62d9be893455c0fd1c87e19f70",
+  "content-hash": "18968fc0baaf8935837f1e35b730ff9d",
   "packages": [
     {
       "name": "brick/math",
@@ -2891,7 +2891,7 @@
       "dist": {
         "type": "path",
         "url": "app-modules/checkin",
-        "reference": "b4b723874b03c32f2eb232496787f2b29699e09b"
+        "reference": "68a6ddc04328558f9afb59b0b45eb4cbb1c376cb"
       },
       "type": "library",
       "extra": {
@@ -2939,6 +2939,38 @@
           "Modules\\Flight\\Tests\\": "tests/",
           "Modules\\Flight\\Database\\Factories\\": "database/factories/",
           "Modules\\Flight\\Database\\Seeders\\": "database/seeders/"
+        }
+      },
+      "license": [
+        "proprietary"
+      ],
+      "transport-options": {
+        "symlink": true,
+        "relative": true
+      }
+    },
+    {
+      "name": "modules/payment",
+      "version": "1.0",
+      "dist": {
+        "type": "path",
+        "url": "app-modules/payment",
+        "reference": "887585460bf979835377cda0585f073a9c55df77"
+      },
+      "type": "library",
+      "extra": {
+        "laravel": {
+          "providers": [
+            "Modules\\Payment\\Providers\\PaymentServiceProvider"
+          ]
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Modules\\Payment\\": "src/",
+          "Modules\\Payment\\Tests\\": "tests/",
+          "Modules\\Payment\\Database\\Factories\\": "database/factories/",
+          "Modules\\Payment\\Database\\Seeders\\": "database/seeders/"
         }
       },
       "license": [
