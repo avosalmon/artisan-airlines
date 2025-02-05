@@ -15,6 +15,7 @@
     "laravel/framework": "^11.31",
     "laravel/tinker": "^2.9",
     "modules/booking": "*",
+    "modules/checkin": "*",
     "modules/flight": "*",
     "tightenco/ziggy": "^2.4"
   },

@@ -1,0 +1,24 @@
+{
+  "name": "modules/checkin",
+  "description": "",
+  "type": "library",
+  "version": "1.0",
+  "license": "proprietary",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Modules\\Checkin\\": "src/",
+      "Modules\\Checkin\\Tests\\": "tests/",
+      "Modules\\Checkin\\Database\\Factories\\": "database/factories/",
+      "Modules\\Checkin\\Database\\Seeders\\": "database/seeders/"
+    }
+  },
+  "minimum-stability": "stable",
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Modules\\Checkin\\Providers\\CheckinServiceProvider"
+      ]
+    }
+  }
+}

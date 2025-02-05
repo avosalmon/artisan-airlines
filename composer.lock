@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "8bc98bd3bac72b73b55d4118b3ce40a0",
+  "content-hash": "ad6c9a62d9be893455c0fd1c87e19f70",
   "packages": [
     {
       "name": "brick/math",
@@ -2859,7 +2859,7 @@
       "dist": {
         "type": "path",
         "url": "app-modules/booking",
-        "reference": "4b04b0c98fd72d22900f494cce189234aad18f36"
+        "reference": "f92fdff2c5f23c897038882179a7a043cdccb6a3"
       },
       "type": "library",
       "extra": {
@@ -2875,6 +2875,38 @@
           "Modules\\Booking\\Tests\\": "tests/",
           "Modules\\Booking\\Database\\Factories\\": "database/factories/",
           "Modules\\Booking\\Database\\Seeders\\": "database/seeders/"
+        }
+      },
+      "license": [
+        "proprietary"
+      ],
+      "transport-options": {
+        "symlink": true,
+        "relative": true
+      }
+    },
+    {
+      "name": "modules/checkin",
+      "version": "1.0",
+      "dist": {
+        "type": "path",
+        "url": "app-modules/checkin",
+        "reference": "b4b723874b03c32f2eb232496787f2b29699e09b"
+      },
+      "type": "library",
+      "extra": {
+        "laravel": {
+          "providers": [
+            "Modules\\Checkin\\Providers\\CheckinServiceProvider"
+          ]
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Modules\\Checkin\\": "src/",
+          "Modules\\Checkin\\Tests\\": "tests/",
+          "Modules\\Checkin\\Database\\Factories\\": "database/factories/",
+          "Modules\\Checkin\\Database\\Seeders\\": "database/seeders/"
         }
       },
       "license": [
