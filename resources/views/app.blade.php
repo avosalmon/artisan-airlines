@@ -5,10 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title inertia>{{ config('app.name', 'Laravel') }}</title>
-        
+
         @routes
         @viteReactRefresh
-        @vite(['resources/js/app.tsx', "resources/js/pages/{$page['component']}.tsx"])
+        @if(str_contains($page['component'], '::'))
+            @php
+                $module = strtolower(explode('::', $page['component'])[0]);
+                $path = explode('::', $page['component'])[1];
+            @endphp
+            @vite(['resources/js/app.tsx', "app-modules/{$module}/resources/js/pages/{$path}.tsx"])
+        @else
+            @vite(['resources/js/app.tsx', "resources/js/pages/{$page['component']}.tsx"])
+        @endif
         @inertiaHead
     </head>
     <body class="font-sans antialiased">
