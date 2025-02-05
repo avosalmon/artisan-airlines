@@ -9,6 +9,9 @@
     "format:check": "prettier --check .",
     "lint": "eslint . --fix"
   },
+  "engines": {
+    "node": ">=20.18.0"
+  },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
     "@inertiajs/react": "^2.0.0",
