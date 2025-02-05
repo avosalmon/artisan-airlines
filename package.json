@@ -5,7 +5,6 @@
     "build": "vite build",
     "build:ssr": "vite build && vite build --ssr",
     "dev": "vite",
-    "prepare": "husky install",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint . --fix"
@@ -22,7 +21,6 @@
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-react": "^7.37.4",
     "globals": "^15.14.0",
-    "husky": "^9.1.7",
     "laravel-vite-plugin": "^1.0",
     "postcss": "^8.4.49",
     "prettier": "^3.4.2",
