@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "f3366042ea778db7bd6f568026cccb05",
+  "content-hash": "8bc98bd3bac72b73b55d4118b3ce40a0",
   "packages": [
     {
       "name": "brick/math",
@@ -2854,12 +2854,44 @@
       "time": "2024-12-08T08:18:47+00:00"
     },
     {
+      "name": "modules/booking",
+      "version": "1.0",
+      "dist": {
+        "type": "path",
+        "url": "app-modules/booking",
+        "reference": "4b04b0c98fd72d22900f494cce189234aad18f36"
+      },
+      "type": "library",
+      "extra": {
+        "laravel": {
+          "providers": [
+            "Modules\\Booking\\Providers\\BookingServiceProvider"
+          ]
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Modules\\Booking\\": "src/",
+          "Modules\\Booking\\Tests\\": "tests/",
+          "Modules\\Booking\\Database\\Factories\\": "database/factories/",
+          "Modules\\Booking\\Database\\Seeders\\": "database/seeders/"
+        }
+      },
+      "license": [
+        "proprietary"
+      ],
+      "transport-options": {
+        "symlink": true,
+        "relative": true
+      }
+    },
+    {
       "name": "modules/flight",
       "version": "1.0",
       "dist": {
         "type": "path",
         "url": "app-modules/flight",
-        "reference": "6fdd0fbcd13ab0a967703fe6b1116c8fce1775a2"
+        "reference": "976bb0a03e42ae28f74acdca822f1d2bfa263505"
       },
       "type": "library",
       "extra": {
