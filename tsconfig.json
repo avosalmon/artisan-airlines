@@ -114,6 +114,7 @@
       "@/checkin/*": ["./app-modules/checkin/resources/js/*"],
       "@/flight/*": ["./app-modules/flight/resources/js/*"],
       "@/payment/*": ["./app-modules/payment/resources/js/*"],
+      "@/loyalty/*": ["./app-modules/loyalty/resources/js/*"],
       "ziggy-js": ["./vendor/tightenco/ziggy"]
     },
     "jsx": "react-jsx"

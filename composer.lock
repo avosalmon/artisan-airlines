@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "18968fc0baaf8935837f1e35b730ff9d",
+  "content-hash": "3db82441cfe38038da3aa7455f40d1aa",
   "packages": [
     {
       "name": "brick/math",
@@ -2950,12 +2950,44 @@
       }
     },
     {
+      "name": "modules/loyalty",
+      "version": "1.0",
+      "dist": {
+        "type": "path",
+        "url": "app-modules/loyalty",
+        "reference": "57136b12f32b8531d05d10fc404453077c6f51b1"
+      },
+      "type": "library",
+      "extra": {
+        "laravel": {
+          "providers": [
+            "Modules\\Loyalty\\Providers\\LoyaltyServiceProvider"
+          ]
+        }
+      },
+      "autoload": {
+        "psr-4": {
+          "Modules\\Loyalty\\": "src/",
+          "Modules\\Loyalty\\Tests\\": "tests/",
+          "Modules\\Loyalty\\Database\\Factories\\": "database/factories/",
+          "Modules\\Loyalty\\Database\\Seeders\\": "database/seeders/"
+        }
+      },
+      "license": [
+        "proprietary"
+      ],
+      "transport-options": {
+        "symlink": true,
+        "relative": true
+      }
+    },
+    {
       "name": "modules/payment",
       "version": "1.0",
       "dist": {
         "type": "path",
         "url": "app-modules/payment",
-        "reference": "887585460bf979835377cda0585f073a9c55df77"
+        "reference": "072c167bf2d6c45a9488094009190cd9ead7e4f3"
       },
       "type": "library",
       "extra": {
