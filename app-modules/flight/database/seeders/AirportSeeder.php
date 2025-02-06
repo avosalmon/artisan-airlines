@@ -88,6 +88,15 @@ class AirportSeeder extends Seeder
                 'updated_at' => $now,
             ],
             [
+                'iata_code' => 'AMD',
+                'name' => 'Sardar Vallabhbhai Patel International Airport',
+                'city' => 'Ahmedabad',
+                'country' => 'India',
+                'timezone' => 'Asia/Kolkata',
+                'created_at' => $now,
+                'updated_at' => $now,
+            ],
+            [
                 'iata_code' => 'SIN',
                 'name' => 'Singapore Changi Airport',
                 'city' => 'Singapore',
