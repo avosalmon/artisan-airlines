@@ -32,54 +32,54 @@ export default function Index({ airports }: Props) {
           className="absolute inset-0 w-full h-full object-cover brightness-50"
         /> */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="bg-white p-6 rounded-lg shadow-lg max-w-4xl w-full">
-            <h1 className="text-3xl font-bold text-gray-800 mb-6">Find Your Perfect Flight</h1>
+          <div className="w-full max-w-4xl rounded-lg bg-white p-6 shadow-lg">
+            <h1 className="mb-6 text-3xl font-bold text-gray-800">Find Your Perfect Flight</h1>
             <form className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                 <div className="relative">
-                  <Label htmlFor="from" className="block text-gray-500 mb-1">
+                  <Label htmlFor="from" className="mb-1 block text-gray-500">
                     FROM
                   </Label>
                   <div className="relative">
-                    <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                    <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 transform text-gray-400" />
                     <Input id="from" placeholder="Enter city" className="pl-10" />
                   </div>
                 </div>
                 <div className="relative">
-                  <Label htmlFor="to" className="block text-gray-500 mb-1">
+                  <Label htmlFor="to" className="mb-1 block text-gray-500">
                     TO
                   </Label>
                   <div className="relative">
-                    <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                    <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 transform text-gray-400" />
                     <Input id="to" placeholder="Enter city" className="pl-10" />
                   </div>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                 <div className="relative">
-                  <Label htmlFor="depart-date" className="block text-gray-500 mb-1">
+                  <Label htmlFor="depart-date" className="mb-1 block text-gray-500">
                     DEPART DATE
                   </Label>
                   <div className="relative">
-                    <Calendar className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                    <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 transform text-gray-400" />
                     <Input id="depart-date" type="date" className="pr-10" />
                   </div>
                 </div>
                 <div className="relative">
-                  <Label htmlFor="return-date" className="block text-gray-500 mb-1">
+                  <Label htmlFor="return-date" className="mb-1 block text-gray-500">
                     RETURN DATE
                   </Label>
                   <div className="relative">
-                    <Calendar className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                    <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 transform text-gray-400" />
                     <Input id="return-date" type="date" className="pr-10" />
                   </div>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                 <div>
-                  <Label htmlFor="class" className="block text-gray-500 mb-1">
+                  <Label htmlFor="class" className="mb-1 block text-gray-500">
                     CLASS
                   </Label>
                   <Select>
@@ -94,7 +94,7 @@ export default function Index({ airports }: Props) {
                   </Select>
                 </div>
                 <div>
-                  <Label htmlFor="passengers" className="block text-gray-500 mb-1">
+                  <Label htmlFor="passengers" className="mb-1 block text-gray-500">
                     PASSENGERS
                   </Label>
                   <Select>
@@ -119,32 +119,28 @@ export default function Index({ airports }: Props) {
         </div>
       </section>
 
-      <section className="py-16 bg-gray-100">
+      <section className="bg-gray-100 py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">Why Choose Artisan Airlines?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <h2 className="mb-8 text-center text-3xl font-bold text-gray-800">Why Choose Artisan Airlines?</h2>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <Card>
               <CardContent className="flex flex-col items-center p-6">
-                <CreditCard className="h-12 w-12 text-blue-600 mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Best Price Guarantee</h3>
-                <p className="text-center text-gray-600">
-                  We offer competitive prices on our 100 million plus product range.
-                </p>
+                <CreditCard className="mb-4 h-12 w-12 text-blue-600" />
+                <h3 className="mb-2 text-xl font-semibold">Best Price Guarantee</h3>
+                <p className="text-center text-gray-600">We offer competitive prices on our 100 million plus product range.</p>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="flex flex-col items-center p-6">
-                <Headphones className="h-12 w-12 text-blue-600 mb-4" />
-                <h3 className="text-xl font-semibold mb-2">24/7 Support</h3>
-                <p className="text-center text-gray-600">
-                  Round the clock assistance for a smooth booking experience.
-                </p>
+                <Headphones className="mb-4 h-12 w-12 text-blue-600" />
+                <h3 className="mb-2 text-xl font-semibold">24/7 Support</h3>
+                <p className="text-center text-gray-600">Round the clock assistance for a smooth booking experience.</p>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="flex flex-col items-center p-6">
-                <Plane className="h-12 w-12 text-blue-600 mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Flexible Booking</h3>
+                <Plane className="mb-4 h-12 w-12 text-blue-600" />
+                <h3 className="mb-2 text-xl font-semibold">Flexible Booking</h3>
                 <p className="text-center text-gray-600">Change or cancel your booking with no additional fees.</p>
               </CardContent>
             </Card>
@@ -154,17 +150,17 @@ export default function Index({ airports }: Props) {
 
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">Popular Destinations</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <h2 className="mb-8 text-center text-3xl font-bold text-gray-800">Popular Destinations</h2>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {["Paris", "New York", "Tokyo", "London", "Rome", "Sydney"].map((city) => (
-              <div key={city} className="relative h-64 rounded-lg overflow-hidden group">
+              <div key={city} className="group relative h-64 overflow-hidden rounded-lg">
                 {/* <img
                   src={`/images/destinations/${city.toLowerCase()}.jpg`}
                   alt={`${city} cityscape`}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                 /> */}
-                <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                  <h3 className="text-white text-2xl font-bold">{city}</h3>
+                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40">
+                  <h3 className="text-2xl font-bold text-white">{city}</h3>
                 </div>
               </div>
             ))}

@@ -3,9 +3,9 @@ import { Mail, Phone, Plane } from "lucide-react";
 
 export default function BaseLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex min-h-screen flex-col">
       <header className="bg-white shadow-sm">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div className="container mx-auto flex items-center justify-between px-4 py-4">
           <div className="flex items-center space-x-2">
             <Plane className="h-6 w-6 text-blue-600" />
             <span className="text-xl font-bold text-gray-800">Artisan Airlines</span>
@@ -44,18 +44,17 @@ export default function BaseLayout({ children }: { children: React.ReactNode }) 
 
       <main className="flex-grow">{children}</main>
 
-      <footer className="bg-gray-800 text-white py-8">
+      <footer className="bg-gray-800 py-8 text-white">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <div>
-              <h4 className="text-lg font-semibold mb-4">About Artisan Airlines</h4>
+              <h4 className="mb-4 text-lg font-semibold">About Artisan Airlines</h4>
               <p className="text-gray-400">
-                Artisan Airlines is your trusted partner for hassle-free air travel. We offer competitive prices and exceptional
-                service.
+                Artisan Airlines is your trusted partner for hassle-free air travel. We offer competitive prices and exceptional service.
               </p>
             </div>
             <div>
-              <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+              <h4 className="mb-4 text-lg font-semibold">Quick Links</h4>
               <ul className="space-y-2">
                 <li>
                   <Link href="/" className="text-gray-400 hover:text-white">
@@ -85,20 +84,20 @@ export default function BaseLayout({ children }: { children: React.ReactNode }) 
               </ul>
             </div>
             <div>
-              <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
+              <h4 className="mb-4 text-lg font-semibold">Contact Us</h4>
               <ul className="space-y-2">
                 <li className="flex items-center">
-                  <Phone className="h-5 w-5 mr-2" />
+                  <Phone className="mr-2 h-5 w-5" />
                   <span>+1 (555) 123-4567</span>
                 </li>
                 <li className="flex items-center">
-                  <Mail className="h-5 w-5 mr-2" />
+                  <Mail className="mr-2 h-5 w-5" />
                   <span>support@artisan-airlines.com</span>
                 </li>
               </ul>
             </div>
           </div>
-          <div className="mt-8 pt-8 border-t border-gray-700 text-center">
+          <div className="mt-8 border-t border-gray-700 pt-8 text-center">
             <p>&copy; 2025 Artisan Airlines. All rights reserved.</p>
           </div>
         </div>
