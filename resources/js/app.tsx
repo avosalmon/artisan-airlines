@@ -38,6 +38,3 @@ createInertiaApp({
     color: "#4B5563",
   },
 });
-
-// This will set dark/light mode on load
-initializeTheme();

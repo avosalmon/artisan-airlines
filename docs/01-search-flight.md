@@ -7,7 +7,7 @@ This document describes the process of searching for a flight.
 - The user selects the departure and arrival dates
 - The user selects the number of passengers
 - The user clicks the search button
-- The user is redirected to the flight search results page
+- The user is redirected to the flight search results page or the flight search results are displayed on the same page
 
 ## Flight search results
 

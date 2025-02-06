@@ -9,6 +9,8 @@ export default {
     "./resources/**/*.blade.php",
     "./resources/**/*.ts",
     "./resources/**/*.tsx",
+    "./app-modules/*/resources/views/**/*.blade.php",
+    "./app-modules/*/resources/js/**/*.tsx",
   ],
   theme: {
     extend: {
