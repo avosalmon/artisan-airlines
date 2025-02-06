@@ -1,4 +1,4 @@
-import { type BreadcrumbItem, type SharedData } from "@/types";
+import { type BreadcrumbItem, type PageProps } from "@/types";
 import { Transition } from "@headlessui/react";
 import { Head, Link, useForm, usePage } from "@inertiajs/react";
 import { FormEventHandler } from "react";
@@ -20,7 +20,7 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: boolean; status?: string }) {
-  const { auth } = usePage<SharedData>().props;
+  const { auth } = usePage<PageProps>().props;
 
   const { data, setData, patch, errors, processing, recentlySuccessful } = useForm({
     name: auth.user.name,

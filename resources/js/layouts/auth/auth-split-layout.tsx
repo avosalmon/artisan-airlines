@@ -1,5 +1,5 @@
 import AppLogoIcon from "@/components/app-logo-icon";
-import { type SharedData } from "@/types";
+import { type PageProps } from "@/types";
 import { Link, usePage } from "@inertiajs/react";
 
 interface AuthLayoutProps {
@@ -9,7 +9,7 @@ interface AuthLayoutProps {
 }
 
 export default function AuthSplitLayout({ children, title, description }: AuthLayoutProps) {
-  const { name, quote } = usePage<SharedData>().props;
+  const { name, quote } = usePage<PageProps>().props;
 
   return (
     <div className="relative grid h-dvh flex-col items-center justify-center px-8 sm:px-0 lg:max-w-none lg:grid-cols-2 lg:px-0">

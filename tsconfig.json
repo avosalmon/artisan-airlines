@@ -110,11 +110,11 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./resources/js/*"],
-      "@/booking/*": ["./app-modules/booking/resources/js/*"],
-      "@/checkin/*": ["./app-modules/checkin/resources/js/*"],
-      "@/flight/*": ["./app-modules/flight/resources/js/*"],
-      "@/payment/*": ["./app-modules/payment/resources/js/*"],
-      "@/loyalty/*": ["./app-modules/loyalty/resources/js/*"],
+      "@booking/*": ["./app-modules/booking/resources/js/*"],
+      "@checkin/*": ["./app-modules/checkin/resources/js/*"],
+      "@flight/*": ["./app-modules/flight/resources/js/*"],
+      "@payment/*": ["./app-modules/payment/resources/js/*"],
+      "@loyalty/*": ["./app-modules/loyalty/resources/js/*"],
       "ziggy-js": ["./vendor/tightenco/ziggy"]
     },
     "jsx": "react-jsx"

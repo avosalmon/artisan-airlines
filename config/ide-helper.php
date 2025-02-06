@@ -141,6 +141,7 @@ return [
 
     'model_locations' => [
         'app',
+        'app-modules/*/src',
     ],
 
     /*

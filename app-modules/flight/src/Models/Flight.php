@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Flight\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -29,6 +30,11 @@ class Flight extends Model
         'base_price' => 'decimal:2',
         'status' => FlightStatus::class,
     ];
+
+    public function scopeStatus(Builder $query, FlightStatus $status): Builder
+    {
+        return $query->where('status', $status);
+    }
 
     public function originAirport(): BelongsTo
     {

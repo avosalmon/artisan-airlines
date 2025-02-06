@@ -6,21 +6,12 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import BaseLayout from "@/layouts/base-layout";
 import { Head } from "@inertiajs/react";
 import { Calendar, CreditCard, Headphones, MapPin, Plane } from "lucide-react";
+import { Airport } from "@flight/index";
+import { PageProps } from "@/types";
 
-interface Airport {
-  id: number;
-  iata_code: string;
-  name: string;
-  city: string;
-  country: string;
-  label: string;
-}
-
-interface Props {
+export default function Index({ airports }: PageProps<{
   airports: Airport[];
-}
-
-export default function Index({ airports }: Props) {
+}>) {
   return (
     <BaseLayout>
       <Head title="Home" />
