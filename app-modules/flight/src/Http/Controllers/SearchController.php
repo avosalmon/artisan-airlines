@@ -8,6 +8,7 @@ use Inertia\Inertia;
 use Inertia\Response;
 use Modules\Flight\Enums\FlightStatus;
 use Modules\Flight\Http\Requests\SearchFlightRequest;
+use Modules\Flight\Http\Resources\FlightResource;
 use Modules\Flight\Models\Flight;
 
 class SearchController
@@ -24,7 +25,7 @@ class SearchController
             ->get();
 
         return Inertia::render('flight::search/index', [
-            'flights' => $flights,
+            'flights' => FlightResource::collection($flights),
         ]);
     }
 }
