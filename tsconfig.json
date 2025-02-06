@@ -119,10 +119,5 @@
     },
     "jsx": "react-jsx"
   },
-  "include": [
-    "resources/js/**/*.ts",
-    "resources/js/**/*.tsx",
-    "app-modules/*/resources/js/**/*.ts",
-    "app-modules/*/resources/js/**/*.tsx",
-  ]
+  "include": ["resources/js/**/*.ts", "resources/js/**/*.tsx", "app-modules/*/resources/js/**/*.ts", "app-modules/*/resources/js/**/*.tsx"]
 }

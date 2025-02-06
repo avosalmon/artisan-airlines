@@ -10,10 +10,7 @@ createServer((page) =>
     page,
     render: ReactDOMServer.renderToString,
     resolve: (name) => {
-      const pages = import.meta.glob([
-        "./pages/**/*.tsx",
-        "../../app-modules/*/resources/js/pages/**/*.tsx",
-      ], {
+      const pages = import.meta.glob(["./pages/**/*.tsx", "../../app-modules/*/resources/js/pages/**/*.tsx"], {
         eager: true,
       });
 

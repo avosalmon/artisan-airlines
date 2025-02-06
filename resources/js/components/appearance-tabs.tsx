@@ -1,7 +1,7 @@
+import type { Appearance } from "@/hooks/use-appearance";
 import { useAppearance } from "@/hooks/use-appearance";
 import { LucideIcon, Monitor, Moon, Sun } from "lucide-react";
 import { HTMLAttributes } from "react";
-import type { Appearance } from "@/hooks/use-appearance";
 
 export default function AppearanceToggleTab({ className = "", ...props }: HTMLAttributes<HTMLDivElement>) {
   const { appearance, updateAppearance } = useAppearance();
