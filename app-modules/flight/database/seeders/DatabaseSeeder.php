@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
             AirportSeeder::class,
             AircraftTypeSeeder::class,
             FlightSeeder::class,
-            FlightPriceSeeder::class,
+            FlightFareClassSeeder::class,
         ]);
     }
 }
