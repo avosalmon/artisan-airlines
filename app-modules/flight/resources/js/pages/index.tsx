@@ -14,8 +14,8 @@ export default function Index({ airports }: PageProps<{
   airports: Airport[];
 }>) {
   const { data, setData, get, processing } = useForm({
-    origin_airport_id: "",
-    destination_airport_id: "",
+    origin_airport_id: 1,
+    destination_airport_id: 3,
     departure_date: format(addDays(new Date(), 1), 'yyyy-MM-dd'),
     passengers: 1,
   });
@@ -45,9 +45,9 @@ export default function Index({ airports }: PageProps<{
                   <Label htmlFor="from" className="mb-1 block text-gray-500">
                     FROM
                   </Label>
-                  <Select value={data.origin_airport_id} onValueChange={(value) => setData('origin_airport_id', value)}>
+                  <Select value={data.origin_airport_id.toString()} onValueChange={(value) => setData('origin_airport_id', parseInt(value))}>
                     <SelectTrigger id="from">
-                      <SelectValue placeholder="Select a city" />
+                      <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
                       {
@@ -64,9 +64,9 @@ export default function Index({ airports }: PageProps<{
                   <Label htmlFor="to" className="mb-1 block text-gray-500">
                     TO
                   </Label>
-                  <Select value={data.destination_airport_id} onValueChange={(value) => setData('destination_airport_id', value)}>
+                  <Select value={data.destination_airport_id.toString()} onValueChange={(value) => setData('destination_airport_id', parseInt(value))}>
                     <SelectTrigger id="to">
-                      <SelectValue placeholder="Select a city" />
+                      <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
                       {
@@ -84,39 +84,12 @@ export default function Index({ airports }: PageProps<{
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                 <div className="relative">
                   <Label htmlFor="depart-date" className="mb-1 block text-gray-500">
-                    DEPART DATE
+                    WHEN
                   </Label>
                   <div className="relative">
                     <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 transform text-gray-400" />
                     <Input id="depart-date" type="date" className="pr-10" value={data.departure_date} onChange={(e) => setData('departure_date', e.target.value)} />
                   </div>
-                </div>
-                <div className="relative">
-                  <Label htmlFor="return-date" className="mb-1 block text-gray-500">
-                    RETURN DATE
-                  </Label>
-                  <div className="relative">
-                    <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 transform text-gray-400" />
-                    <Input id="return-date" type="date" className="pr-10" />
-                  </div>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                <div>
-                  <Label htmlFor="class" className="mb-1 block text-gray-500">
-                    CLASS
-                  </Label>
-                  <Select>
-                    <SelectTrigger id="class">
-                      <SelectValue placeholder="Economy" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="economy">Economy</SelectItem>
-                      <SelectItem value="business">Business</SelectItem>
-                      <SelectItem value="first">First Class</SelectItem>
-                    </SelectContent>
-                  </Select>
                 </div>
                 <div>
                   <Label htmlFor="passengers" className="mb-1 block text-gray-500">
@@ -135,7 +108,6 @@ export default function Index({ airports }: PageProps<{
                   </Select>
                 </div>
               </div>
-
               <div className="flex justify-end">
                 <Button className="w-32" onClick={submit} disabled={processing}>SEARCH</Button>
               </div>
