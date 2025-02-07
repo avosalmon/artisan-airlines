@@ -1,15 +1,8 @@
 import BaseLayout from "@/layouts/base-layout";
-import { Head } from "@inertiajs/react";
 import { PageProps } from "@/types";
-import { Flight } from "@flight/index";
 import { FlightCard } from "@flight/components/flight-card";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Flight } from "@flight/index";
+import { Head } from "@inertiajs/react";
 
 export default function Index({ flights }: PageProps<{ flights: Flight[] }>) {
   return (
@@ -19,8 +12,7 @@ export default function Index({ flights }: PageProps<{ flights: Flight[] }>) {
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8 flex items-center justify-between">
           <h1 className="text-2xl font-bold">
-            {flights[0]?.origin_airport?.city} to{" "}
-            {flights[0]?.destination_airport?.city}
+            {flights[0]?.origin_airport?.city} to {flights[0]?.destination_airport?.city}
           </h1>
 
           {/* <div className="flex items-center gap-4">

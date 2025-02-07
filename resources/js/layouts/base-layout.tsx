@@ -1,15 +1,16 @@
+import { Logo } from "@/components/logo";
 import { Link } from "@inertiajs/react";
-import { Mail, Phone, Plane } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 
 export default function BaseLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col">
       <header className="bg-white shadow-sm">
         <div className="container mx-auto flex items-center justify-between px-4 py-4">
-          <div className="flex items-center space-x-2">
-            <Plane className="h-6 w-6 text-blue-600" />
+          <Link href="/" className="flex items-center space-x-2">
+            <Logo className="h-6" />
             <span className="text-xl font-bold text-gray-800">Artisan Airlines</span>
-          </div>
+          </Link>
           <nav>
             <ul className="flex space-x-4">
               <li>
