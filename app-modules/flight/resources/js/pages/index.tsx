@@ -4,14 +4,28 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import BaseLayout from "@/layouts/base-layout";
-import { Head } from "@inertiajs/react";
-import { Calendar, CreditCard, Headphones, MapPin, Plane } from "lucide-react";
+import { Head, useForm } from "@inertiajs/react";
+import { Calendar, CreditCard, Headphones, Plane } from "lucide-react";
 import { Airport } from "@flight/index";
 import { PageProps } from "@/types";
+import { addDays, format } from "date-fns";
 
 export default function Index({ airports }: PageProps<{
   airports: Airport[];
 }>) {
+  const { data, setData, get, processing } = useForm({
+    origin_airport_id: "",
+    destination_airport_id: "",
+    departure_date: format(addDays(new Date(), 1), 'yyyy-MM-dd'),
+    passengers: 1,
+  });
+
+  const submit = () => {
+    get("/flights/search", {
+      data,
+    });
+  };
+
   return (
     <BaseLayout>
       <Head title="Home" />
@@ -31,7 +45,7 @@ export default function Index({ airports }: PageProps<{
                   <Label htmlFor="from" className="mb-1 block text-gray-500">
                     FROM
                   </Label>
-                  <Select>
+                  <Select value={data.origin_airport_id} onValueChange={(value) => setData('origin_airport_id', value)}>
                     <SelectTrigger id="from">
                       <SelectValue placeholder="Select a city" />
                     </SelectTrigger>
@@ -50,7 +64,7 @@ export default function Index({ airports }: PageProps<{
                   <Label htmlFor="to" className="mb-1 block text-gray-500">
                     TO
                   </Label>
-                  <Select>
+                  <Select value={data.destination_airport_id} onValueChange={(value) => setData('destination_airport_id', value)}>
                     <SelectTrigger id="to">
                       <SelectValue placeholder="Select a city" />
                     </SelectTrigger>
@@ -74,7 +88,7 @@ export default function Index({ airports }: PageProps<{
                   </Label>
                   <div className="relative">
                     <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 transform text-gray-400" />
-                    <Input id="depart-date" type="date" className="pr-10" />
+                    <Input id="depart-date" type="date" className="pr-10" value={data.departure_date} onChange={(e) => setData('departure_date', e.target.value)} />
                   </div>
                 </div>
                 <div className="relative">
@@ -108,7 +122,7 @@ export default function Index({ airports }: PageProps<{
                   <Label htmlFor="passengers" className="mb-1 block text-gray-500">
                     PASSENGERS
                   </Label>
-                  <Select>
+                  <Select value={data.passengers.toString()} onValueChange={(value) => setData('passengers', parseInt(value))}>
                     <SelectTrigger id="passengers">
                       <SelectValue placeholder="1 Adult" />
                     </SelectTrigger>
@@ -123,7 +137,7 @@ export default function Index({ airports }: PageProps<{
               </div>
 
               <div className="flex justify-end">
-                <Button className="w-32">SEARCH</Button>
+                <Button className="w-32" onClick={submit} disabled={processing}>SEARCH</Button>
               </div>
             </form>
           </div>
