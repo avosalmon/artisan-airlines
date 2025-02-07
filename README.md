@@ -1,6 +1,6 @@
 # Artisan Airlines
 
-This is a demo application for the modular Inertia application.
+This is a fictitious airline booking application to demonstrate a modular Inertia application.
 
 ## Setup the project
 
@@ -13,3 +13,18 @@ This is a demo application for the modular Inertia application.
 ```
 composer dev
 ```
+
+## Modules
+
+The application has the following modules:
+
+- Flight module
+  - Manage flights, airports, seat availability, schedules, etc
+- Booking module
+  - Manage bookings, passengers, etc
+- Check-in module
+  - Manage check-ins, boarding passes, etc
+- Payment module
+  - Manage payments, refunds, etc
+- Loyalty module (if time allows)
+  - Tracks miles earned from flights
