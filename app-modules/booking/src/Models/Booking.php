@@ -19,6 +19,7 @@ class Booking extends Model
         'contact_email',
         'contact_phone',
         'status',
+        'passenger_count',
         'total_amount',
     ];
 
