@@ -16,7 +16,7 @@ class SearchController
     public function index(SearchFlightRequest $request): Response
     {
         $flights = Flight::query()
-            ->with(['originAirport', 'destinationAirport', 'aircraftType', 'prices'])
+            ->with(['originAirport', 'destinationAirport', 'aircraftType', 'fareClasses'])
             ->where('origin_airport_id', $request->integer('origin_airport_id'))
             ->where('destination_airport_id', $request->integer('destination_airport_id'))
             ->whereDate('departure_time', $request->date('departure_date'))

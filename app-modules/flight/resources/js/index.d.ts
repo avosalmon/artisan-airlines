@@ -25,10 +25,10 @@ export interface Flight {
   origin_airport?: Airport;
   destination_airport?: Airport;
   aircraft_type?: AircraftType;
-  prices?: FlightPrice[];
+  fare_classes?: FlightFareClass[];
 }
 
-export interface FlightPrice {
+export interface FlightFareClass {
   id: number;
   flight_id: number;
   fare_class: "economy" | "business" | "first_class";
