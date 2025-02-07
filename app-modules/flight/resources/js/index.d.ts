@@ -4,7 +4,7 @@ export interface Airport {
   name: string;
   city: string;
   country: string;
-  label: string;
+  timezone: string;
 }
 
 export interface AircraftType {

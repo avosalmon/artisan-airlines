@@ -24,10 +24,10 @@ class FlightResource extends JsonResource
             'status' => $this->status,
             'available_seats' => $this->available_seats,
             'base_price' => $this->base_price,
-            'origin_airport' => $this->originAirport,
-            'destination_airport' => $this->destinationAirport,
-            'aircraft_type' => $this->aircraftType,
-            'prices' => $this->prices,
+            'origin_airport' => new AirportResource($this->originAirport),
+            'destination_airport' => new AirportResource($this->destinationAirport),
+            'aircraft_type' => new AircraftTypeResource($this->aircraftType),
+            'fare_classes' => FlightFareClassResource::collection($this->fareClasses),
         ];
     }
 }
