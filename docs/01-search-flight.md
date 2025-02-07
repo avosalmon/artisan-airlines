@@ -7,12 +7,15 @@ This document describes the process of searching for a flight.
 - The user selects the departure and arrival dates
 - The user selects the number of passengers
 - The user clicks the search button
-- The user is redirected to the flight search results page or the flight search results are displayed on the same page
+- The user is redirected to the flight search results page
 
 ## Flight search results
 
 - The user sees a list of flights
 - The user can select a flight to view the flight details
+- The user selects the fare class
+- The user clicks the "proceed" button
+- The user is redirected to the flight booking page under the booking module
 
 ## Database tables
 
