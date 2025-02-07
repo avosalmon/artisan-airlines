@@ -19,7 +19,7 @@ class BookingController extends Controller
 
     public function create(Booking $booking): Response
     {
-        abort_if($booking->status !== BookingStatus::PENDING, 404);
+        abort_unless($booking->status === BookingStatus::PENDING, 404);
 
         $flight = $this->flightRepository->findByFareClassId($booking->flight_fare_class_id);
 
