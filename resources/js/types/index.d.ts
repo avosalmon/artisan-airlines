@@ -21,9 +21,7 @@ export interface NavItem {
   isActive?: boolean;
 }
 
-export type PageProps<
-  T extends Record<string, unknown> = Record<string, unknown>,
-> = T & {
+export type PageProps<T extends Record<string, unknown> = Record<string, unknown>> = T & {
   auth: Auth;
   name: string;
   quote: { message: string; author: string };

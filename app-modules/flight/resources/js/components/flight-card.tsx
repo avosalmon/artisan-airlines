@@ -14,9 +14,6 @@ export function FlightCard({ flight }: { flight: Flight }) {
     return `${diff.hours}hrs ${diff.minutes ? `${diff.minutes}mins` : ""}`;
   };
 
-  const economyFare = flight.fare_classes?.find((fc) => fc.fare_class === "economy");
-  const businessFare = flight.fare_classes?.find((fc) => fc.fare_class === "business");
-
   return (
     <Card className="mb-4">
       <CardHeader className="pb-2">
@@ -27,7 +24,9 @@ export function FlightCard({ flight }: { flight: Flight }) {
           <div className="flex items-center gap-8">
             <div>
               <div className="text-2xl font-bold">{format(new Date(flight.departure_time), "HH:mm")}</div>
-              <div className="text-sm text-muted-foreground">{flight.origin_airport?.city}</div>
+              <div className="text-sm text-muted-foreground">
+                {flight.origin_airport?.city} ({flight.origin_airport?.iata_code})
+              </div>
               <div className="text-xs text-muted-foreground">{format(new Date(flight.departure_time), "dd MMM (EEE)")}</div>
             </div>
 
@@ -38,7 +37,9 @@ export function FlightCard({ flight }: { flight: Flight }) {
 
             <div>
               <div className="text-2xl font-bold">{format(new Date(flight.arrival_time), "HH:mm")}</div>
-              <div className="text-sm text-muted-foreground">{flight.destination_airport?.city}</div>
+              <div className="text-sm text-muted-foreground">
+                {flight.destination_airport?.city} ({flight.destination_airport?.iata_code})
+              </div>
               <div className="text-xs text-muted-foreground">{format(new Date(flight.arrival_time), "dd MMM (EEE)")}</div>
             </div>
           </div>
@@ -54,37 +55,18 @@ export function FlightCard({ flight }: { flight: Flight }) {
       </CardContent>
       <Separator />
       <CardFooter className="flex justify-between p-0">
-        <div className="flex-1 p-4 text-center">
-          <div className="font-medium">ECONOMY</div>
-          {economyFare ? (
-            <>
-              <div className="text-sm text-muted-foreground">FROM USD</div>
-              <div className="text-xl font-bold">${economyFare.price.toLocaleString()}</div>
+        {
+          flight.fare_classes?.map((fareClass) => (
+            <div className="flex-1 p-4 text-center">
+              <div className="font-medium uppercase">{fareClass.fare_class}</div>
+              <div className="text-xl font-bold">USD {fareClass.price.toLocaleString()}</div>
               <div className="text-xs text-muted-foreground">PER ADULT</div>
-              <Button className="mt-2 w-full" variant="default">
+              <Button className="mt-2 w-full">
                 Select
               </Button>
-            </>
-          ) : (
-            <div className="text-sm text-muted-foreground">Not available</div>
-          )}
-        </div>
-        <Separator orientation="vertical" />
-        <div className="flex-1 p-4 text-center">
-          <div className="font-medium">PREMIUM ECONOMY</div>
-          {businessFare ? (
-            <>
-              <div className="text-sm text-muted-foreground">FROM USD</div>
-              <div className="text-xl font-bold">${businessFare.price.toLocaleString()}</div>
-              <div className="text-xs text-muted-foreground">PER ADULT</div>
-              <Button className="mt-2 w-full" variant="default">
-                Select
-              </Button>
-            </>
-          ) : (
-            <div className="text-sm text-muted-foreground">Not available</div>
-          )}
-        </div>
+            </div>
+          ))
+        }
       </CardFooter>
     </Card>
   );

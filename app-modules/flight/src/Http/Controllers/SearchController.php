@@ -26,6 +26,7 @@ class SearchController
 
         return Inertia::render('flight::search/index', [
             'flights' => FlightResource::collection($flights),
+            'passengers' => $request->integer('passengers'),
         ]);
     }
 }

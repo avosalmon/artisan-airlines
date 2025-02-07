@@ -4,7 +4,7 @@ import { FlightCard } from "@flight/components/flight-card";
 import { Flight } from "@flight/index";
 import { Head } from "@inertiajs/react";
 
-export default function Index({ flights }: PageProps<{ flights: Flight[] }>) {
+export default function Index({ flights, passengers }: PageProps<{ flights: Flight[]; passengers: number }>) {
   return (
     <BaseLayout>
       <Head title="Search Results" />
