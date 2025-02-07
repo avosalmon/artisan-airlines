@@ -4,15 +4,15 @@ export function Logo(props: SVGProps<SVGSVGElement>) {
   return (
     <svg width="58" height="48" viewBox="0 0 58 48" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M56.8564 0H43.4747C40.2003 0 37.0997 1.47281 35.0309 4.01078L0.169844 46.7779C-0.228953 47.2671 0.119172 48 0.750356 48H13.3739L36.6286 19.5265C43.9271 9.29973 48.7185 3.21575 57.1834 2.69215C57.3688 2.23542 57.5548 1.78883 57.7414 1.3533C58.0147 0.715401 57.5504 0 56.8564 0ZM54.0046 11.6099C51.8647 18.3044 49.9225 25.7057 48.3821 32.0759H36.5729C36.5155 32.0759 36.4838 32.0092 36.5202 31.9648L46.6787 19.5265C46.7722 19.3909 46.872 19.2452 46.9776 19.0908C48.4638 16.9199 51.1177 13.0435 54.0046 11.6099ZM46.5607 39.9122C45.9972 42.4347 45.5552 44.5105 45.2597 45.9274C45.0075 47.1365 43.9453 48 42.7102 48H23.424L30.009 39.9372C30.0219 39.9214 30.0413 39.9122 30.0617 39.9122H46.5607Z"
         fill="url(#paint0_linear_60_3072)"
       />
       <defs>
         <linearGradient id="paint0_linear_60_3072" x1="28.8446" y1="0" x2="28.8446" y2="48" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#F43F5E" />
-          <stop offset="1" stop-color="#DF0026" />
+          <stop stopColor="#F43F5E" />
+          <stop offset="1" stopColor="#DF0026" />
         </linearGradient>
       </defs>
     </svg>

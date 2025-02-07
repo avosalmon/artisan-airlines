@@ -57,7 +57,7 @@ export function FlightCard({ flight, onSelectFareClass }: { flight: Flight, onSe
       <CardFooter className="flex justify-between p-0">
         {
           flight.fare_classes?.map((fareClass) => (
-            <div className="flex-1 p-4 text-center">
+            <div className="flex-1 p-4 text-center" key={fareClass.id}>
               <div className="font-medium uppercase">{fareClass.fare_class}</div>
               <div className="text-xl font-bold">USD {fareClass.price.toLocaleString()}</div>
               <div className="text-xs text-muted-foreground">PER ADULT</div>
