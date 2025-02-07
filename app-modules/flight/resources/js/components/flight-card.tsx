@@ -2,10 +2,10 @@ import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { Flight } from "@flight/index";
+import { Flight, FlightFareClass } from "@flight/index";
 import { format, intervalToDuration } from "date-fns";
 
-export function FlightCard({ flight }: { flight: Flight }) {
+export function FlightCard({ flight, onSelectFareClass }: { flight: Flight, onSelectFareClass: (fareClass: FlightFareClass) => void }) {
   const getDuration = (departure: string, arrival: string) => {
     const diff = intervalToDuration({
       start: new Date(departure),
@@ -61,7 +61,7 @@ export function FlightCard({ flight }: { flight: Flight }) {
               <div className="font-medium uppercase">{fareClass.fare_class}</div>
               <div className="text-xl font-bold">USD {fareClass.price.toLocaleString()}</div>
               <div className="text-xs text-muted-foreground">PER ADULT</div>
-              <Button className="mt-2 w-full">
+              <Button className="mt-2 w-full" onClick={() => onSelectFareClass(fareClass)}>
                 Select
               </Button>
             </div>

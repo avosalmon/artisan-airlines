@@ -1,10 +1,17 @@
 import BaseLayout from "@/layouts/base-layout";
 import { PageProps } from "@/types";
 import { FlightCard } from "@flight/components/flight-card";
-import { Flight } from "@flight/index";
-import { Head } from "@inertiajs/react";
+import { Flight, FlightFareClass } from "@flight/index";
+import { Head, router } from "@inertiajs/react";
 
 export default function Index({ flights, passengers }: PageProps<{ flights: Flight[]; passengers: number }>) {
+  const createPendingBooking = (fareClass: FlightFareClass) => {
+    router.post(route("booking.pending.store"), {
+      fare_class_id: fareClass.id,
+      passengers,
+    });
+  };
+
   return (
     <BaseLayout>
       <Head title="Search Results" />
@@ -35,7 +42,7 @@ export default function Index({ flights, passengers }: PageProps<{ flights: Flig
 
         <div className="space-y-4">
           {flights.map((flight) => (
-            <FlightCard key={flight.id} flight={flight} />
+            <FlightCard key={flight.id} flight={flight} onSelectFareClass={createPendingBooking} />
           ))}
         </div>
       </div>

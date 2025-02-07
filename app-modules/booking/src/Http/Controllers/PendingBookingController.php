@@ -21,8 +21,8 @@ class PendingBookingController
 
         $booking = Booking::create([
             'flight_fare_class_id' => $request->integer('fare_class_id'),
-            'passenger_count' => $request->integer('passenger_count'),
-            'total_amount' => $flight->price * $request->integer('passenger_count'),
+            'passenger_count' => $request->integer('passengers'),
+            'total_amount' => $flight->price * $request->integer('passengers'),
         ]);
 
         return to_route('booking.passengers.create', $booking);

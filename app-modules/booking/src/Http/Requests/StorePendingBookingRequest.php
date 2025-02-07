@@ -26,7 +26,7 @@ class StorePendingBookingRequest extends FormRequest
     {
         return [
             'fare_class_id' => ['required', 'integer'],
-            'passenger_count' => ['required', 'integer', 'min:1'],
+            'passengers' => ['required', 'integer', 'min:1'],
         ];
     }
 }
