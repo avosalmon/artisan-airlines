@@ -7,13 +7,13 @@ namespace Modules\Flight\Database\Seeders;
 use Illuminate\Database\Seeder;
 use Modules\Flight\Enums\FareClass;
 use Modules\Flight\Models\Flight;
-use Modules\Flight\Models\FlightPrice;
+use Modules\Flight\Models\FlightFareClass;
 
-class FlightPriceSeeder extends Seeder
+class FlightFareClassSeeder extends Seeder
 {
     public function run(): void
     {
-        FlightPrice::truncate();
+        FlightFareClass::truncate();
 
         $now = now();
         $batch = [];
@@ -51,14 +51,14 @@ class FlightPriceSeeder extends Seeder
                 ];
 
                 if (count($batch) >= 100) {
-                    FlightPrice::insert($batch);
+                    FlightFareClass::insert($batch);
                     $batch = [];
                 }
             }
         });
 
         if (! empty($batch)) {
-            FlightPrice::insert($batch);
+            FlightFareClass::insert($batch);
         }
     }
 }

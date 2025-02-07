@@ -51,8 +51,8 @@ class Flight extends Model
         return $this->belongsTo(AircraftType::class);
     }
 
-    public function prices(): HasMany
+    public function fareClasses(): HasMany
     {
-        return $this->hasMany(FlightPrice::class);
+        return $this->hasMany(FlightFareClass::class);
     }
 }

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Modules\Flight\Enums\FareClass;
 
-class FlightPrice extends Model
+class FlightFareClass extends Model
 {
     protected $fillable = [
         'flight_id',
