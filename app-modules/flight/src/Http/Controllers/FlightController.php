@@ -13,7 +13,7 @@ class FlightController
     public function index(): Response
     {
         $airports = Airport::select(['id', 'iata_code', 'name', 'city', 'country'])
-            ->orderBy('name')
+            ->orderBy('city')
             ->get();
 
         return Inertia::render('flight::index', [

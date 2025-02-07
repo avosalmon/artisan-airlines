@@ -31,19 +31,39 @@ export default function Index({ airports }: PageProps<{
                   <Label htmlFor="from" className="mb-1 block text-gray-500">
                     FROM
                   </Label>
-                  <div className="relative">
-                    <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 transform text-gray-400" />
-                    <Input id="from" placeholder="Enter city" className="pl-10" />
-                  </div>
+                  <Select>
+                    <SelectTrigger id="from">
+                      <SelectValue placeholder="Select a city" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {
+                        airports.map((airport) => (
+                          <SelectItem key={airport.id} value={airport.id.toString()}>
+                            {airport.city}, {airport.country} ({airport.iata_code})
+                          </SelectItem>
+                        ))
+                      }
+                    </SelectContent>
+                  </Select>
                 </div>
                 <div className="relative">
                   <Label htmlFor="to" className="mb-1 block text-gray-500">
                     TO
                   </Label>
-                  <div className="relative">
-                    <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 transform text-gray-400" />
-                    <Input id="to" placeholder="Enter city" className="pl-10" />
-                  </div>
+                  <Select>
+                    <SelectTrigger id="to">
+                      <SelectValue placeholder="Select a city" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {
+                        airports.map((airport) => (
+                          <SelectItem key={airport.id} value={airport.id.toString()}>
+                            {airport.city}, {airport.country} ({airport.iata_code})
+                          </SelectItem>
+                        ))
+                      }
+                    </SelectContent>
+                  </Select>
                 </div>
               </div>
 
