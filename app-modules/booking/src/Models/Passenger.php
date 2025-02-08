@@ -26,12 +26,6 @@ class Passenger extends Model
         'date_of_birth' => 'date',
     ];
 
-    public const GENDER_MALE = 'male';
-
-    public const GENDER_FEMALE = 'female';
-
-    public const GENDER_OTHER = 'other';
-
     public function booking(): BelongsTo
     {
         return $this->belongsTo(Booking::class);
