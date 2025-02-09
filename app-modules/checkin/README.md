@@ -12,4 +12,4 @@ This document describes the process of checking in for a flight.
 - The user provides the booking details
 - The user clicks the "check in" button
 - The check in is processed and the user can download the boarding pass
-- The `BookingCheckedIn` event is dispatched and the booking module updates the booking status to `checked_in`
+- The `BookingCheckedIn` event is dispatched and the booking module updates the status of the passenger to `checked_in`
