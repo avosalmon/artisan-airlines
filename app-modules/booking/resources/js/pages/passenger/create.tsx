@@ -201,7 +201,7 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
             </Accordion>
 
             <Button type="submit" className="w-full" disabled={processing}>
-              Continue to Payment
+              Proceed to Seat Selection
             </Button>
           </form>
         </div>
