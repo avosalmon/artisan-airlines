@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Flight\Database\Seeders;
 
+use Carbon\CarbonImmutable;
 use Illuminate\Database\Seeder;
 use Modules\Flight\Enums\FlightStatus;
 use Modules\Flight\Models\AircraftType;
@@ -18,7 +19,7 @@ class FlightSeeder extends Seeder
 
         $airports = Airport::all();
         $aircraftTypes = AircraftType::all();
-        $now = now();
+        $now = CarbonImmutable::now();
         $batch = [];
 
         // Create flights for the next 30 days
@@ -45,8 +46,8 @@ class FlightSeeder extends Seeder
                         'base_price' => $basePrice,
                         'status' => FlightStatus::SCHEDULED->value,
                         'available_seats' => $aircraftType->total_seats,
-                        'created_at' => $now,
-                        'updated_at' => $now,
+                        'created_at' => now(),
+                        'updated_at' => now(),
                     ];
 
                     // Evening flight
@@ -60,8 +61,8 @@ class FlightSeeder extends Seeder
                         'base_price' => $basePrice,
                         'status' => FlightStatus::SCHEDULED->value,
                         'available_seats' => $aircraftType->total_seats,
-                        'created_at' => $now,
-                        'updated_at' => $now,
+                        'created_at' => now(),
+                        'updated_at' => now(),
                     ];
 
                     if (count($batch) >= 100) {
