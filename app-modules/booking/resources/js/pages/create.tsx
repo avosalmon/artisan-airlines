@@ -15,7 +15,7 @@ import { format } from "date-fns";
 import { CalendarIcon, CheckCircle2 } from "lucide-react";
 import { FlightHeader } from "../components/flight-header";
 
-type PassengerForm = {
+interface PassengerForm {
   first_name: string;
   last_name: string;
   email: string;
@@ -24,10 +24,10 @@ type PassengerForm = {
   gender: string;
   nationality: string;
   passport_number: string;
-};
+}
 
 export default function Create({ booking, flight }: PageProps<{ booking: Booking; flight: Flight }>) {
-  const { data, setData, post, processing, errors } = useForm({
+  const { data, setData, post, processing, errors } = useForm<{ passengers: PassengerForm[] }>({
     passengers: Array(booking.passenger_count).fill({
       first_name: "",
       last_name: "",
@@ -69,8 +69,10 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
               {data.passengers.map((passenger, index) => (
                 <AccordionItem key={index} value={`passenger-${index}`}>
                   <AccordionTrigger className="flex justify-between">
-                    <span>Passenger {index + 1}</span>
-                    {isPassengerComplete(passenger) && <CheckCircle2 className="h-5 w-5 text-green-500" />}
+                    <div className="flex items-center gap-2">
+                      <span>Passenger {index + 1}</span>
+                      {isPassengerComplete(passenger) && <CheckCircle2 className="h-5 w-5 text-green-500" />}
+                    </div>
                   </AccordionTrigger>
                   <AccordionContent>
                     <div className="space-y-6 pt-4">
@@ -81,6 +83,7 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
                             id={`first_name-${index}`}
                             value={passenger.first_name}
                             onChange={(e) => updatePassenger(index, "first_name", e.target.value)}
+                            required
                           />
                           {errors[`passengers.${index}.first_name`] && (
                             <p className="text-sm text-red-500">{errors[`passengers.${index}.first_name`]}</p>
@@ -93,6 +96,7 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
                             id={`last_name-${index}`}
                             value={passenger.last_name}
                             onChange={(e) => updatePassenger(index, "last_name", e.target.value)}
+                            required
                           />
                           {errors[`passengers.${index}.last_name`] && (
                             <p className="text-sm text-red-500">{errors[`passengers.${index}.last_name`]}</p>
@@ -107,6 +111,7 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
                           type="email"
                           value={passenger.email}
                           onChange={(e) => updatePassenger(index, "email", e.target.value)}
+                          required
                         />
                         {errors[`passengers.${index}.email`] && <p className="text-sm text-red-500">{errors[`passengers.${index}.email`]}</p>}
                       </div>
@@ -118,6 +123,7 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
                           type="tel"
                           value={passenger.phone}
                           onChange={(e) => updatePassenger(index, "phone", e.target.value)}
+                          required
                         />
                         {errors[`passengers.${index}.phone`] && <p className="text-sm text-red-500">{errors[`passengers.${index}.phone`]}</p>}
                       </div>
@@ -169,6 +175,7 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
                           id={`nationality-${index}`}
                           value={passenger.nationality}
                           onChange={(e) => updatePassenger(index, "nationality", e.target.value)}
+                          required
                         />
                         {errors[`passengers.${index}.nationality`] && (
                           <p className="text-sm text-red-500">{errors[`passengers.${index}.nationality`]}</p>
@@ -181,6 +188,7 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
                           id={`passport_number-${index}`}
                           value={passenger.passport_number}
                           onChange={(e) => updatePassenger(index, "passport_number", e.target.value)}
+                          required
                         />
                         {errors[`passengers.${index}.passport_number`] && (
                           <p className="text-sm text-red-500">{errors[`passengers.${index}.passport_number`]}</p>
@@ -193,7 +201,7 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
             </Accordion>
 
             <Button type="submit" className="w-full" disabled={processing}>
-              {processing ? "Saving..." : "Continue to Payment"}
+              Continue to Payment
             </Button>
           </form>
         </div>
