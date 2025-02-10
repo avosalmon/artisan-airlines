@@ -23,7 +23,7 @@ class BookingPassengerController extends Controller
 
         $flight = $this->flightRepository->findByFareClassId($booking->flight_fare_class_id);
 
-        return Inertia::render('booking::create', [
+        return Inertia::render('booking::passenger/create', [
             'booking' => $booking,
             'flight' => $flight,
         ]);

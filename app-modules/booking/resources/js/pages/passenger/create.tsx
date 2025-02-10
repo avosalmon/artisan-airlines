@@ -8,12 +8,12 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import BaseLayout from "@/layouts/base-layout";
 import { cn } from "@/lib/utils";
 import { PageProps } from "@/types";
+import { FlightHeader } from "@booking/components/flight-header";
 import { Booking } from "@booking/index";
 import { Flight } from "@flight/index";
 import { Head, useForm } from "@inertiajs/react";
 import { format } from "date-fns";
 import { CalendarIcon, CheckCircle2 } from "lucide-react";
-import { FlightHeader } from "../components/flight-header";
 
 interface PassengerForm {
   first_name: string;
