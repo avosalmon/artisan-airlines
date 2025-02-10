@@ -7,7 +7,7 @@ export interface Booking {
   status: "pending" | "confirmed" | "cancelled";
   passenger_count: number;
   total_amount: number;
-  passengers: Passenger[];
+  passengers?: Passenger[];
 }
 
 export interface Passenger {

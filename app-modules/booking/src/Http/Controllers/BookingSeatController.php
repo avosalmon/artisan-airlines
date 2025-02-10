@@ -20,7 +20,7 @@ class BookingSeatController extends Controller
         $flight = $flightRepository->findByFareClassId($booking->flight_fare_class_id);
 
         return Inertia::render('booking::seat/create', [
-            'booking' => $booking,
+            'booking' => $booking->load('passengers'),
             'flight' => $flight,
         ]);
     }
