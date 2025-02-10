@@ -1,14 +1,16 @@
 import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import BaseLayout from "@/layouts/base-layout";
+import { cn } from "@/lib/utils";
 import { PageProps } from "@/types";
 import { Airport } from "@flight/index";
 import { Head, useForm } from "@inertiajs/react";
 import { addDays, format } from "date-fns";
-import { Calendar, CreditCard, Headphones, Plane } from "lucide-react";
+import { CalendarIcon, CreditCard, Headphones, Plane } from "lucide-react";
 
 export default function Index({
   airports,
@@ -88,14 +90,24 @@ export default function Index({
                     WHEN
                   </Label>
                   <div className="relative">
-                    <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 transform text-gray-400" />
-                    <Input
-                      id="depart-date"
-                      type="date"
-                      className="pr-10"
-                      value={data.departure_date}
-                      onChange={(e) => setData("departure_date", e.target.value)}
-                    />
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <Button
+                          variant={"outline"}
+                          className={cn("w-full justify-start text-left font-normal", !data.departure_date && "text-muted-foreground")}
+                        >
+                          <CalendarIcon className="mr-2 h-4 w-4" />
+                          {data.departure_date ? format(data.departure_date, "PPP") : <span>Pick a date</span>}
+                        </Button>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-auto p-0">
+                        <Calendar
+                          mode="single"
+                          selected={data.departure_date ? new Date(data.departure_date) : undefined}
+                          onSelect={(date) => setData("departure_date", date ? format(date, "yyyy-MM-dd") : "")}
+                        />
+                      </PopoverContent>
+                    </Popover>
                   </div>
                 </div>
                 <div>
