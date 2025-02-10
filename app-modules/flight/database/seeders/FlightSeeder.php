@@ -13,6 +13,16 @@ use Modules\Flight\Models\Flight;
 
 class FlightSeeder extends Seeder
 {
+    /**
+     * Average cruising speed in kilometers per hour
+     */
+    private const AVERAGE_SPEED = 800;
+
+    /**
+     * Additional time in minutes for takeoff, landing, and taxiing
+     */
+    private const GROUND_TIME = 60;
+
     public function run(): void
     {
         Flight::truncate();
@@ -21,6 +31,9 @@ class FlightSeeder extends Seeder
         $aircraftTypes = AircraftType::all();
         $now = CarbonImmutable::now();
         $batch = [];
+
+        $morningDepartures = ['06:00', '10:30'];
+        $afternoonDepartures = ['14:00', '19:30'];
 
         // Create flights for the next 30 days
         for ($i = 0; $i < 30; $i++) {
@@ -34,36 +47,49 @@ class FlightSeeder extends Seeder
 
                     $aircraftType = $aircraftTypes->random();
                     $basePrice = $this->calculateBasePrice($origin, $destination);
+                    $flightDuration = $this->calculateFlightDuration($origin, $destination);
 
-                    // Morning flight
-                    $batch[] = [
-                        'flight_number' => 'NH'.rand(100, 999),
-                        'origin_airport_id' => $origin->id,
-                        'destination_airport_id' => $destination->id,
-                        'aircraft_type_id' => $aircraftType->id,
-                        'departure_time' => $date->setHour(8)->setMinute(0)->setSecond(0)->toDateTime(),
-                        'arrival_time' => $date->setHour(12)->setMinute(0)->setSecond(0)->toDateTime(),
-                        'base_price' => $basePrice,
-                        'status' => FlightStatus::SCHEDULED->value,
-                        'available_seats' => $aircraftType->total_seats,
-                        'created_at' => now(),
-                        'updated_at' => now(),
-                    ];
+                    // Morning flights
+                    foreach ($morningDepartures as $departureTime) {
+                        [$hours, $minutes] = explode(':', $departureTime);
+                        $departure = $date->setHour((int) $hours)->setMinute((int) $minutes)->setSecond(0);
+                        $arrival = $departure->addMinutes($flightDuration);
 
-                    // Evening flight
-                    $batch[] = [
-                        'flight_number' => 'NH'.rand(100, 999),
-                        'origin_airport_id' => $origin->id,
-                        'destination_airport_id' => $destination->id,
-                        'aircraft_type_id' => $aircraftType->id,
-                        'departure_time' => $date->setHour(16)->setMinute(0)->setSecond(0)->toDateTime(),
-                        'arrival_time' => $date->setHour(20)->setMinute(0)->setSecond(0)->toDateTime(),
-                        'base_price' => $basePrice,
-                        'status' => FlightStatus::SCHEDULED->value,
-                        'available_seats' => $aircraftType->total_seats,
-                        'created_at' => now(),
-                        'updated_at' => now(),
-                    ];
+                        $batch[] = [
+                            'flight_number' => 'NH'.rand(100, 999),
+                            'origin_airport_id' => $origin->id,
+                            'destination_airport_id' => $destination->id,
+                            'aircraft_type_id' => $aircraftType->id,
+                            'departure_time' => $departure->toDateTime(),
+                            'arrival_time' => $arrival->toDateTime(),
+                            'base_price' => $basePrice,
+                            'status' => FlightStatus::SCHEDULED->value,
+                            'available_seats' => $aircraftType->total_seats,
+                            'created_at' => now(),
+                            'updated_at' => now(),
+                        ];
+                    }
+
+                    // Afternoon flights
+                    foreach ($afternoonDepartures as $departureTime) {
+                        [$hours, $minutes] = explode(':', $departureTime);
+                        $departure = $date->setHour((int) $hours)->setMinute((int) $minutes)->setSecond(0);
+                        $arrival = $departure->addMinutes($flightDuration);
+
+                        $batch[] = [
+                            'flight_number' => 'NH'.rand(100, 999),
+                            'origin_airport_id' => $origin->id,
+                            'destination_airport_id' => $destination->id,
+                            'aircraft_type_id' => $aircraftType->id,
+                            'departure_time' => $departure->toDateTime(),
+                            'arrival_time' => $arrival->toDateTime(),
+                            'base_price' => $basePrice,
+                            'status' => FlightStatus::SCHEDULED->value,
+                            'available_seats' => $aircraftType->total_seats,
+                            'created_at' => now(),
+                            'updated_at' => now(),
+                        ];
+                    }
 
                     if (count($batch) >= 100) {
                         Flight::insert($batch);
@@ -76,6 +102,37 @@ class FlightSeeder extends Seeder
         if (! empty($batch)) {
             Flight::insert($batch);
         }
+    }
+
+    private function calculateFlightDuration(Airport $origin, Airport $destination): int
+    {
+        // Calculate distance using the Haversine formula
+        $lat1 = deg2rad($origin->latitude);
+        $lon1 = deg2rad($origin->longitude);
+        $lat2 = deg2rad($destination->latitude);
+        $lon2 = deg2rad($destination->longitude);
+
+        $deltaLat = $lat2 - $lat1;
+        $deltaLon = $lon2 - $lon1;
+
+        $a = sin($deltaLat / 2) * sin($deltaLat / 2) +
+            cos($lat1) * cos($lat2) *
+            sin($deltaLon / 2) * sin($deltaLon / 2);
+
+        $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
+
+        // Earth's radius in kilometers
+        $r = 6371;
+
+        // Calculate distance in kilometers
+        $distance = $r * $c;
+
+        // Calculate flight time in minutes
+        // Convert speed from km/h to km/minute
+        $speedInKmPerMinute = self::AVERAGE_SPEED / 60;
+
+        // Calculate pure flight time and add ground operations time
+        return (int) ceil($distance / $speedInKmPerMinute) + self::GROUND_TIME;
     }
 
     private function calculateBasePrice(Airport $origin, Airport $destination): int
