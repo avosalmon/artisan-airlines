@@ -5,15 +5,13 @@ declare(strict_types=1);
 namespace Modules\Booking\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
 use Modules\Booking\Enums\BookingStatus;
-use Modules\Booking\Http\Requests\StoreBookingPassengerRequest;
 use Modules\Booking\Models\Booking;
 use Modules\Flight\Contracts\FlightRepository;
 
-class BookingPassengerController extends Controller
+class BookingSeatController extends Controller
 {
     public function create(Booking $booking, FlightRepository $flightRepository): Response
     {
@@ -21,18 +19,9 @@ class BookingPassengerController extends Controller
 
         $flight = $flightRepository->findByFareClassId($booking->flight_fare_class_id);
 
-        return Inertia::render('booking::passenger/create', [
+        return Inertia::render('booking::seat/create', [
             'booking' => $booking,
             'flight' => $flight,
         ]);
-    }
-
-    public function store(Booking $booking, StoreBookingPassengerRequest $request): RedirectResponse
-    {
-        abort_unless($booking->status === BookingStatus::PENDING, 404);
-
-        $booking->passengers()->createMany($request->validated('passengers'));
-
-        return to_route('booking.seat.create', $booking);
     }
 }

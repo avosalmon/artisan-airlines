@@ -42,7 +42,7 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    post(route("booking.store"));
+    post(route("booking.passenger.store", { booking: booking.id }));
   };
 
   const updatePassenger = (index: number, field: keyof PassengerForm, value: string) => {
