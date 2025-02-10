@@ -11,7 +11,7 @@ use Modules\Booking\Enums\BookingStatus;
 use Modules\Booking\Models\Booking;
 use Modules\Flight\Contracts\FlightRepository;
 
-class BookingController extends Controller
+class BookingPassengerController extends Controller
 {
     public function __construct(
         private readonly FlightRepository $flightRepository,

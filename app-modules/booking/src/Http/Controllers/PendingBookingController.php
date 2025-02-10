@@ -25,6 +25,6 @@ class PendingBookingController
             'total_amount' => $flight->price * $request->integer('passengers'),
         ]);
 
-        return to_route('booking.passengers.create', $booking);
+        return to_route('booking.passenger.create', $booking);
     }
 }
