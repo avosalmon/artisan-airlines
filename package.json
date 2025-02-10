@@ -58,7 +58,7 @@
     "cmdk": "^1.0.4",
     "date-fns": "^4.1.0",
     "lucide-react": "^0.468.0",
-    "react-day-picker": "^9.5.1",
+    "react-day-picker": "^8.10.1",
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7"
   }

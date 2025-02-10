@@ -100,9 +100,9 @@ export default function Index({
                           {data.departure_date ? format(data.departure_date, "PPP") : <span>Pick a date</span>}
                         </Button>
                       </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0">
+                      <PopoverContent className="w-auto p-0" align="start">
                         <Calendar
-                          autoFocus
+                          initialFocus
                           mode="single"
                           selected={data.departure_date ? new Date(data.departure_date) : undefined}
                           onSelect={(date) => setData("departure_date", date ? format(date, "yyyy-MM-dd") : "")}
