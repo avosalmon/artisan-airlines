@@ -10,7 +10,7 @@ import { PageProps } from "@/types";
 import { Airport } from "@flight/index";
 import { Head, useForm } from "@inertiajs/react";
 import { addDays, format } from "date-fns";
-import { ArrowRight, CalendarIcon, CreditCard, Headphones, Plane } from "lucide-react";
+import { ArrowRight, CalendarIcon, ChevronDown, ChevronRight, CreditCard, Headphones, Plane } from "lucide-react";
 
 export default function Index({
   airports,
@@ -30,6 +30,15 @@ export default function Index({
     });
   };
 
+  const cities = new Map<number, [string, string]>([
+    [1, ["Paris", "https://images.unsplash.com/photo-1431274172761-fca41d930114?q=80&w=600&auto=format&fit=crop"]],
+    [3, ["Tokyo", "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=600&auto=format&fit=crop"]],
+    [6, ["Sydney", "https://images.unsplash.com/photo-1549180030-48bf079fb38a?q=80&w=600&auto=format&fit=crop"]],
+    [2, ["New York", "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?q=80&w=600&auto=format&fit=crop"]],
+    [4, ["London", "https://images.unsplash.com/photo-1533929736458-ca588d08c8be?q=80&w=600&auto=format&fit=crop"]],
+    [5, ["Rome", "https://images.unsplash.com/photo-1531572753322-ad063cecc140?q=80&w=600&auto=format&fit=crop"]],
+  ]);
+
   return (
     <BaseLayout>
       <Head title="Home" />
@@ -41,7 +50,7 @@ export default function Index({
             <h1 className="text-8xl font-bold">Explore the unexplored</h1>
             <h3 className="text-4xl mt-4 font-bold text-balance">Limited Time Offers to Australia and Japan.</h3>
             <Button className="mt-8" variant={"secondary"} size={"lg"}>View all deals <ArrowRight className="ml-2 h-4 w-4" /></Button>
-            <p className="text-sm text-white/60 absolute bottom-0 left-0">* Sale ends 11.59pm (AEDT) 10 February 2025, unless sold out prior. Selected routes, travel dates and conditions apply. Prices based on payment at qantas.com by BPAY or PayID. Some flights are subject to government and regulatory approval.</p>
+            <p className="text-sm text-white/60 absolute bottom-4 left-0">* Sale ends 11.59pm (AEDT) 10 February 2025, unless sold out prior. Selected routes, travel dates and conditions apply. Prices based on payment at qantas.com by BPAY or PayID. Some flights are subject to government and regulatory approval.</p>
           </div>
           {/* Form */}
           <div className="w-5/12 relative z-10">
@@ -181,22 +190,21 @@ export default function Index({
       </section>
 
       <section className="py-16">
-        <div className="container mx-auto">
-          <h2 className="mb-8 text-center text-3xl font-bold text-gray-800">Popular Destinations</h2>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {["Paris", "New York", "Tokyo", "London", "Rome", "Sydney"].map((city) => (
-              <div key={city} className="group relative h-64 overflow-hidden rounded-lg">
-                {/* <img
-                  src={`/images/destinations/${city.toLowerCase()}.jpg`}
-                  alt={`${city} cityscape`}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                /> */}
+        <div className="container mx-auto relative">
+          <h2 className="mb-8 text-3xl font-bold text-gray-800">Flight specials from <div className="inline-flex items-center gap-2 text-blue-600">Tokyo <ChevronDown className="size-6" /></div></h2>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 relative z-10">
+            {Array.from(cities.entries()).map(([id, [city, image]]) => (
+              <div key={id} className="group relative h-64 overflow-hidden rounded-lg">
+                <img src={image} alt={city} className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
                 <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40">
                   <h3 className="text-2xl font-bold text-white">{city}</h3>
                 </div>
               </div>
             ))}
           </div>
+
+          {/* Map */}
+          <img src="/images/map.svg" alt="Map" className="w-7/12 absolute top-0 -translate-y-1/3 -z-10 -right-24 h-64 object-cover rounded-lg" />
         </div>
       </section>
     </BaseLayout>

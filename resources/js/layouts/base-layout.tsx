@@ -8,7 +8,7 @@ export default function BaseLayout({ children }: { children: React.ReactNode }) 
       <header className="bg-white">
         <div className="container mx-auto flex items-center justify-between py-4">
           <Link href="/" className="flex items-center space-x-2">
-            <Logo className="h-6" />
+            <Logo className="h-6 w-fit" />
             <span className="text-xl font-bold text-gray-800">Artisan Airlines</span>
           </Link>
           <nav>
