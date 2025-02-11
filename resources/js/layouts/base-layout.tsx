@@ -5,8 +5,8 @@ import { Mail, Phone } from "lucide-react";
 export default function BaseLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="bg-white shadow-sm">
-        <div className="container mx-auto flex items-center justify-between px-4 py-4">
+      <header className="bg-white">
+        <div className="container mx-auto flex items-center justify-between py-4">
           <Link href="/" className="flex items-center space-x-2">
             <Logo className="h-6" />
             <span className="text-xl font-bold text-gray-800">Artisan Airlines</span>

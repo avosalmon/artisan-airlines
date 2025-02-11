@@ -10,7 +10,7 @@ import { PageProps } from "@/types";
 import { Airport } from "@flight/index";
 import { Head, useForm } from "@inertiajs/react";
 import { addDays, format } from "date-fns";
-import { CalendarIcon, CreditCard, Headphones, Plane } from "lucide-react";
+import { ArrowRight, CalendarIcon, CreditCard, Headphones, Plane } from "lucide-react";
 
 export default function Index({
   airports,
@@ -34,20 +34,24 @@ export default function Index({
     <BaseLayout>
       <Head title="Home" />
 
-      <section className="relative h-[500px]">
-        {/* <img
-          src="/images/hero-background.jpg"
-          alt="Airplane flying over a beautiful landscape"
-          className="absolute inset-0 w-full h-full object-cover brightness-50"
-        /> */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-4xl rounded-lg bg-white p-6 shadow-lg">
-            <h1 className="mb-6 text-3xl font-bold text-gray-800">Find Your Perfect Flight</h1>
-            <form className="space-y-4">
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <section className="container mx-auto">
+        <div className="rounded-xl overflow-hidden relative items-stretch justify-between pl-16 p-8 mx-auto gap-16 flex bg-[url('https://images.unsplash.com/photo-1618032593076-64793c24427d?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center">
+          {/* Content */}
+          <div className="w-6/12 text-white py-32 z-10 relative">
+            <h1 className="text-8xl font-bold">Explore the unexplored</h1>
+            <h3 className="text-4xl mt-4 font-bold text-balance">Limited Time Offers to Australia and Japan.</h3>
+            <Button className="mt-8" variant={"secondary"} size={"lg"}>View all deals <ArrowRight className="ml-2 h-4 w-4" /></Button>
+            <p className="text-sm text-white/60 absolute bottom-0 left-0">* Sale ends 11.59pm (AEDT) 10 February 2025, unless sold out prior. Selected routes, travel dates and conditions apply. Prices based on payment at qantas.com by BPAY or PayID. Some flights are subject to government and regulatory approval.</p>
+          </div>
+          {/* Form */}
+          <div className="w-5/12 relative z-10">
+            <div className="rounded-xl bg-white h-full p-10 shadow-2xl">
+              <h1 className="mb-6 text-3xl font-bold text-gray-800">Find Your Perfect Flight</h1>
+              <form className="space-y-4">
+                {/* From */}
                 <div className="relative">
                   <Label htmlFor="from" className="mb-1 block text-gray-500">
-                    FROM
+                    From
                   </Label>
                   <Select value={data.origin_airport_id.toString()} onValueChange={(value) => setData("origin_airport_id", parseInt(value))}>
                     <SelectTrigger id="from">
@@ -62,9 +66,11 @@ export default function Index({
                     </SelectContent>
                   </Select>
                 </div>
+
+                {/* To */}
                 <div className="relative">
                   <Label htmlFor="to" className="mb-1 block text-gray-500">
-                    TO
+                    To
                   </Label>
                   <Select
                     value={data.destination_airport_id.toString()}
@@ -82,64 +88,71 @@ export default function Index({
                     </SelectContent>
                   </Select>
                 </div>
+              
+
+
+              {/* When */}
+              <div className="relative">
+                <Label htmlFor="depart-date" className="mb-1 block text-gray-500">
+                  When
+                </Label>
+                <div className="relative">
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <Button
+                        variant={"outline"}
+                        className={cn("w-full justify-start text-left font-normal", !data.departure_date && "text-muted-foreground")}
+                      >
+                        <CalendarIcon className="mr-2 h-4 w-4" />
+                        {data.departure_date ? format(data.departure_date, "PPP") : <span>Pick a date</span>}
+                      </Button>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-auto p-0" align="start">
+                      <Calendar
+                        initialFocus
+                        mode="single"
+                        selected={data.departure_date ? new Date(data.departure_date) : undefined}
+                        onSelect={(date) => setData("departure_date", date ? format(date, "yyyy-MM-dd") : "")}
+                      />
+                    </PopoverContent>
+                  </Popover>
+                </div>
               </div>
 
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                <div className="relative">
-                  <Label htmlFor="depart-date" className="mb-1 block text-gray-500">
-                    WHEN
-                  </Label>
-                  <div className="relative">
-                    <Popover>
-                      <PopoverTrigger asChild>
-                        <Button
-                          variant={"outline"}
-                          className={cn("w-full justify-start text-left font-normal", !data.departure_date && "text-muted-foreground")}
-                        >
-                          <CalendarIcon className="mr-2 h-4 w-4" />
-                          {data.departure_date ? format(data.departure_date, "PPP") : <span>Pick a date</span>}
-                        </Button>
-                      </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0" align="start">
-                        <Calendar
-                          initialFocus
-                          mode="single"
-                          selected={data.departure_date ? new Date(data.departure_date) : undefined}
-                          onSelect={(date) => setData("departure_date", date ? format(date, "yyyy-MM-dd") : "")}
-                        />
-                      </PopoverContent>
-                    </Popover>
-                  </div>
-                </div>
-                <div>
-                  <Label htmlFor="passengers" className="mb-1 block text-gray-500">
-                    PASSENGERS
-                  </Label>
-                  <Select value={data.passengers.toString()} onValueChange={(value) => setData("passengers", parseInt(value))}>
-                    <SelectTrigger id="passengers">
-                      <SelectValue placeholder="1 Adult" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="1">1 Adult</SelectItem>
-                      <SelectItem value="2">2 Adults</SelectItem>
-                      <SelectItem value="3">3 Adults</SelectItem>
-                      <SelectItem value="4">4 Adults</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
+              {/* Passengers */}
+              <div>
+                <Label htmlFor="passengers" className="mb-1 block text-gray-500">
+                  Passengers
+                </Label>
+                <Select value={data.passengers.toString()} onValueChange={(value) => setData("passengers", parseInt(value))}>
+                  <SelectTrigger id="passengers">
+                    <SelectValue placeholder="1 Adult" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="1">1 Adult</SelectItem>
+                    <SelectItem value="2">2 Adults</SelectItem>
+                    <SelectItem value="3">3 Adults</SelectItem>
+                    <SelectItem value="4">4 Adults</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
+              
               <div className="flex justify-end">
                 <Button className="w-32" onClick={submit} disabled={processing}>
                   SEARCH
                 </Button>
               </div>
-            </form>
+              </form>
+            </div>
           </div>
+
+          {/* Gradient */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-black opacity-50"></div>
         </div>
       </section>
 
-      <section className="bg-gray-100 py-16">
-        <div className="container mx-auto px-4">
+      <section className="bg-gray-100 py-16 hidden">
+        <div className="container mx-auto">
           <h2 className="mb-8 text-center text-3xl font-bold text-gray-800">Why Choose Artisan Airlines?</h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <Card>
@@ -168,7 +181,7 @@ export default function Index({
       </section>
 
       <section className="py-16">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <h2 className="mb-8 text-center text-3xl font-bold text-gray-800">Popular Destinations</h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {["Paris", "New York", "Tokyo", "London", "Rome", "Sydney"].map((city) => (
