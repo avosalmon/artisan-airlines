@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Booking\Http\Requests;
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
@@ -31,10 +32,21 @@ class StoreBookingPassengerRequest extends FormRequest
             'passengers.*.last_name' => ['required', 'string', 'max:255'],
             'passengers.*.email' => ['required', 'email', 'max:255'],
             'passengers.*.phone' => ['required', 'string', 'max:255'],
-            'passengers.*.date_of_birth' => ['required', 'date'],
+            'passengers.*.date_of_birth' => ['required', 'date_format:d/m/Y'],
             'passengers.*.gender' => ['required', Rule::in(['male', 'female', 'other'])],
             'passengers.*.nationality' => ['required', 'string', 'max:255'],
             'passengers.*.passport_number' => ['required', 'string', 'max:255'],
         ];
+    }
+
+    protected function passedValidation(): void
+    {
+        $passengers = collect($this->validated('passengers'))->map(function ($passenger) {
+            $passenger['date_of_birth'] = Carbon::createFromFormat('d/m/Y', $passenger['date_of_birth'])->format('Y-m-d');
+
+            return $passenger;
+        })->all();
+
+        $this->replace(['passengers' => $passengers]);
     }
 }

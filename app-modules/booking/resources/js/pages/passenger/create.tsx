@@ -1,19 +1,15 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import BaseLayout from "@/layouts/base-layout";
-import { cn } from "@/lib/utils";
 import { PageProps } from "@/types";
 import { FlightHeader } from "@booking/components/flight-header";
 import { Booking } from "@booking/index";
 import { Flight } from "@flight/index";
 import { Head, useForm } from "@inertiajs/react";
-import { format } from "date-fns";
-import { CalendarIcon, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 
 interface PassengerForm {
   first_name: string;
@@ -129,29 +125,15 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
                       </div>
 
                       <div className="space-y-2">
-                        <Label>Date of Birth</Label>
-                        <Popover>
-                          <PopoverTrigger asChild>
-                            <Button
-                              variant="outline"
-                              className={cn(
-                                "w-full justify-start rounded-md text-left font-normal",
-                                !passenger.date_of_birth && "text-muted-foreground",
-                              )}
-                            >
-                              <CalendarIcon className="mr-2 h-4 w-4" />
-                              {passenger.date_of_birth ? format(new Date(passenger.date_of_birth), "PPP") : "Select date"}
-                            </Button>
-                          </PopoverTrigger>
-                          <PopoverContent className="w-auto p-0">
-                            <Calendar
-                              mode="single"
-                              selected={passenger.date_of_birth ? new Date(passenger.date_of_birth) : undefined}
-                              onSelect={(date) => updatePassenger(index, "date_of_birth", date ? format(date, "yyyy-MM-dd") : "")}
-                              initialFocus
-                            />
-                          </PopoverContent>
-                        </Popover>
+                        <Label htmlFor={`date_of_birth-${index}`}>Date of Birth</Label>
+                        <Input
+                          id={`date_of_birth-${index}`}
+                          type="text"
+                          placeholder="DD/MM/YYYY"
+                          value={passenger.date_of_birth}
+                          onChange={(e) => updatePassenger(index, "date_of_birth", e.target.value)}
+                          required
+                        />
                         {errors[`passengers.${index}.date_of_birth`] && (
                           <p className="text-sm text-red-500">{errors[`passengers.${index}.date_of_birth`]}</p>
                         )}

@@ -31,7 +31,7 @@ class BookingPassengerController extends Controller
     {
         abort_unless($booking->status === BookingStatus::PENDING, 404);
 
-        $booking->passengers()->createMany($request->validated('passengers'));
+        $booking->passengers()->createMany($request->input('passengers'));
 
         return to_route('booking.seat.create', $booking);
     }
