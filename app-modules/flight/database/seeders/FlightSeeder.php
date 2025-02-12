@@ -32,8 +32,7 @@ class FlightSeeder extends Seeder
         $now = CarbonImmutable::now();
         $batch = [];
 
-        $morningDepartures = ['06:00', '10:30'];
-        $afternoonDepartures = ['14:00', '19:30'];
+        $departures = ['10:30', '18:30'];
 
         // Create flights for the next 30 days
         for ($i = 0; $i < 30; $i++) {
@@ -49,30 +48,8 @@ class FlightSeeder extends Seeder
                     $basePrice = $this->calculateBasePrice($origin, $destination);
                     $flightDuration = $this->calculateFlightDuration($origin, $destination);
 
-                    // Morning flights
-                    foreach ($morningDepartures as $departureTime) {
-                        [$hours, $minutes] = explode(':', $departureTime);
-                        $departure = $date->setHour((int) $hours)->setMinute((int) $minutes)->setSecond(0);
-                        $arrival = $departure->addMinutes($flightDuration);
-
-                        $batch[] = [
-                            'flight_number' => 'NH'.rand(100, 999),
-                            'origin_airport_id' => $origin->id,
-                            'destination_airport_id' => $destination->id,
-                            'aircraft_type_id' => $aircraftType->id,
-                            'departure_time' => $departure->toDateTime(),
-                            'arrival_time' => $arrival->toDateTime(),
-                            'base_price' => $basePrice,
-                            'status' => FlightStatus::SCHEDULED->value,
-                            'available_seats' => $aircraftType->total_seats,
-                            'created_at' => now(),
-                            'updated_at' => now(),
-                        ];
-                    }
-
-                    // Afternoon flights
-                    foreach ($afternoonDepartures as $departureTime) {
-                        [$hours, $minutes] = explode(':', $departureTime);
+                    foreach ($departures as $departure) {
+                        [$hours, $minutes] = explode(':', $departure);
                         $departure = $date->setHour((int) $hours)->setMinute((int) $minutes)->setSecond(0);
                         $arrival = $departure->addMinutes($flightDuration);
 
