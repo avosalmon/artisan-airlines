@@ -19,8 +19,8 @@ class FlightResource extends JsonResource
         return [
             'id' => $this->id,
             'flight_number' => $this->flight_number,
-            'departure_time' => $this->departure_time,
-            'arrival_time' => $this->arrival_time,
+            'departure_time' => $this->departure_time->format('Y-m-d H:i:s'),
+            'arrival_time' => $this->arrival_time->format('Y-m-d H:i:s'),
             'status' => $this->status,
             'available_seats' => $this->available_seats,
             'base_price' => $this->base_price,
