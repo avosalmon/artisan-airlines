@@ -6,6 +6,7 @@ namespace Modules\Flight\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Modules\Flight\Enums\FareClass;
 
 class FlightFareClass extends Model
@@ -25,5 +26,10 @@ class FlightFareClass extends Model
     public function flight(): BelongsTo
     {
         return $this->belongsTo(Flight::class);
+    }
+
+    public function seats(): HasMany
+    {
+        return $this->hasMany(Seat::class);
     }
 }
