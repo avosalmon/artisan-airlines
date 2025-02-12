@@ -134,7 +134,10 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
                           <PopoverTrigger asChild>
                             <Button
                               variant="outline"
-                              className={cn("w-full justify-start text-left font-normal", !passenger.date_of_birth && "text-muted-foreground")}
+                              className={cn(
+                                "w-full justify-start rounded-md text-left font-normal",
+                                !passenger.date_of_birth && "text-muted-foreground",
+                              )}
                             >
                               <CalendarIcon className="mr-2 h-4 w-4" />
                               {passenger.date_of_birth ? format(new Date(passenger.date_of_birth), "PPP") : "Select date"}
