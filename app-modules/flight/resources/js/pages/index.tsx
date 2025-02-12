@@ -112,8 +112,8 @@ export default function Index({
                     <Popover>
                       <PopoverTrigger asChild>
                         <Button
-                          variant={"outline"}
-                          className={cn("w-full justify-start text-left font-normal", !data.departure_date && "text-muted-foreground")}
+                          variant="outline"
+                          className={cn("w-full justify-start rounded-md text-left font-normal", !data.departure_date && "text-muted-foreground")}
                         >
                           <CalendarIcon className="mr-2 h-4 w-4" />
                           {data.departure_date ? format(data.departure_date, "PPP") : <span>Pick a date</span>}
