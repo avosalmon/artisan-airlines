@@ -10,7 +10,7 @@ import { PageProps } from "@/types";
 import { Airport } from "@flight/index";
 import { Head, useForm } from "@inertiajs/react";
 import { addDays, format } from "date-fns";
-import { ArrowRight, CalendarIcon, ChevronDown, ChevronRight, CreditCard, Headphones, Plane } from "lucide-react";
+import { ArrowRight, CalendarIcon, ChevronDown, CreditCard, Headphones, Plane } from "lucide-react";
 
 export default function Index({
   airports,
@@ -44,17 +44,22 @@ export default function Index({
       <Head title="Home" />
 
       <section className="container mx-auto">
-        <div className="rounded-xl overflow-hidden relative items-stretch justify-between pl-16 p-8 mx-auto gap-16 flex bg-[url('https://images.unsplash.com/photo-1618032593076-64793c24427d?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center">
+        <div className="relative mx-auto flex items-stretch justify-between gap-16 overflow-hidden rounded-xl bg-[url('https://images.unsplash.com/photo-1618032593076-64793c24427d?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center p-8 pl-16">
           {/* Content */}
-          <div className="w-6/12 text-white py-32 z-10 relative">
+          <div className="relative z-10 w-6/12 py-32 text-white">
             <h1 className="text-8xl font-bold">Explore the unexplored</h1>
-            <h3 className="text-4xl mt-4 font-bold text-balance">Limited Time Offers to Australia and Japan.</h3>
-            <Button className="mt-8" variant={"secondary"} size={"lg"}>View all deals <ArrowRight className="ml-2 h-4 w-4" /></Button>
-            <p className="text-sm text-white/60 absolute bottom-4 left-0">* Sale ends 11.59pm (AEDT) 10 February 2025, unless sold out prior. Selected routes, travel dates and conditions apply. Prices based on payment at qantas.com by BPAY or PayID. Some flights are subject to government and regulatory approval.</p>
+            <h3 className="mt-4 text-balance text-4xl font-bold">Limited Time Offers to Australia and Japan.</h3>
+            <Button className="mt-8" variant={"secondary"} size={"lg"}>
+              View all deals <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+            <p className="absolute bottom-4 left-0 text-sm text-white/60">
+              * Sale ends 11.59pm (AEDT) 10 February 2025, unless sold out prior. Selected routes, travel dates and conditions apply. Prices based on
+              payment at qantas.com by BPAY or PayID. Some flights are subject to government and regulatory approval.
+            </p>
           </div>
           {/* Form */}
-          <div className="w-5/12 relative z-10">
-            <div className="rounded-xl bg-white h-full p-10 shadow-2xl">
+          <div className="relative z-10 w-5/12">
+            <div className="h-full rounded-xl bg-white p-10 shadow-2xl">
               <h1 className="mb-6 text-3xl font-bold text-gray-800">Find Your Perfect Flight</h1>
               <form className="space-y-4">
                 {/* From */}
@@ -97,60 +102,58 @@ export default function Index({
                     </SelectContent>
                   </Select>
                 </div>
-              
 
-
-              {/* When */}
-              <div className="relative">
-                <Label htmlFor="depart-date" className="mb-1 block text-gray-500">
-                  When
-                </Label>
+                {/* When */}
                 <div className="relative">
-                  <Popover>
-                    <PopoverTrigger asChild>
-                      <Button
-                        variant={"outline"}
-                        className={cn("w-full justify-start text-left font-normal", !data.departure_date && "text-muted-foreground")}
-                      >
-                        <CalendarIcon className="mr-2 h-4 w-4" />
-                        {data.departure_date ? format(data.departure_date, "PPP") : <span>Pick a date</span>}
-                      </Button>
-                    </PopoverTrigger>
-                    <PopoverContent className="w-auto p-0" align="start">
-                      <Calendar
-                        initialFocus
-                        mode="single"
-                        selected={data.departure_date ? new Date(data.departure_date) : undefined}
-                        onSelect={(date) => setData("departure_date", date ? format(date, "yyyy-MM-dd") : "")}
-                      />
-                    </PopoverContent>
-                  </Popover>
+                  <Label htmlFor="depart-date" className="mb-1 block text-gray-500">
+                    When
+                  </Label>
+                  <div className="relative">
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <Button
+                          variant={"outline"}
+                          className={cn("w-full justify-start text-left font-normal", !data.departure_date && "text-muted-foreground")}
+                        >
+                          <CalendarIcon className="mr-2 h-4 w-4" />
+                          {data.departure_date ? format(data.departure_date, "PPP") : <span>Pick a date</span>}
+                        </Button>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-auto p-0" align="start">
+                        <Calendar
+                          initialFocus
+                          mode="single"
+                          selected={data.departure_date ? new Date(data.departure_date) : undefined}
+                          onSelect={(date) => setData("departure_date", date ? format(date, "yyyy-MM-dd") : "")}
+                        />
+                      </PopoverContent>
+                    </Popover>
+                  </div>
                 </div>
-              </div>
 
-              {/* Passengers */}
-              <div>
-                <Label htmlFor="passengers" className="mb-1 block text-gray-500">
-                  Passengers
-                </Label>
-                <Select value={data.passengers.toString()} onValueChange={(value) => setData("passengers", parseInt(value))}>
-                  <SelectTrigger id="passengers">
-                    <SelectValue placeholder="1 Adult" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="1">1 Adult</SelectItem>
-                    <SelectItem value="2">2 Adults</SelectItem>
-                    <SelectItem value="3">3 Adults</SelectItem>
-                    <SelectItem value="4">4 Adults</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              
-              <div className="flex justify-end">
-                <Button className="w-32" onClick={submit} disabled={processing}>
-                  SEARCH
-                </Button>
-              </div>
+                {/* Passengers */}
+                <div>
+                  <Label htmlFor="passengers" className="mb-1 block text-gray-500">
+                    Passengers
+                  </Label>
+                  <Select value={data.passengers.toString()} onValueChange={(value) => setData("passengers", parseInt(value))}>
+                    <SelectTrigger id="passengers">
+                      <SelectValue placeholder="1 Adult" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="1">1 Adult</SelectItem>
+                      <SelectItem value="2">2 Adults</SelectItem>
+                      <SelectItem value="3">3 Adults</SelectItem>
+                      <SelectItem value="4">4 Adults</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div className="flex justify-end">
+                  <Button className="w-32" onClick={submit} disabled={processing}>
+                    SEARCH
+                  </Button>
+                </div>
               </form>
             </div>
           </div>
@@ -160,7 +163,7 @@ export default function Index({
         </div>
       </section>
 
-      <section className="bg-gray-100 py-16 hidden">
+      <section className="hidden bg-gray-100 py-16">
         <div className="container mx-auto">
           <h2 className="mb-8 text-center text-3xl font-bold text-gray-800">Why Choose Artisan Airlines?</h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
@@ -190,12 +193,21 @@ export default function Index({
       </section>
 
       <section className="py-16">
-        <div className="container mx-auto relative">
-          <h2 className="mb-8 text-3xl font-bold text-gray-800">Flight specials from <div className="inline-flex items-center gap-2 text-blue-600">Tokyo <ChevronDown className="size-6" /></div></h2>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 relative z-10">
+        <div className="container relative mx-auto">
+          <h2 className="mb-8 text-3xl font-bold text-gray-800">
+            Flight specials from{" "}
+            <div className="inline-flex items-center gap-2 text-blue-600">
+              Tokyo <ChevronDown className="size-6" />
+            </div>
+          </h2>
+          <div className="relative z-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {Array.from(cities.entries()).map(([id, [city, image]]) => (
               <div key={id} className="group relative h-64 overflow-hidden rounded-lg">
-                <img src={image} alt={city} className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+                <img
+                  src={image}
+                  alt={city}
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
                 <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40">
                   <h3 className="text-2xl font-bold text-white">{city}</h3>
                 </div>
@@ -204,7 +216,7 @@ export default function Index({
           </div>
 
           {/* Map */}
-          <img src="/images/map.svg" alt="Map" className="w-7/12 absolute top-0 -translate-y-1/3 -z-10 -right-24 h-64 object-cover rounded-lg" />
+          <img src="/images/map.svg" alt="Map" className="absolute -right-24 top-0 -z-10 h-64 w-7/12 -translate-y-1/3 rounded-lg object-cover" />
         </div>
       </section>
     </BaseLayout>

@@ -99,7 +99,7 @@ export default function BaseLayout({ children }: { children: React.ReactNode }) 
             </div>
           </div>
           <div className="mt-8 border-t border-gray-700 pt-8 text-center">
-            <p>&copy; 2025 Artisan Airlines. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Artisan Airlines. All rights reserved.</p>
           </div>
         </div>
       </footer>
