@@ -83,10 +83,10 @@ class FlightSeeder extends Seeder
     private function calculateFlightDuration(Airport $origin, Airport $destination): int
     {
         // Calculate distance using the Haversine formula
-        $lat1 = deg2rad($origin->latitude);
-        $lon1 = deg2rad($origin->longitude);
-        $lat2 = deg2rad($destination->latitude);
-        $lon2 = deg2rad($destination->longitude);
+        $lat1 = deg2rad((float) $origin->latitude);
+        $lon1 = deg2rad((float) $origin->longitude);
+        $lat2 = deg2rad((float) $destination->latitude);
+        $lon2 = deg2rad((float) $destination->longitude);
 
         $deltaLat = $lat2 - $lat1;
         $deltaLon = $lon2 - $lon1;

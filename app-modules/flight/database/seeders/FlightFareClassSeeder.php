@@ -20,11 +20,11 @@ class FlightFareClassSeeder extends Seeder
 
         Flight::chunk(100, function ($flights) use (&$batch, $now) {
             foreach ($flights as $flight) {
-                // Economy class
+                // First class
                 $batch[] = [
                     'flight_id' => $flight->id,
-                    'fare_class' => FareClass::ECONOMY->value,
-                    'price' => $flight->base_price,
+                    'fare_class' => FareClass::FIRST->value,
+                    'price' => $flight->base_price * 4,
                     'created_at' => $now,
                     'updated_at' => $now,
                 ];
@@ -33,16 +33,16 @@ class FlightFareClassSeeder extends Seeder
                 $batch[] = [
                     'flight_id' => $flight->id,
                     'fare_class' => FareClass::BUSINESS->value,
-                    'price' => $flight->base_price * 2,
+                    'price' => $flight->base_price * 2.5,
                     'created_at' => $now,
                     'updated_at' => $now,
                 ];
 
-                // First class
+                // Economy class
                 $batch[] = [
                     'flight_id' => $flight->id,
-                    'fare_class' => FareClass::FIRST->value,
-                    'price' => $flight->base_price * 3,
+                    'fare_class' => FareClass::ECONOMY->value,
+                    'price' => $flight->base_price,
                     'created_at' => $now,
                     'updated_at' => $now,
                 ];
