@@ -20,7 +20,6 @@ class FlightFareClassResource extends JsonResource
             'id' => $this->id,
             'fare_class' => $this->fare_class,
             'price' => $this->price,
-            'available_seats' => $this->available_seats,
         ];
     }
 }

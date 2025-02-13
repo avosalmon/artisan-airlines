@@ -22,7 +22,6 @@ class FlightResource extends JsonResource
             'departure_time' => $this->departure_time->format('Y-m-d H:i:s'),
             'arrival_time' => $this->arrival_time->format('Y-m-d H:i:s'),
             'status' => $this->status,
-            'available_seats' => $this->available_seats,
             'base_price' => $this->base_price,
             'origin_airport' => new AirportResource($this->whenLoaded('originAirport')),
             'destination_airport' => new AirportResource($this->whenLoaded('destinationAirport')),

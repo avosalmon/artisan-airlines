@@ -20,7 +20,6 @@ export interface Flight {
   departure_time: string;
   arrival_time: string;
   status: "scheduled" | "cancelled" | "delayed" | "in_progress" | "completed";
-  available_seats: number;
   base_price: number;
   origin_airport?: Airport;
   destination_airport?: Airport;
@@ -33,5 +32,4 @@ export interface FlightFareClass {
   flight_id: number;
   fare_class: "economy" | "business" | "first_class";
   price: number;
-  available_seats: number;
 }

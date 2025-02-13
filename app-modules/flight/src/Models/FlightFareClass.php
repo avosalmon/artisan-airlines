@@ -15,7 +15,6 @@ class FlightFareClass extends Model
         'flight_id',
         'fare_class',
         'price',
-        'available_seats',
     ];
 
     protected $casts = [
@@ -31,5 +30,10 @@ class FlightFareClass extends Model
     public function seats(): HasMany
     {
         return $this->hasMany(Seat::class);
+    }
+
+    public function availableSeats(): HasMany
+    {
+        return $this->seats()->where('is_available', true);
     }
 }

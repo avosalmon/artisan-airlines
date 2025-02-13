@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -18,7 +20,6 @@ return new class extends Migration
             $table->dateTime('arrival_time');
             $table->decimal('base_price', 10, 2);
             $table->string('status')->default('scheduled'); // scheduled, delayed, cancelled, completed
-            $table->integer('available_seats');
             $table->timestamps();
         });
     }

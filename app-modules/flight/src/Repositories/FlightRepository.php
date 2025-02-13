@@ -47,7 +47,6 @@ class FlightRepository implements FlightRepositoryContract
             arrival_time: $flight->arrival_time,
             fare_class: $flightFareClass->fare_class,
             price: $flightFareClass->price,
-            available_seats: $flightFareClass->available_seats,
         );
     }
 }

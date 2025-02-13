@@ -18,6 +18,5 @@ readonly class Flight
         public Carbon $arrival_time,
         public FareClass $fare_class,
         public string $price,
-        public int $available_seats,
     ) {}
 }

@@ -15,7 +15,6 @@ return new class extends Migration
             $table->foreignId('flight_id')->constrained('flights');
             $table->string('fare_class'); // economy, business, first
             $table->decimal('price', 10, 2);
-            $table->integer('available_seats');
             $table->timestamps();
         });
     }
