@@ -15,7 +15,7 @@ enum FareClass: string
         return match ($this) {
             self::ECONOMY => 'Economy',
             self::BUSINESS => 'Business',
-            self::FIRST => 'First Class',
+            self::FIRST => 'First',
         };
     }
 }

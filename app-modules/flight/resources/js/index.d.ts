@@ -30,6 +30,14 @@ export interface Flight {
 export interface FlightFareClass {
   id: number;
   flight_id: number;
-  fare_class: "economy" | "business" | "first_class";
+  fare_class: "economy" | "business" | "first";
   price: number;
+  seats?: Seat[];
+}
+
+export interface Seat {
+  id: number;
+  flight_fare_class_id: number;
+  seat_number: string;
+  is_available: boolean;
 }
