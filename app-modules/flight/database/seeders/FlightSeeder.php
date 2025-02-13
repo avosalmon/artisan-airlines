@@ -62,7 +62,6 @@ class FlightSeeder extends Seeder
                             'arrival_time' => $arrival->toDateTime(),
                             'base_price' => $basePrice,
                             'status' => FlightStatus::SCHEDULED->value,
-                            'available_seats' => $aircraftType->total_seats,
                             'created_at' => now(),
                             'updated_at' => now(),
                         ];
