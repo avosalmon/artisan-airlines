@@ -13,7 +13,9 @@ export function FlightHeader({ flight, booking }: { flight: Flight; booking: Boo
             <span>-</span>
             <span>{flight.destination_airport?.iata_code}</span>
             <span>•</span>
-            <span>{booking.passenger_count} Adult</span>
+            <span>
+              {booking.passenger_count} Adult{booking.passenger_count > 1 && "s"}
+            </span>
           </div>
         </div>
 
