@@ -32,8 +32,9 @@ This document describes the process of booking a flight.
 - The user sees the booking details
 - The user clicks the "confirm" button
 - The system checks if the seats are still available via the flight module
+- The `BookingConfirmed` event is dispatched and the flight module updates the seat availability
 - The payment is processed and the booking is confirmed
-- The `BookingConfirmed` event is dispatched and the flight module decrements the available seats
+- If the payment fails, the database transaction is rolled back and the booking is cancelled
 - The user receives a booking confirmation email
 - Also, the check-in module listens to the `BookingConfirmed` event and creates a check-in reminder record to be sent to the passenger 3 days before the flight
 - The user is redirected to the booking details page
