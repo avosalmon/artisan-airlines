@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\Flight\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Seat extends Model
 {
     protected $fillable = [
-        'flight_fare_class_id',
+        'flight_id',
         'seat_number',
         'is_available',
     ];
@@ -19,8 +20,13 @@ class Seat extends Model
         'is_available' => 'boolean',
     ];
 
-    public function flightFareClass(): BelongsTo
+    public function scopeAvailable(Builder $query): Builder
     {
-        return $this->belongsTo(FlightFareClass::class);
+        return $query->where('is_available', true);
+    }
+
+    public function flight(): BelongsTo
+    {
+        return $this->belongsTo(Flight::class);
     }
 }

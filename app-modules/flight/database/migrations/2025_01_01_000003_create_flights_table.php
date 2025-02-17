@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('aircraft_type_id')->constrained('aircraft_types');
             $table->dateTime('departure_time');
             $table->dateTime('arrival_time');
-            $table->decimal('base_price', 10, 2);
+            $table->decimal('price', 10, 2);
             $table->string('status')->default('scheduled'); // scheduled, delayed, cancelled, completed
             $table->timestamps();
         });

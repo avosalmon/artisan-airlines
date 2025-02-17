@@ -12,8 +12,8 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('flight_id'); // does not enforce a cross-module foreign key constraint
             $table->string('booking_reference')->unique(); // e.g., ABC123
-            $table->unsignedBigInteger('flight_fare_class_id'); // does not enforce a cross-module foreign key constraint to decouple modules
             $table->string('contact_email')->nullable();
             $table->string('contact_phone')->nullable();
             $table->string('status')->default('pending'); // pending, confirmed, cancelled

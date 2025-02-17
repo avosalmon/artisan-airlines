@@ -7,22 +7,23 @@ namespace Modules\Flight\Repositories;
 use Modules\Flight\Contracts\FlightRepository as FlightRepositoryContract;
 use Modules\Flight\DataTransferObjects\Airport;
 use Modules\Flight\DataTransferObjects\Flight;
-use Modules\Flight\Models\FlightFareClass;
+use Modules\Flight\DataTransferObjects\Seat;
+use Modules\Flight\Models\Flight as FlightModel;
+use Modules\Flight\Models\Seat as SeatModel;
 
 class FlightRepository implements FlightRepositoryContract
 {
-    public function findByFareClassId(int $flightFareClassId): ?Flight
+    public function find(int $flightId): ?Flight
     {
-        $flightFareClass = FlightFareClass::with([
-            'flight.originAirport',
-            'flight.destinationAirport',
-        ])->find($flightFareClassId);
+        $flight = FlightModel::with([
+            'originAirport',
+            'destinationAirport',
+            'seats',
+        ])->find($flightId);
 
-        if (! $flightFareClass) {
+        if (! $flight) {
             return null;
         }
-
-        $flight = $flightFareClass->flight;
 
         return new Flight(
             id: $flight->id,
@@ -45,8 +46,12 @@ class FlightRepository implements FlightRepositoryContract
             ),
             departure_time: $flight->departure_time,
             arrival_time: $flight->arrival_time,
-            fare_class: $flightFareClass->fare_class,
-            price: $flightFareClass->price,
+            price: $flight->price,
+            seats: $flight->seats->map(fn (SeatModel $seat) => new Seat(
+                id: $seat->id,
+                seat_number: $seat->seat_number,
+                is_available: $seat->is_available,
+            )),
         );
     }
 }

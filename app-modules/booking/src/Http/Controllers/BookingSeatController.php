@@ -17,7 +17,7 @@ class BookingSeatController extends Controller
     {
         abort_unless($booking->status === BookingStatus::PENDING, 404);
 
-        $flight = $flightRepository->findByFareClassId($booking->flight_fare_class_id);
+        $flight = $flightRepository->find($booking->flight_id);
 
         return Inertia::render('booking::seat/create', [
             'booking' => $booking->load('passengers'),

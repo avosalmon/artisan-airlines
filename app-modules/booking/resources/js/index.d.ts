@@ -1,7 +1,7 @@
 export interface Booking {
   id: number;
+  flight_id: number;
   booking_reference: string;
-  flight_fare_class_id: number;
   contact_email: string | null;
   contact_phone: string | null;
   status: "pending" | "confirmed" | "cancelled";

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('seats', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('flight_fare_class_id')->constrained('flight_fare_classes');
+            $table->foreignId('flight_id')->constrained('flights');
             $table->string('seat_number');
             $table->boolean('is_available')->default(true);
             $table->timestamps();

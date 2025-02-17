@@ -12,8 +12,8 @@ use Modules\Booking\Enums\PaymentStatus;
 class Booking extends Model
 {
     protected $fillable = [
+        'flight_id',
         'booking_reference',
-        'flight_fare_class_id',
         'contact_email',
         'contact_phone',
         'status',

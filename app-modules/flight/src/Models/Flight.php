@@ -19,14 +19,14 @@ class Flight extends Model
         'aircraft_type_id',
         'departure_time',
         'arrival_time',
-        'base_price',
+        'price',
         'status',
     ];
 
     protected $casts = [
         'departure_time' => 'datetime',
         'arrival_time' => 'datetime',
-        'base_price' => 'decimal:2',
+        'price' => 'decimal:2',
         'status' => FlightStatus::class,
     ];
 
@@ -50,8 +50,13 @@ class Flight extends Model
         return $this->belongsTo(AircraftType::class);
     }
 
-    public function fareClasses(): HasMany
+    public function seats(): HasMany
     {
-        return $this->hasMany(FlightFareClass::class);
+        return $this->hasMany(Seat::class);
+    }
+
+    public function availableSeats(): HasMany
+    {
+        return $this->seats()->available();
     }
 }

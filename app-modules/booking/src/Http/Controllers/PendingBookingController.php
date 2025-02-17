@@ -13,14 +13,14 @@ class PendingBookingController
 {
     public function store(StorePendingBookingRequest $request, FlightRepository $flightRepository): RedirectResponse
     {
-        $flight = $flightRepository->findByFareClassId($request->integer('fare_class_id'));
+        $flight = $flightRepository->find($request->integer('flight_id'));
 
         if (! $flight) {
             return back()->with('error', 'Flight not found');
         }
 
         $booking = Booking::create([
-            'flight_fare_class_id' => $request->integer('fare_class_id'),
+            'flight_id' => $request->integer('flight_id'),
             'passenger_count' => $request->integer('passengers'),
             'total_amount' => $flight->price * $request->integer('passengers'),
         ]);

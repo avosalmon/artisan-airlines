@@ -16,12 +16,12 @@ class SearchController
     public function index(SearchFlightRequest $request): Response
     {
         $flights = Flight::query()
-            ->with(['originAirport', 'destinationAirport', 'aircraftType', 'fareClasses'])
+            ->with(['originAirport', 'destinationAirport', 'aircraftType'])
             ->where('origin_airport_id', $request->integer('origin_airport_id'))
             ->where('destination_airport_id', $request->integer('destination_airport_id'))
             ->whereDate('departure_time', $request->date('departure_date'))
-            ->where('available_seats', '>', $request->integer('passengers'))
             ->status(FlightStatus::SCHEDULED)
+            ->has('availableSeats', '>=', $request->integer('passengers'))
             ->get();
 
         return Inertia::render('flight::search/index', [

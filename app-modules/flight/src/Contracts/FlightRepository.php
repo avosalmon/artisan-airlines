@@ -8,5 +8,5 @@ use Modules\Flight\DataTransferObjects\Flight;
 
 interface FlightRepository
 {
-    public function findByFareClassId(int $flightFareClassId): ?Flight;
+    public function find(int $flightId): ?Flight;
 }

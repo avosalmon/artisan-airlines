@@ -1,12 +1,10 @@
 import { Logo } from "@/components/logo";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { getDuration } from "@/lib/utils";
-import { Flight, FlightFareClass } from "@flight/index";
+import { Flight } from "@flight/index";
 import { format } from "date-fns";
 
-export function FlightCard({ flight, onSelectFareClass }: { flight: Flight; onSelectFareClass: (fareClass: FlightFareClass) => void }) {
+export function FlightCard({ flight, onSelectFlight }: { flight: Flight; onSelectFlight: (flight: Flight) => void }) {
   return (
     <Card className="mb-4">
       <CardHeader className="pb-2">
@@ -46,19 +44,6 @@ export function FlightCard({ flight, onSelectFareClass }: { flight: Flight; onSe
           </div>
         </div>
       </CardContent>
-      <Separator />
-      <CardFooter className="flex justify-between p-0">
-        {flight.fare_classes?.map((fareClass) => (
-          <div className="flex-1 p-4 text-center" key={fareClass.id}>
-            <div className="font-medium uppercase">{fareClass.fare_class}</div>
-            <div className="text-xl font-bold">USD {fareClass.price.toLocaleString()}</div>
-            <div className="text-xs text-muted-foreground">PER ADULT</div>
-            <Button className="mt-2 w-full" onClick={() => onSelectFareClass(fareClass)}>
-              Select
-            </Button>
-          </div>
-        ))}
-      </CardFooter>
     </Card>
   );
 }

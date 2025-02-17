@@ -12,9 +12,8 @@ return new class extends Migration
     {
         Schema::create('seat_assignments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('booking_id')->constrained()->cascadeOnDelete();
             $table->foreignId('passenger_id')->constrained()->cascadeOnDelete();
-            $table->string('seat_number');
+            $table->foreignId('seat_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

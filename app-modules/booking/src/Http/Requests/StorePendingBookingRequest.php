@@ -25,7 +25,7 @@ class StorePendingBookingRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'fare_class_id' => ['required', 'integer'],
+            'flight_id' => ['required', 'integer'],
             'passengers' => ['required', 'integer', 'min:1'],
         ];
     }

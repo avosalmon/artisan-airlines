@@ -13,7 +13,6 @@ This document describes the process of searching for a flight.
 
 - The user sees a list of flights
 - The user can select a flight to view the flight details
-- The user selects the fare class
 - The user clicks the "proceed" button
 - The user is redirected to the flight booking page under the booking module
 
@@ -29,4 +28,3 @@ This document describes the process of searching for a flight.
    - Base price
    - Flight status
    - Available seats
-4. flight_prices: Handles dynamic pricing for different fare classes (economy, business, first) for each flight.

@@ -22,11 +22,10 @@ class FlightResource extends JsonResource
             'departure_time' => $this->departure_time->format('Y-m-d H:i:s'),
             'arrival_time' => $this->arrival_time->format('Y-m-d H:i:s'),
             'status' => $this->status,
-            'base_price' => $this->base_price,
+            'price' => $this->price,
             'origin_airport' => new AirportResource($this->whenLoaded('originAirport')),
             'destination_airport' => new AirportResource($this->whenLoaded('destinationAirport')),
             'aircraft_type' => new AircraftTypeResource($this->whenLoaded('aircraftType')),
-            'fare_classes' => FlightFareClassResource::collection($this->whenLoaded('fareClasses')),
         ];
     }
 }

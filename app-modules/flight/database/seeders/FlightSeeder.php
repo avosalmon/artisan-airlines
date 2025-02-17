@@ -54,13 +54,13 @@ class FlightSeeder extends Seeder
                         $arrival = $departure->addMinutes($flightDuration);
 
                         $batch[] = [
-                            'flight_number' => 'NH'.rand(100, 999),
+                            'flight_number' => 'AA'.rand(100, 999),
                             'origin_airport_id' => $origin->id,
                             'destination_airport_id' => $destination->id,
                             'aircraft_type_id' => $aircraftType->id,
                             'departure_time' => $departure->toDateTime(),
                             'arrival_time' => $arrival->toDateTime(),
-                            'base_price' => $basePrice,
+                            'price' => $basePrice,
                             'status' => FlightStatus::SCHEDULED->value,
                             'created_at' => now(),
                             'updated_at' => now(),
