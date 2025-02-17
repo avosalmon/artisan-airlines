@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import BaseLayout from "@/layouts/base-layout";
-import { cn } from "@/lib/utils";
 import { PageProps } from "@/types";
 import { FlightHeader } from "@booking/components/flight-header";
+import { SeatButton } from "@booking/components/seat-button";
 import { Booking } from "@booking/index";
 import { Flight } from "@flight/index";
 import { Head, router } from "@inertiajs/react";
@@ -54,18 +54,16 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
                       {flight.seats
                         .filter((seat) => ["A", "B", "C"].includes(seat.seat_number.slice(-1)))
                         .map((seat) => (
-                          <Button
-                            key={seat.seat_number}
-                            variant={selectedSeats[passenger.id] === seat.seat_number ? "default" : "outline"}
-                            className={cn("h-12 w-12 rounded-lg", !seat.is_available && "cursor-not-allowed opacity-50")}
+                          <SeatButton
+                            key={seat.id}
+                            seat={seat}
+                            selected={selectedSeats[passenger.id] === seat.seat_number}
                             disabled={
                               !seat.is_available ||
                               (Object.values(selectedSeats).includes(seat.seat_number) && selectedSeats[passenger.id] !== seat.seat_number)
                             }
                             onClick={() => selectSeat(passenger.id, seat.seat_number)}
-                          >
-                            {seat.seat_number}
-                          </Button>
+                          />
                         ))}
                     </div>
 
@@ -74,18 +72,16 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
                       {flight.seats
                         .filter((seat) => ["D", "E", "F"].includes(seat.seat_number.slice(-1)))
                         .map((seat) => (
-                          <Button
-                            key={seat.seat_number}
-                            variant={selectedSeats[passenger.id] === seat.seat_number ? "default" : "outline"}
-                            className={cn("h-12 w-12 rounded-lg", !seat.is_available && "cursor-not-allowed opacity-50")}
+                          <SeatButton
+                            key={seat.id}
+                            seat={seat}
+                            selected={selectedSeats[passenger.id] === seat.seat_number}
                             disabled={
                               !seat.is_available ||
                               (Object.values(selectedSeats).includes(seat.seat_number) && selectedSeats[passenger.id] !== seat.seat_number)
                             }
                             onClick={() => selectSeat(passenger.id, seat.seat_number)}
-                          >
-                            {seat.seat_number}
-                          </Button>
+                          />
                         ))}
                     </div>
                   </div>
