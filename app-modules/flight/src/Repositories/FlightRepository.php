@@ -51,7 +51,7 @@ class FlightRepository implements FlightRepositoryContract
                 id: $seat->id,
                 seat_number: $seat->seat_number,
                 is_available: $seat->is_available,
-            )),
+            ))->toArray(),
         );
     }
 }

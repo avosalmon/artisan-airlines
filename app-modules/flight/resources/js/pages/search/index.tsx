@@ -25,7 +25,7 @@ export default function Index({ flights, passengers }: PageProps<{ flights: Flig
 
         <div className="space-y-4">
           {flights.map((flight) => (
-            <FlightCard key={flight.id} flight={flight} onSelectFlight={createPendingBooking} />
+            <FlightCard key={flight.id} flight={flight} passengers={passengers} onSelectFlight={createPendingBooking} />
           ))}
         </div>
       </div>
