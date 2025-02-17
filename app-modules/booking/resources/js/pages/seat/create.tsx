@@ -48,21 +48,46 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
                   <CardDescription>Select a seat for this passenger</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="grid grid-cols-6 gap-2">
-                    {flight.seats.map((seat) => (
-                      <Button
-                        key={seat.seat_number}
-                        variant={selectedSeats[passenger.id] === seat.seat_number ? "default" : "outline"}
-                        className={cn("h-12 w-12 rounded-lg", !seat.is_available && "cursor-not-allowed opacity-50")}
-                        disabled={
-                          !seat.is_available ||
-                          (Object.values(selectedSeats).includes(seat.seat_number) && selectedSeats[passenger.id] !== seat.seat_number)
-                        }
-                        onClick={() => selectSeat(passenger.id, seat.seat_number)}
-                      >
-                        {seat.seat_number}
-                      </Button>
-                    ))}
+                  <div className="flex justify-center gap-16">
+                    {/* Left block (ABC) */}
+                    <div className="grid grid-cols-3 gap-2">
+                      {flight.seats
+                        .filter((seat) => ["A", "B", "C"].includes(seat.seat_number.slice(-1)))
+                        .map((seat) => (
+                          <Button
+                            key={seat.seat_number}
+                            variant={selectedSeats[passenger.id] === seat.seat_number ? "default" : "outline"}
+                            className={cn("h-12 w-12 rounded-lg", !seat.is_available && "cursor-not-allowed opacity-50")}
+                            disabled={
+                              !seat.is_available ||
+                              (Object.values(selectedSeats).includes(seat.seat_number) && selectedSeats[passenger.id] !== seat.seat_number)
+                            }
+                            onClick={() => selectSeat(passenger.id, seat.seat_number)}
+                          >
+                            {seat.seat_number}
+                          </Button>
+                        ))}
+                    </div>
+
+                    {/* Right block (DEF) */}
+                    <div className="grid grid-cols-3 gap-2">
+                      {flight.seats
+                        .filter((seat) => ["D", "E", "F"].includes(seat.seat_number.slice(-1)))
+                        .map((seat) => (
+                          <Button
+                            key={seat.seat_number}
+                            variant={selectedSeats[passenger.id] === seat.seat_number ? "default" : "outline"}
+                            className={cn("h-12 w-12 rounded-lg", !seat.is_available && "cursor-not-allowed opacity-50")}
+                            disabled={
+                              !seat.is_available ||
+                              (Object.values(selectedSeats).includes(seat.seat_number) && selectedSeats[passenger.id] !== seat.seat_number)
+                            }
+                            onClick={() => selectSeat(passenger.id, seat.seat_number)}
+                          >
+                            {seat.seat_number}
+                          </Button>
+                        ))}
+                    </div>
                   </div>
                 </CardContent>
               </Card>
