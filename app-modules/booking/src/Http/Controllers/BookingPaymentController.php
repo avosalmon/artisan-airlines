@@ -9,13 +9,17 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
 use Modules\Booking\Models\Booking;
+use Modules\Flight\Contracts\FlightRepository;
 
 class BookingPaymentController
 {
-    public function create(Booking $booking): Response
+    public function create(Booking $booking, FlightRepository $flightRepository): Response
     {
+        $flight = $flightRepository->find($booking->flight_id);
+
         return Inertia::render('booking::payment/create', [
             'booking' => $booking,
+            'flight' => $flight,
         ]);
     }
 
