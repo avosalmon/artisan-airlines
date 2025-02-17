@@ -6,27 +6,32 @@ import { FlightHeader } from "@booking/components/flight-header";
 import { SeatButton } from "@booking/components/seat-button";
 import { Booking } from "@booking/index";
 import { Flight } from "@flight/index";
-import { Head, router } from "@inertiajs/react";
-import { useState } from "react";
+import { Head, useForm } from "@inertiajs/react";
+
+interface SeatAssignment {
+  passenger_id: number;
+  seat_id: number | null;
+}
 
 export default function Create({ booking, flight }: PageProps<{ booking: Booking; flight: Flight }>) {
-  const [selectedSeats, setSelectedSeats] = useState<Record<number, string>>({});
+  const { data, setData, post, processing } = useForm<{ seat_assignments: SeatAssignment[] }>({
+    seat_assignments:
+      booking.passengers?.map((passenger) => ({
+        passenger_id: passenger.id,
+        seat_id: null,
+      })) || [],
+  });
 
-  const selectSeat = (passengerId: number, seatNumber: string) => {
-    setSelectedSeats((prev) => ({
-      ...prev,
-      [passengerId]: seatNumber,
-    }));
+  const selectSeat = (passengerId: number, seatId: number) => {
+    setData({
+      seat_assignments: data.seat_assignments.map((assignment) =>
+        assignment.passenger_id === passengerId ? { passenger_id: passengerId, seat_id: seatId } : assignment,
+      ),
+    });
   };
 
-  const handleSubmit = () => {
-    if (Object.keys(selectedSeats).length !== booking.passengers?.length) {
-      return;
-    }
-
-    router.post(route("booking.seat.store", { booking: booking.id }), {
-      seat_assignments: selectedSeats,
-    });
+  const submit = () => {
+    post(route("booking.seat.store", { booking: booking.id }));
   };
 
   return (
@@ -57,12 +62,8 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
                           <SeatButton
                             key={seat.id}
                             seat={seat}
-                            selected={selectedSeats[passenger.id] === seat.seat_number}
-                            disabled={
-                              !seat.is_available ||
-                              (Object.values(selectedSeats).includes(seat.seat_number) && selectedSeats[passenger.id] !== seat.seat_number)
-                            }
-                            onClick={() => selectSeat(passenger.id, seat.seat_number)}
+                            selected={data.seat_assignments.some((assignment) => assignment.seat_id === seat.id)}
+                            onClick={() => selectSeat(passenger.id, seat.id)}
                           />
                         ))}
                     </div>
@@ -75,12 +76,8 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
                           <SeatButton
                             key={seat.id}
                             seat={seat}
-                            selected={selectedSeats[passenger.id] === seat.seat_number}
-                            disabled={
-                              !seat.is_available ||
-                              (Object.values(selectedSeats).includes(seat.seat_number) && selectedSeats[passenger.id] !== seat.seat_number)
-                            }
-                            onClick={() => selectSeat(passenger.id, seat.seat_number)}
+                            selected={data.seat_assignments.some((assignment) => assignment.seat_id === seat.id)}
+                            onClick={() => selectSeat(passenger.id, seat.id)}
                           />
                         ))}
                     </div>
@@ -91,7 +88,7 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
           </div>
 
           <div className="mt-6 flex justify-end">
-            <Button onClick={handleSubmit} disabled={Object.keys(selectedSeats).length !== booking.passengers?.length}>
+            <Button onClick={submit} disabled={processing || !data.seat_assignments.every((assignment) => assignment.seat_id)}>
               Continue
             </Button>
           </div>
