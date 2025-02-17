@@ -14,7 +14,7 @@ use Modules\Booking\Models\Booking;
 use Modules\Booking\Models\SeatAssignment;
 use Modules\Flight\Contracts\FlightRepository;
 
-class BookingSeatController extends Controller
+class SeatAssignmentController extends Controller
 {
     public function create(Booking $booking, FlightRepository $flightRepository): Response
     {
