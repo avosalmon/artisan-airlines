@@ -32,7 +32,9 @@ class SeatAssignmentController extends Controller
     {
         abort_unless($booking->status === BookingStatus::PENDING, 404);
 
-        SeatAssignment::createMany($request->input('seat_assignments'));
+        foreach ($request->input('seat_assignments') as $seatAssignment) {
+            SeatAssignment::create($seatAssignment);
+        }
 
         return to_route('booking.payment.create', $booking);
     }
