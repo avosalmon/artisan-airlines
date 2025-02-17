@@ -14,10 +14,11 @@ export function FlightCard({ flight, passengers, onSelectFlight }: { flight: Fli
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div className="text-left">
-              <div className="text-3xl font-bold">{format(new Date(flight.departure_time), "HH:mm")}</div>
-              <div className="text-sm text-muted-foreground">
+              <div className="text-sm font-semibold text-muted-foreground">
                 {flight.origin_airport?.city} ({flight.origin_airport?.iata_code})
               </div>
+              <div className="text-3xl font-bold">{format(new Date(flight.departure_time), "HH:mm")}</div>
+              <div className="text-sm text-muted-foreground">{format(new Date(flight.departure_time), "dd MMM (EEE)")}</div>
             </div>
 
             <div className="flex flex-col items-center px-8">
@@ -30,10 +31,11 @@ export function FlightCard({ flight, passengers, onSelectFlight }: { flight: Fli
             </div>
 
             <div className="text-right">
-              <div className="text-3xl font-bold">{format(new Date(flight.arrival_time), "HH:mm")}</div>
-              <div className="text-sm text-muted-foreground">
+              <div className="text-sm font-semibold text-muted-foreground">
                 {flight.destination_airport?.city} ({flight.destination_airport?.iata_code})
               </div>
+              <div className="text-3xl font-bold">{format(new Date(flight.arrival_time), "HH:mm")}</div>
+              <div className="text-sm text-muted-foreground">{format(new Date(flight.arrival_time), "dd MMM (EEE)")}</div>
             </div>
           </div>
 
