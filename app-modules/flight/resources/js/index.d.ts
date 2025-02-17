@@ -24,7 +24,7 @@ export interface Flight {
   origin_airport?: Airport;
   destination_airport?: Airport;
   aircraft_type?: AircraftType;
-  seats?: Seat[];
+  seats: Seat[];
 }
 
 export interface Seat {

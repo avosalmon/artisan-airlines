@@ -9,7 +9,7 @@ use Carbon\Carbon;
 readonly class Flight
 {
     /**
-     * @param  ?Seat[]  $seats
+     * @param  Seat[]  $seats
      */
     public function __construct(
         public int $id,
@@ -19,6 +19,6 @@ readonly class Flight
         public Carbon $departure_time,
         public Carbon $arrival_time,
         public string $price,
-        public ?array $seats = null,
+        public array $seats,
     ) {}
 }

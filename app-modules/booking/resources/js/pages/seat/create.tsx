@@ -49,16 +49,11 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
                 </CardHeader>
                 <CardContent>
                   <div className="grid grid-cols-6 gap-2">
-                    {available_seats.map((seat) => (
+                    {flight.seats.map((seat) => (
                       <Button
                         key={seat.seat_number}
                         variant={selectedSeats[passenger.id] === seat.seat_number ? "default" : "outline"}
-                        className={cn(
-                          "h-12 w-12",
-                          !seat.is_available && "cursor-not-allowed opacity-50",
-                          seat.seat_type === "window" && "bg-blue-50",
-                          seat.seat_type === "aisle" && "bg-green-50",
-                        )}
+                        className={cn("h-12 w-12", !seat.is_available && "cursor-not-allowed opacity-50")}
                         disabled={
                           !seat.is_available ||
                           (Object.values(selectedSeats).includes(seat.seat_number) && selectedSeats[passenger.id] !== seat.seat_number)
