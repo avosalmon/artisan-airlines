@@ -50,11 +50,6 @@ class Booking extends Model
         return $this->hasMany(Passenger::class);
     }
 
-    public function seatAssignments(): HasMany
-    {
-        return $this->hasMany(SeatAssignment::class);
-    }
-
     public function payments(): HasMany
     {
         return $this->hasMany(Payment::class);

@@ -12,7 +12,7 @@ import { useState } from "react";
 export default function Create({ booking, flight }: PageProps<{ booking: Booking; flight: Flight }>) {
   const [selectedSeats, setSelectedSeats] = useState<Record<number, string>>({});
 
-  const handleSeatSelection = (passengerId: number, seatNumber: string) => {
+  const selectSeat = (passengerId: number, seatNumber: string) => {
     setSelectedSeats((prev) => ({
       ...prev,
       [passengerId]: seatNumber,
@@ -53,12 +53,12 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
                       <Button
                         key={seat.seat_number}
                         variant={selectedSeats[passenger.id] === seat.seat_number ? "default" : "outline"}
-                        className={cn("h-12 w-12", !seat.is_available && "cursor-not-allowed opacity-50")}
+                        className={cn("h-12 w-12 rounded-lg", !seat.is_available && "cursor-not-allowed opacity-50")}
                         disabled={
                           !seat.is_available ||
                           (Object.values(selectedSeats).includes(seat.seat_number) && selectedSeats[passenger.id] !== seat.seat_number)
                         }
-                        onClick={() => handleSeatSelection(passenger.id, seat.seat_number)}
+                        onClick={() => selectSeat(passenger.id, seat.seat_number)}
                       >
                         {seat.seat_number}
                       </Button>

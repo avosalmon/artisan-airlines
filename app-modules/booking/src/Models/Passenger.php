@@ -31,8 +31,8 @@ class Passenger extends Model
         return $this->belongsTo(Booking::class);
     }
 
-    public function seatAssignment(): HasOne
+    public function seat(): HasOne
     {
-        return $this->hasOne(SeatAssignment::class);
+        return $this->hasOne(SeatAssignment::class, 'passenger_id', 'id');
     }
 }
