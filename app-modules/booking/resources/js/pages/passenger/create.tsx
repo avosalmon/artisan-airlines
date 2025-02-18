@@ -61,7 +61,7 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
           <div className="mx-auto">
             <h2 className="mb-6 text-2xl font-bold">Passenger Information</h2>
 
-            <form onSubmit={handleSubmit} className="space-y-6 rounded-lg border bg-white p-6 motion-preset-blur-up">
+            <form onSubmit={handleSubmit} className="motion-preset-blur-up space-y-6 rounded-lg border bg-white p-6">
               <Accordion type="single" collapsible defaultValue="passenger-0">
                 {data.passengers.map((passenger, index) => (
                   <AccordionItem key={index} value={`passenger-${index}`}>
