@@ -14,8 +14,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('flight_id'); // does not enforce a cross-module foreign key constraint
             $table->string('booking_reference')->unique(); // e.g., ABC123
-            $table->string('contact_email')->nullable();
-            $table->string('contact_phone')->nullable();
             $table->string('status')->default('pending'); // pending, confirmed, cancelled
             $table->unsignedInteger('passenger_count');
             $table->decimal('total_amount', 10, 2);

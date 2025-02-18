@@ -13,8 +13,6 @@ class Booking extends Model
     protected $fillable = [
         'flight_id',
         'booking_reference',
-        'contact_email',
-        'contact_phone',
         'status',
         'passenger_count',
         'total_amount',
