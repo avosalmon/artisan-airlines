@@ -41,7 +41,7 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
       <div className="container mx-auto px-4 py-8">
         <FlightCard flight={flight} passengers={booking.passenger_count} />
 
-        <div className="mx-auto">
+        <div className="mx-auto py-8">
           <h2 className="mb-6 text-2xl font-bold">Seat Selection</h2>
 
           <div className="motion-preset-blur-up grid gap-6" style={{ animationDelay: "300ms" }}>
