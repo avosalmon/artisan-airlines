@@ -12,10 +12,7 @@ class FlightServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->app->bind(
-            FlightRepositoryContract::class,
-            FlightRepository::class
-        );
+        $this->app->bind(FlightRepositoryContract::class, FlightRepository::class);
     }
 
     public function boot(): void {}

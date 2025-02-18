@@ -23,6 +23,7 @@ class Booking extends Model
 
     protected $casts = [
         'status' => BookingStatus::class,
+        'total_amount' => 'decimal:2',
     ];
 
     protected static function booted(): void
