@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import BaseLayout from "@/layouts/base-layout";
+import FormLayout from "@/layouts/form-layout";
 import { PageProps } from "@/types";
-import { FlightHeader } from "@booking/components/flight-header";
 import { SeatButton } from "@booking/components/seat-button";
 import { Booking } from "@booking/index";
+import { FlightCard } from "@flight/components/flight-card";
 import { Flight } from "@flight/index";
 import { Head, useForm } from "@inertiajs/react";
 
@@ -35,11 +35,11 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
   };
 
   return (
-    <BaseLayout>
+    <FormLayout>
       <Head title="Seat Selection" />
-      <FlightHeader flight={flight} booking={booking} />
 
       <div className="container mx-auto px-4 py-8">
+        <FlightCard flight={flight} passengers={booking.passenger_count} />
         <div className="mx-auto max-w-4xl">
           <h2 className="mb-6 text-2xl font-bold">Seat Selection</h2>
 
@@ -94,6 +94,6 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
           </div>
         </div>
       </div>
-    </BaseLayout>
+    </FormLayout>
   );
 }
