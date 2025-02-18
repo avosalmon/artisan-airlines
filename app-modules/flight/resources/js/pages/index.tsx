@@ -43,28 +43,33 @@ export default function Index({
     <BaseLayout>
       <Head title="Home" />
 
-      <section className="container mx-auto">
+      <section className="container mx-auto z-10 relative">
         <div className="relative mx-auto flex items-stretch justify-between gap-16 overflow-hidden rounded-xl bg-[url('https://images.unsplash.com/photo-1618032593076-64793c24427d?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center p-8 pl-16">
           {/* Content */}
           <div className="relative z-10 w-6/12 py-32 text-white">
-            <h1 className="text-8xl font-bold">Explore the unexplored</h1>
-            <h3 className="mt-4 text-balance text-4xl font-bold">Limited Time Offers to Australia and Japan.</h3>
-            <Button className="mt-8" variant={"secondary"} size={"lg"}>
+            <h1 className="text-[80px]/none font-bold motion-preset-blur-up motion-duration-[1s]" style={{ animationDelay: "50ms" }}>
+              Explore the unexplored
+            </h1>
+            <h3 className="mt-4 text-balance text-4xl font-bold motion-preset-blur-up motion-duration-[1s]" style={{ animationDelay: "500ms" }}>
+              Limited Time Offers to Australia and Japan.
+            </h3>
+            <Button className="mt-8 motion-preset-blur-up motion-duration-[1s]" variant={"secondary"} size={"lg"} style={{ animationDelay: "800ms" }}>
               View all deals <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-            <p className="absolute bottom-4 left-0 text-sm text-white/60">
+            <p className="absolute bottom-4 left-0 text-sm text-white/60 motion-preset-blur-up motion-duration-[1s]" style={{ animationDelay: "1200ms" }}>
               * Sale ends 11.59pm (AEDT) 10 February 2025, unless sold out prior. Selected routes, travel dates and conditions apply. Prices based on
               payment at qantas.com by BPAY or PayID. Some flights are subject to government and regulatory approval.
             </p>
           </div>
           {/* Form */}
           <div className="relative z-10 w-5/12">
-            <div className="h-full rounded-xl bg-white p-10 shadow-2xl">
-              <h1 className="mb-6 text-3xl font-bold text-gray-800">Find Your Perfect Flight</h1>
-              <form className="space-y-4">
+            <div className="h-full rounded-xl bg-white p-10 shadow-2xl motion-preset-blur-up" style={{ animationDelay: "500ms" }}>
+              <h2 className="text-3xl font-bold text-gray-800">Find Your Perfect Flight</h2>
+              <form className="py-6 flex h-full flex-col justify-between gap-4">
+                <div className="flex flex-col gap-4">
                 {/* From */}
                 <div className="relative">
-                  <Label htmlFor="from" className="mb-1 block text-gray-500">
+                  <Label htmlFor="from" className="mb-2 block text-gray-500">
                     From
                   </Label>
                   <Select value={data.origin_airport_id.toString()} onValueChange={(value) => setData("origin_airport_id", parseInt(value))}>
@@ -83,7 +88,7 @@ export default function Index({
 
                 {/* To */}
                 <div className="relative">
-                  <Label htmlFor="to" className="mb-1 block text-gray-500">
+                  <Label htmlFor="to" className="mb-2 block text-gray-500">
                     To
                   </Label>
                   <Select
@@ -105,7 +110,7 @@ export default function Index({
 
                 {/* When */}
                 <div className="relative">
-                  <Label htmlFor="depart-date" className="mb-1 block text-gray-500">
+                  <Label htmlFor="depart-date" className="mb-2 block text-gray-500">
                     When
                   </Label>
                   <div className="relative">
@@ -133,7 +138,7 @@ export default function Index({
 
                 {/* Passengers */}
                 <div>
-                  <Label htmlFor="passengers" className="mb-1 block text-gray-500">
+                  <Label htmlFor="passengers" className="mb-2 block text-gray-500">
                     Passengers
                   </Label>
                   <Select value={data.passengers.toString()} onValueChange={(value) => setData("passengers", parseInt(value))}>
@@ -147,10 +152,11 @@ export default function Index({
                       <SelectItem value="4">4 Adults</SelectItem>
                     </SelectContent>
                   </Select>
+                  </div>
                 </div>
-
-                <div className="flex justify-end">
-                  <Button className="w-32" onClick={submit} disabled={processing}>
+                {/* Button */}
+                <div className="flex self-justify-end">
+                  <Button className="w-full" onClick={submit} disabled={processing} size={"lg"}>
                     SEARCH
                   </Button>
                 </div>
@@ -163,36 +169,8 @@ export default function Index({
         </div>
       </section>
 
-      <section className="hidden bg-gray-100 py-16">
-        <div className="container mx-auto">
-          <h2 className="mb-8 text-center text-3xl font-bold text-gray-800">Why Choose Artisan Airlines?</h2>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            <Card>
-              <CardContent className="flex flex-col items-center p-6">
-                <CreditCard className="mb-4 h-12 w-12 text-blue-600" />
-                <h3 className="mb-2 text-xl font-semibold">Best Price Guarantee</h3>
-                <p className="text-center text-gray-600">We offer competitive prices on our 100 million plus product range.</p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="flex flex-col items-center p-6">
-                <Headphones className="mb-4 h-12 w-12 text-blue-600" />
-                <h3 className="mb-2 text-xl font-semibold">24/7 Support</h3>
-                <p className="text-center text-gray-600">Round the clock assistance for a smooth booking experience.</p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="flex flex-col items-center p-6">
-                <Plane className="mb-4 h-12 w-12 text-blue-600" />
-                <h3 className="mb-2 text-xl font-semibold">Flexible Booking</h3>
-                <p className="text-center text-gray-600">Change or cancel your booking with no additional fees.</p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16">
+      {/* Cities */}
+      <section className="py-16 motion-preset-blur-up motion-duration-[2s]" style={{ animationDelay: "1000ms" }}>
         <div className="container relative mx-auto">
           <h2 className="mb-8 text-3xl font-bold text-gray-800">
             Flight specials from{" "}
