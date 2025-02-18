@@ -31,8 +31,11 @@ class FlightSeeder extends Seeder
         $aircraftTypes = AircraftType::all();
         $now = CarbonImmutable::now();
         $batch = [];
-
         $departures = ['10:30', '18:30'];
+
+        $totalFlights = 30 * $airports->count() * ($airports->count() - 1) * count($departures);
+        $bar = $this->command->getOutput()->createProgressBar($totalFlights);
+        $bar->start();
 
         // Create flights for the next 30 days
         for ($i = 0; $i < 30; $i++) {
@@ -65,6 +68,8 @@ class FlightSeeder extends Seeder
                             'created_at' => now(),
                             'updated_at' => now(),
                         ];
+
+                        $bar->advance();
                     }
 
                     if (count($batch) >= 100) {
@@ -78,6 +83,8 @@ class FlightSeeder extends Seeder
         if (! empty($batch)) {
             Flight::insert($batch);
         }
+
+        $bar->finish();
     }
 
     private function calculateFlightDuration(Airport $origin, Airport $destination): int

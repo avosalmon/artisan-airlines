@@ -17,8 +17,11 @@ class SeatSeeder extends Seeder
      */
     public function run(): void
     {
+        $bar = $this->command->getOutput()->createProgressBar(Flight::count() * 90);
+        $bar->start();
+
         Flight::query()
-            ->chunkById(100, function ($flights) {
+            ->chunkById(100, function ($flights) use ($bar) {
                 foreach ($flights as $flight) {
                     $columns = ['A', 'B', 'C', 'D', 'E', 'F'];
                     $rows = range(1, 15); // 15 rows * 6 seats = 90 seats
@@ -31,6 +34,8 @@ class SeatSeeder extends Seeder
                                 'created_at' => now(),
                                 'updated_at' => now(),
                             ];
+
+                            $bar->advance();
                         }
                     }
 
@@ -42,5 +47,7 @@ class SeatSeeder extends Seeder
         if (! empty($this->seats)) {
             Seat::insert($this->seats);
         }
+
+        $bar->finish();
     }
 }
