@@ -3,10 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import BaseLayout from "@/layouts/base-layout";
+import FormLayout from "@/layouts/form-layout";
 import { PageProps } from "@/types";
-import { FlightHeader } from "@booking/components/flight-header";
 import { Booking } from "@booking/index";
+import { FlightCard } from "@flight/components/flight-card";
 import { Flight } from "@flight/index";
 import { Head, useForm } from "@inertiajs/react";
 import { CheckCircle2 } from "lucide-react";
@@ -52,15 +52,17 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
   };
 
   return (
-    <BaseLayout>
+    <FormLayout>
       <Head title="Passenger Details" />
-      <FlightHeader flight={flight} booking={booking} />
-
       <div className="container mx-auto px-4 py-8">
-        <div className="mx-auto max-w-2xl">
+        <FlightCard flight={flight} passengers={booking.passenger_count} onSelectFlight={() => {}} showBookNow={false} />
+      
+
+      <div className="py-8">
+        <div className="mx-auto">
           <h2 className="mb-6 text-2xl font-bold">Passenger Information</h2>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6 p-6 border rounded-lg bg-white">
             <Accordion type="single" collapsible defaultValue="passenger-0">
               {data.passengers.map((passenger, index) => (
                 <AccordionItem key={index} value={`passenger-${index}`}>
@@ -185,12 +187,13 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
               ))}
             </Accordion>
 
-            <Button type="submit" className="w-full" disabled={processing}>
+            <Button type="submit" size="lg" className="w-full" disabled={processing}>
               Proceed to Seat Selection
             </Button>
           </form>
+          </div>
         </div>
       </div>
-    </BaseLayout>
+    </FormLayout>
   );
 }

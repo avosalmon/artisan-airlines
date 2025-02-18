@@ -51,7 +51,7 @@ export function FlightCard({ flight, passengers, onSelectFlight, showBookNow = t
         </div>
 
         {/* Card Footer */}
-        <div className="mt-6 flex items-center justify-between p-3 bg-neutral-50 border-t border-t-neutral-200/75">
+        <div className=" flex items-center justify-between p-3 bg-neutral-50 border-t border-t-neutral-200/75">
           <div className="flex items-center gap-2">
             <Badge variant="outline" className="gap-2 rounded-full py-1 border-neutral-300 bg-white">
               <Logo className="size-4" />

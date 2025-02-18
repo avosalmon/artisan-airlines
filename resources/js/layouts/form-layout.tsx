@@ -6,7 +6,7 @@ import { ArrowLeft } from "lucide-react";
 export default function FormLayout({ children }: { children: React.ReactNode }) {
   return (
     <main className="relative flex min-h-screen flex-col overflow-hidden">
-      <nav className="p-8 pb-0 flex items-center justify-between gap-4">
+      <nav className="p-8 pb-0 flex items-center justify-between gap-4 fixed w-full">
         {/* Logo and Back Button */}
         <div className="flex items-center gap-4">
           <Link href="/" className="flex items-center space-x-2">
@@ -33,7 +33,7 @@ export default function FormLayout({ children }: { children: React.ReactNode }) 
       <div className="container px-4 py-8 max-w-screen-md grow h-full flex flex-col justify-center mx-auto">{children}</div>
 
       {/* Map */}
-      <img src="/images/map.svg" alt="Map" className="absolute opacity-50 left-1/2 -translate-x-1/2 top-0 -z-10 w-full object-cover" />
+      <img src="/images/map.svg" alt="Map" className=" opacity-50 fixed left-1/2 -translate-x-1/2 top-0 -z-10 w-full object-cover" />
     </main>
   );
 }
