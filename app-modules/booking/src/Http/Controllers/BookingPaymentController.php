@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Log;
 use Inertia\Inertia;
 use Inertia\Response;
 use Modules\Booking\Enums\BookingStatus;
+use Modules\Booking\Events\BookingConfirmed;
 use Modules\Booking\Http\Requests\StorePaymentRequest;
 use Modules\Booking\Models\Booking;
 use Modules\Flight\Contracts\FlightRepository;
@@ -52,6 +53,8 @@ class BookingPaymentController
 
             return redirect()->back()->with('error', 'Payment failed. Please try again.');
         }
+
+        event(new BookingConfirmed($booking->id));
 
         return redirect()->route('booking.show', $booking);
     }
