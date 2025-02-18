@@ -2,6 +2,7 @@ import { Logo } from "@/components/logo";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 import { getDuration } from "@/lib/utils";
 import { Flight } from "@flight/index";
 import { format } from "date-fns";
@@ -11,13 +12,15 @@ export function FlightCard({
   flight,
   passengers,
   onSelectFlight,
+  className,
 }: {
   flight: Flight;
   passengers: number;
   onSelectFlight?: (flight: Flight) => void;
+  className?: string;
 }) {
   return (
-    <Card className="mb-4 overflow-clip">
+    <Card className={cn("mb-4 overflow-clip", className)}>
       <CardContent className="p-0">
         <div className="flex items-center justify-between p-6">
           <div className="flex items-center gap-4">

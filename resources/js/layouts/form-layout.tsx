@@ -1,4 +1,4 @@
-import { Link } from "@inertiajs/react";
+import { Link, router } from "@inertiajs/react";
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
@@ -12,7 +12,7 @@ export default function FormLayout({ children }: { children: React.ReactNode }) 
           <Link href="/" className="flex items-center space-x-2">
             <Logo className="h-8 w-fit" />
           </Link>
-          <Button variant="outline" size="sm">
+          <Button variant="outline" size="sm" onClick={() => window.history.back()}>
             <ArrowLeft className="h-4 w-4" />
             Back
           </Button>

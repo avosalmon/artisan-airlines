@@ -55,13 +55,13 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
     <FormLayout>
       <Head title="Passenger Details" />
       <div className="container mx-auto px-4 py-8">
-        <FlightCard flight={flight} passengers={booking.passenger_count} />
+        <FlightCard flight={flight} passengers={booking.passenger_count} className="motion-preset-blur-up" />
 
         <div className="py-8">
           <div className="mx-auto">
             <h2 className="mb-6 text-2xl font-bold">Passenger Information</h2>
 
-            <form onSubmit={handleSubmit} className="space-y-6 rounded-lg border bg-white p-6">
+            <form onSubmit={handleSubmit} className="space-y-6 rounded-lg border bg-white p-6 motion-preset-blur-up">
               <Accordion type="single" collapsible defaultValue="passenger-0">
                 {data.passengers.map((passenger, index) => (
                   <AccordionItem key={index} value={`passenger-${index}`}>
