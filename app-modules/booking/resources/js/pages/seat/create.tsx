@@ -39,11 +39,11 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
       <Head title="Seat Selection" />
 
       <div className="container mx-auto px-4 py-8">
-        <FlightCard flight={flight} passengers={booking.passenger_count} />
-        <div className="mx-auto max-w-4xl">
+        <FlightCard flight={flight} passengers={booking.passenger_count} className="motion-preset-blur-up" />
+        <div className="mx-auto max-w-4xl mt-6">
           <h2 className="mb-6 text-2xl font-bold">Seat Selection</h2>
 
-          <div className="grid gap-6">
+          <div className="grid gap-6 motion-preset-blur-up" style={{ animationDelay: "300ms" }}>
             {booking.passengers?.map((passenger) => (
               <Card key={passenger.id}>
                 <CardHeader>

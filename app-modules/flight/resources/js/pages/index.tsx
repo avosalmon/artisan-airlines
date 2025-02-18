@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
-import { Card, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -10,7 +9,7 @@ import { PageProps } from "@/types";
 import { Airport } from "@flight/index";
 import { Head, useForm } from "@inertiajs/react";
 import { addDays, format } from "date-fns";
-import { ArrowRight, CalendarIcon, ChevronDown, CreditCard, Headphones, Plane } from "lucide-react";
+import { ArrowRight, CalendarIcon, ChevronDown, Search } from "lucide-react";
 
 export default function Index({
   airports,
@@ -157,7 +156,8 @@ export default function Index({
                 {/* Button */}
                 <div className="flex self-justify-end">
                   <Button className="w-full" onClick={submit} disabled={processing} size={"lg"}>
-                    SEARCH
+                    <Search className="mr-2 h-4 w-4" />
+                    Search
                   </Button>
                 </div>
               </form>
