@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "4d44d5f98597b13fcfef4bb0a4c71e15",
+  "content-hash": "0a065644d6954fca0d60ccb9661adab8",
   "packages": [
     {
       "name": "brick/math",
@@ -2939,38 +2939,6 @@
           "Modules\\Flight\\Tests\\": "tests/",
           "Modules\\Flight\\Database\\Factories\\": "database/factories/",
           "Modules\\Flight\\Database\\Seeders\\": "database/seeders/"
-        }
-      },
-      "license": [
-        "proprietary"
-      ],
-      "transport-options": {
-        "symlink": true,
-        "relative": true
-      }
-    },
-    {
-      "name": "modules/loyalty",
-      "version": "1.0",
-      "dist": {
-        "type": "path",
-        "url": "app-modules/loyalty",
-        "reference": "23f799fd52712dfe0047f9e590ffd9b850a421d7"
-      },
-      "type": "library",
-      "extra": {
-        "laravel": {
-          "providers": [
-            "Modules\\Loyalty\\Providers\\LoyaltyServiceProvider"
-          ]
-        }
-      },
-      "autoload": {
-        "psr-4": {
-          "Modules\\Loyalty\\": "src/",
-          "Modules\\Loyalty\\Tests\\": "tests/",
-          "Modules\\Loyalty\\Database\\Factories\\": "database/factories/",
-          "Modules\\Loyalty\\Database\\Seeders\\": "database/seeders/"
         }
       },
       "license": [
