@@ -6,13 +6,13 @@ namespace Modules\Payment\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Modules\Payment\Contracts\Payment as PaymentContract;
-use Modules\Payment\Services\PaymentService;
+use Modules\Payment\Services\FakePaymentService;
 
 class PaymentServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->app->bind(PaymentContract::class, PaymentService::class);
+        $this->app->bind(PaymentContract::class, FakePaymentService::class);
     }
 
     public function boot(): void {}

@@ -6,5 +6,8 @@ namespace Modules\Payment\Contracts;
 
 interface Payment
 {
-    public function process(float $amount, string $reference): bool;
+    /**
+     * Process the payment and return the payment ID.
+     */
+    public function process(string $token, float $amount, string $reference): int;
 }
