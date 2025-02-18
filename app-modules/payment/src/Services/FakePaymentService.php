@@ -7,12 +7,15 @@ namespace Modules\Payment\Services;
 use Modules\Payment\Contracts\Payment as Contract;
 use Modules\Payment\Enums\PaymentMethod;
 use Modules\Payment\Enums\PaymentStatus;
+use Modules\Payment\Exceptions\PaymentException;
 use Modules\Payment\Models\Payment;
 
 class FakePaymentService implements Contract
 {
     /**
      * Process the payment and return the payment ID.
+     *
+     * @throws PaymentException
      */
     public function process(int $bookingId, float $amount, string $token): int
     {
