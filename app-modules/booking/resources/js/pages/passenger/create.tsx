@@ -55,10 +55,10 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
     <FormLayout>
       <Head title="Passenger Details" />
       <div className="container mx-auto px-4 py-8">
-        <FlightCard flight={flight} passengers={booking.passenger_count} onSelectFlight={() => {}} showBookNow={false} />
+        <FlightCard flight={flight} passengers={booking.passenger_count} onSelectFlight={() => {}} showBookNow={false} className="motion-preset-blur-up" />
       
 
-      <div className="py-8">
+      <div className="py-8 motion-preset-blur-up">
         <div className="mx-auto">
           <h2 className="mb-6 text-2xl font-bold">Passenger Information</h2>
 

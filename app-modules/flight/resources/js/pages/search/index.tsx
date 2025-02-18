@@ -19,7 +19,7 @@ export default function Index({ flights, passengers }: PageProps<{ flights: Flig
       <div className="container px-4 py-8 max-w-screen-md mx-auto -mt-4">
         
         {/* Title */}
-        <div className="mb-8 flex items-center justify-between">
+        <div className="mb-8 flex items-center justify-between motion-preset-blur-up">
           <h1 className="text-6xl font-bold">
             {flights[0]?.origin_airport?.city} <span>→</span> {flights[0]?.destination_airport?.city}
           </h1>
@@ -27,8 +27,8 @@ export default function Index({ flights, passengers }: PageProps<{ flights: Flig
 
         {/* Flights */}
         <div className="space-y-8">
-          {flights.map((flight) => (
-            <FlightCard key={flight.id} flight={flight} passengers={passengers} onSelectFlight={createPendingBooking} />
+          {flights.map((flight, index) => (
+            <FlightCard key={flight.id} flight={flight} passengers={passengers} onSelectFlight={createPendingBooking} className={`motion-preset-blur-up delay-[${index * 150}ms]`} />
           ))}
         </div>
       </div>
