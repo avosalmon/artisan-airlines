@@ -44,8 +44,8 @@ class FlightRepository implements FlightRepositoryContract
                 country: $flight->destinationAirport->country,
                 timezone: $flight->destinationAirport->timezone,
             ),
-            departure_time: $flight->departure_time,
-            arrival_time: $flight->arrival_time,
+            departure_time: $flight->departure_time->format('Y-m-d H:i:s'),
+            arrival_time: $flight->arrival_time->format('Y-m-d H:i:s'),
             price: $flight->price,
             seats: $flight->seats->map(fn (SeatModel $seat) => new Seat(
                 id: $seat->id,
