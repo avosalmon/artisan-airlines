@@ -10,6 +10,7 @@ use Inertia\Inertia;
 use Inertia\Response;
 use Modules\Booking\Models\Booking;
 use Modules\Flight\Contracts\FlightRepository;
+use Modules\Payment\Contracts\Payment;
 
 class BookingPaymentController
 {
@@ -23,8 +24,10 @@ class BookingPaymentController
         ]);
     }
 
-    public function store(Booking $booking, Request $request): RedirectResponse
+    public function store(Booking $booking, Request $request, Payment $payment): RedirectResponse
     {
-        //
+        $payment->process($booking->total_amount, $booking->booking_reference);
+
+        return redirect()->route('booking.show', $booking);
     }
 }
