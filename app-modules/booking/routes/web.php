@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Illuminate\Support\Facades\Route;
+use Modules\Booking\Http\Controllers\BookingController;
 use Modules\Booking\Http\Controllers\BookingPassengerController;
 use Modules\Booking\Http\Controllers\BookingPaymentController;
 use Modules\Booking\Http\Controllers\PendingBookingController;
@@ -16,4 +17,5 @@ Route::middleware('web')->group(function () {
     Route::post('/bookings/{booking}/seats', [SeatAssignmentController::class, 'store'])->name('booking.seat.store');
     Route::get('/bookings/{booking}/payment', [BookingPaymentController::class, 'create'])->name('booking.payment.create');
     Route::post('/bookings/{booking}/payment', [BookingPaymentController::class, 'store'])->name('booking.payment.store');
+    Route::get('/bookings/{booking}/success', [BookingController::class, 'show'])->name('booking.show');
 });

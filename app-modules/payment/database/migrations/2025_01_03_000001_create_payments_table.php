@@ -14,7 +14,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('booking_id')->constrained()->cascadeOnDelete();
             $table->string('transaction_id')->unique();
-            $table->string('payment_method');
+            $table->string('payment_method'); // credit_card, paypal
             $table->decimal('amount', 10, 2);
             $table->string('status'); // pending, completed, failed
             $table->timestamps();

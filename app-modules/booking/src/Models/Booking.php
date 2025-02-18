@@ -7,7 +7,6 @@ namespace Modules\Booking\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Modules\Booking\Enums\BookingStatus;
-use Modules\Booking\Enums\PaymentStatus;
 
 class Booking extends Model
 {
@@ -49,23 +48,5 @@ class Booking extends Model
     public function passengers(): HasMany
     {
         return $this->hasMany(Passenger::class);
-    }
-
-    public function payments(): HasMany
-    {
-        return $this->hasMany(Payment::class);
-    }
-
-    public function successfulPayment(): ?Payment
-    {
-        return $this->payments()
-            ->where('status', PaymentStatus::COMPLETED)
-            ->latest()
-            ->first();
-    }
-
-    public function isFullyPaid(): bool
-    {
-        return $this->successfulPayment()?->amount === $this->total_amount;
     }
 }
