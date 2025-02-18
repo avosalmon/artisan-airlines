@@ -40,9 +40,9 @@ class BookingPaymentController
                 ]);
 
                 $payment->process(
-                    $request->input('token'),
+                    $booking->id,
                     (float) $booking->total_amount,
-                    $booking->booking_reference,
+                    $request->input('token'),
                 );
             });
         } catch (Throwable $e) {
