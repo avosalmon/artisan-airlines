@@ -15,7 +15,7 @@ class BookingConfirmed
     /**
      * Create a new event instance.
      */
-    public function __construct(public readonly int $bookingId)
+    public function __construct(public readonly int $bookingId, public readonly int $flightId)
     {
         //
     }

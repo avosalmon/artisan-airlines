@@ -59,7 +59,7 @@ class BookingPaymentController
             return redirect()->back()->with('error', 'Payment failed. Please try again.');
         }
 
-        event(new BookingConfirmed($booking->id));
+        event(new BookingConfirmed($booking->id, $booking->flight_id));
 
         return redirect()->route('booking.show', $booking);
     }
