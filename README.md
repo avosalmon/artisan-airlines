@@ -14,6 +14,13 @@ This is a fictitious airline booking application to demonstrate a modular Inerti
 composer dev
 ```
 
+## Run the tests
+
+```
+composer test
+```
+
+
 ## Modules
 
 The application has the following modules:
