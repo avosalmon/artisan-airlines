@@ -68,6 +68,9 @@
     "test": [
       "@php vendor/bin/pest"
     ],
+    "format": [
+      "@php vendor/bin/pint"
+    ],
     "ide-helper": [
       "@php artisan ide-helper:generate",
       "@php artisan ide-helper:models --nowrite",
