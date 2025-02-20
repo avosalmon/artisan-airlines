@@ -30,12 +30,12 @@ export default function Index({
   };
 
   const cities = new Map<number, [string, string]>([
-    [1, ["Paris", "https://images.unsplash.com/photo-1431274172761-fca41d930114?q=80&w=600&auto=format&fit=crop"]],
-    [3, ["Tokyo", "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=600&auto=format&fit=crop"]],
-    [6, ["Sydney", "https://images.unsplash.com/photo-1549180030-48bf079fb38a?q=80&w=600&auto=format&fit=crop"]],
-    [2, ["New York", "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?q=80&w=600&auto=format&fit=crop"]],
-    [4, ["London", "https://images.unsplash.com/photo-1533929736458-ca588d08c8be?q=80&w=600&auto=format&fit=crop"]],
-    [5, ["Rome", "https://images.unsplash.com/photo-1531572753322-ad063cecc140?q=80&w=600&auto=format&fit=crop"]],
+    [1, ["Paris", "images/paris.avif"]],
+    [3, ["Tokyo", "images/tokyo.avif"]],
+    [6, ["Sydney", "images/sydney.avif"]],
+    [2, ["New York", "images/newyork.avif"]],
+    [4, ["London", "images/london.avif"]],
+    [5, ["Rome", "images/rome.avif"]],
   ]);
 
   return (
@@ -44,13 +44,13 @@ export default function Index({
 
       {/* Hero Header */}
       <section className="container relative z-10 mx-auto">
-        <div className="relative  mx-auto flex items-stretch justify-between gap-16 overflow-hidden rounded-xl p-8 pl-24">
+        <div className="relative mx-auto flex items-stretch justify-between gap-16 overflow-hidden rounded-xl p-8 pl-24">
           {/* Content */}
           <div className="relative z-20 w-6/12 max-w-xl py-40 text-white">
             <h1 className="motion-preset-blur-up text-[94px]/none font-bold motion-duration-[1s]" style={{ animationDelay: "50ms" }}>
               Explore the unexplored
             </h1>
-            <h3 className="motion-preset-blur-up mt-8 text-4xl font-bold motion-duration-[1s] text-balance" style={{ animationDelay: "500ms" }}>
+            <h3 className="motion-preset-blur-up mt-8 text-balance text-4xl font-bold motion-duration-[1s]" style={{ animationDelay: "500ms" }}>
               Limited Time Offers for India and Japan.
             </h3>
             <Button className="motion-preset-blur-up mt-8 motion-duration-[1s]" variant={"secondary"} size={"lg"} style={{ animationDelay: "800ms" }}>
@@ -169,14 +169,8 @@ export default function Index({
           </div>
 
           {/* Gradient */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/75 to-black opacity-50 z-10" />
-          <video
-            src="/videos/hero.mp4"
-            autoPlay
-            muted
-            loop
-            className="absolute z-0 inset-0 h-full w-full object-cover"
-          />
+          <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/75 to-black opacity-50" />
+          <video src="/videos/hero.mp4" autoPlay muted loop className="absolute inset-0 z-0 h-full w-full object-cover" />
         </div>
       </section>
 
