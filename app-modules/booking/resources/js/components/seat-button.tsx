@@ -6,23 +6,17 @@ interface Props {
   seat: Seat;
   selected: boolean;
   onClick: () => void;
-  occupied: boolean;
 }
 
-export function SeatButton({ seat, selected, onClick, occupied }: Props) {
+export function SeatButton({ seat, selected, onClick }: Props) {
   return (
     <Button
       variant={selected ? "default" : "outline"}
-      className={cn(
-        "size-12 rounded-lg",
-        !seat.is_available && "cursor-not-allowed opacity-50",
-        occupied && "bg-gray-100 text-gray-300 pointer-events-none"
-      )}
+      className={cn("h-12 w-12 rounded-lg", !seat.is_available && "cursor-not-allowed opacity-50")}
       disabled={!seat.is_available}
       onClick={onClick}
     >
       {seat.seat_number}
-      
     </Button>
   );
 }

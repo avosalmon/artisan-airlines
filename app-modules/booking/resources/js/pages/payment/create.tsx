@@ -92,9 +92,15 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
                   <Label>Zip Code</Label>
                   <Input name="zipCode" placeholder="12345" value={formData.zipCode} onChange={handleChange} required />
                 </div>
-                <Button type="submit" className="w-full" disabled={processing}>
+                <Button type="submit" size="lg" className="w-full" disabled={processing}>
                   {processing ? "Processing..." : `Pay $${booking.total_amount}`}
                 </Button>
+
+                <div className="text-center text-gray-500 text-sm">
+                  <p>
+                    By clicking the "Pay" button, you agree to our <u>terms and conditions</u>.
+                  </p>
+                </div>
               </form>
             </CardContent>
           </Card>

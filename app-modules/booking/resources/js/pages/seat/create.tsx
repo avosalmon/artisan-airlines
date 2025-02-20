@@ -7,7 +7,6 @@ import { Booking } from "@booking/index";
 import { FlightCard } from "@flight/components/flight-card";
 import { Flight } from "@flight/index";
 import { Head, useForm } from "@inertiajs/react";
-import React from "react";
 
 interface SeatAssignment {
   passenger_id: number;
@@ -15,12 +14,6 @@ interface SeatAssignment {
 }
 
 export default function Create({ booking, flight }: PageProps<{ booking: Booking; flight: Flight }>) {
-  const randomlyOccupiedSeats = React.useMemo(() => new Set(
-    flight.seats
-      .filter(() => Math.random() < 0.4)
-      .map(seat => seat.id)
-  ), [flight.seats]);
-
   const { data, setData, post, processing } = useForm<{ seat_assignments: SeatAssignment[] }>({
     seat_assignments:
       booking.passengers?.map((passenger) => ({
@@ -71,7 +64,6 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
                             key={seat.id}
                             seat={seat}
                             selected={data.seat_assignments.some((assignment) => assignment.seat_id === seat.id)}
-                            occupied={randomlyOccupiedSeats.has(seat.id)}
                             onClick={() => selectSeat(passenger.id, seat.id)}
                           />
                         ))}
@@ -86,7 +78,6 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
                             key={seat.id}
                             seat={seat}
                             selected={data.seat_assignments.some((assignment) => assignment.seat_id === seat.id)}
-                            occupied={randomlyOccupiedSeats.has(seat.id)}
                             onClick={() => selectSeat(passenger.id, seat.id)}
                           />
                         ))}
