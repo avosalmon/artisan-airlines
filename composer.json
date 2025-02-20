@@ -13,6 +13,7 @@
     "inertiajs/inertia-laravel": "^2.0",
     "internachi/modular": "^2.2",
     "laravel/framework": "^11.31",
+    "laravel/nightwatch": "^1.0",
     "laravel/tinker": "^2.9",
     "modules/booking": "*",
     "modules/checkin": "*",

@@ -6,9 +6,9 @@ namespace Modules\Booking\Http\Controllers;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 use Inertia\Inertia;
 use Inertia\Response;
+use Laravel\Nightwatch\Facades\Nightwatch;
 use Modules\Booking\Enums\BookingStatus;
 use Modules\Booking\Events\BookingConfirmed;
 use Modules\Booking\Http\Requests\StorePaymentRequest;
@@ -56,10 +56,7 @@ class BookingPaymentController
                 ->route('booking.seat.create', $booking)
                 ->with('error', 'Selected seats are no longer available. Please choose different seats.');
         } catch (Throwable $e) {
-            Log::warning('Payment failed', [
-                'booking_id' => $booking->id,
-                'error' => $e->getMessage(),
-            ]);
+            Nightwatch::report($e);
 
             return redirect()
                 ->route('booking.payment.create', $booking)
