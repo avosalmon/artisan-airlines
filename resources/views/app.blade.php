@@ -10,8 +10,7 @@
         @viteReactRefresh
         @if(str_contains($page['component'], '::'))
             @php
-                $module = strtolower(explode('::', $page['component'])[0]);
-                $path = explode('::', $page['component'])[1];
+                [$module, $path] = explode('::', $page['component']);
             @endphp
             @vite(['resources/js/app.tsx', "app-modules/{$module}/resources/js/pages/{$path}.tsx"])
         @else

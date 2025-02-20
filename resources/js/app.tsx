@@ -15,13 +15,9 @@ createInertiaApp({
   resolve: (name) => {
     const pages = import.meta.glob(["./pages/**/*.tsx", "../../app-modules/*/resources/js/pages/**/*.tsx"]);
 
-    const pattern = /([^:]+)::(.+)/;
-    const matches = pattern.exec(name);
-
-    // If the `name` is a `module::page`, return the page from the module
-    if (matches && matches.length > 2) {
-      const module = matches[1].toLowerCase();
-      const page = matches[2];
+    // If `name` is a `module::page`, return the page from the module
+    if (name.includes("::")) {
+      const [module, page] = name.split("::");
 
       return pages[`../../app-modules/${module}/resources/js/pages/${page}.tsx`]();
     } else {
