@@ -9,19 +9,19 @@ export default function BaseLayout({ children }: { children: React.ReactNode }) 
       <nav className="bg-white py-2">
         <div className="container mx-auto flex items-center justify-between py-4">
           <div className="flex items-center gap-4">
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <Logo className="h-8 w-fit" />
-            <span className="text-xl font-bold text-gray-800">Artisan Airlines</span>
-          </Link>
+            {/* Logo */}
+            <Link href="/" className="flex items-center space-x-2">
+              <Logo className="h-8 w-fit" />
+              <span className="text-xl font-bold text-gray-800">Artisan Airlines</span>
+            </Link>
 
-          {/* Links */}
-          <div className="flex items-center gap-4 font-bold text-lg ml-6">
-            <Link href="/">Home</Link>
-            <Link href="/flights">Flights</Link>
-            <Link href="/destinations">Destinations</Link>
+            {/* Links */}
+            <div className="ml-6 flex items-center gap-4 text-lg font-bold">
+              <Link href="/">Home</Link>
+              <Link href="/flights">Flights</Link>
+              <Link href="/destinations">Destinations</Link>
+            </div>
           </div>
-        </div>
 
           {/* Actions */}
           <div className="flex items-center gap-5">
@@ -30,8 +30,12 @@ export default function BaseLayout({ children }: { children: React.ReactNode }) 
               <Link href="/contact">Contact</Link>
             </div>
             <div className="flex items-center gap-2">
-              <Button variant="outline">Login</Button>
-              <Button>Sign Up</Button>
+              <Button variant="outline">
+                <Link href="/login">Login</Link>
+              </Button>
+              <Button>
+                <Link href="/register">Sign Up</Link>
+              </Button>
             </div>
           </div>
         </div>
