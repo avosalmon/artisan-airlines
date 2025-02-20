@@ -1,6 +1,6 @@
 # Artisan Airlines
 
-<p align="center"><img src="/art/artisan-airlines.jpg" alt="Artisan Airlines" width="300"></p>
+<p align="center"><img src="/art/artisan-airlines.jpg" alt="Artisan Airlines"></p>
 
 This is a fictitious airline booking application to demonstrate a modular Inertia application.
 
