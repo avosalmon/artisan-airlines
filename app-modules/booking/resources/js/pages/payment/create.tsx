@@ -96,7 +96,7 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
                   {processing ? "Processing..." : `Pay $${booking.total_amount}`}
                 </Button>
 
-                <div className="text-center text-gray-500 text-sm">
+                <div className="text-center text-sm text-gray-500">
                   <p>
                     By clicking the "Pay" button, you agree to our <u>terms and conditions</u>.
                   </p>
