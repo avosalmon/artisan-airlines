@@ -13,6 +13,10 @@
             <directory suffix="Test.php">tests/Feature</directory>
             <directory suffix="Test.php">app-modules/*/tests/Feature</directory>
         </testsuite>
+        <testsuite name="Architecture">
+            <directory suffix="ArchitectureTest.php">tests</directory>
+            <directory suffix="ArchitectureTest.php">app-modules/*/tests</directory>
+        </testsuite>
     </testsuites>
     <source>
         <include>
