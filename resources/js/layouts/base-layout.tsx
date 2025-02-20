@@ -1,47 +1,41 @@
 import { Logo } from "@/components/logo";
+import { Button } from "@/components/ui/button";
 import { Link } from "@inertiajs/react";
 import { Mail, Phone } from "lucide-react";
 
 export default function BaseLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="bg-white">
+      <nav className="bg-white py-2">
         <div className="container mx-auto flex items-center justify-between py-4">
+          <div className="flex items-center gap-4">
+          {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <Logo className="h-6 w-fit" />
+            <Logo className="h-8 w-fit" />
             <span className="text-xl font-bold text-gray-800">Artisan Airlines</span>
           </Link>
-          <nav>
-            <ul className="flex space-x-4">
-              <li>
-                <Link href="/" className="text-gray-600 hover:text-blue-600">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/flights" className="text-gray-600 hover:text-blue-600">
-                  Flights
-                </Link>
-              </li>
-              <li>
-                <Link href="/destinations" className="text-gray-600 hover:text-blue-600">
-                  Destinations
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="text-gray-600 hover:text-blue-600">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-gray-600 hover:text-blue-600">
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </nav>
+
+          {/* Links */}
+          <div className="flex items-center gap-4 font-bold text-lg ml-6">
+            <Link href="/">Home</Link>
+            <Link href="/flights">Flights</Link>
+            <Link href="/destinations">Destinations</Link>
+          </div>
         </div>
-      </header>
+
+          {/* Actions */}
+          <div className="flex items-center gap-5">
+            <div className="flex items-center gap-4">
+              <Link href="/about">About</Link>
+              <Link href="/contact">Contact</Link>
+            </div>
+            <div className="flex items-center gap-2">
+              <Button variant="outline">Login</Button>
+              <Button>Sign Up</Button>
+            </div>
+          </div>
+        </div>
+      </nav>
 
       <main className="flex-grow">{children}</main>
 

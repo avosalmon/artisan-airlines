@@ -42,10 +42,11 @@ export default function Index({
     <BaseLayout>
       <Head title="Home" />
 
+      {/* Hero Header */}
       <section className="container relative z-10 mx-auto">
         <div className="relative mx-auto flex items-stretch justify-between gap-16 overflow-hidden rounded-xl bg-[url('https://images.unsplash.com/photo-1618032593076-64793c24427d?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center p-8 pl-16">
           {/* Content */}
-          <div className="relative z-10 w-6/12 py-32 text-white">
+          <div className="relative z-10 w-6/12 py-40 text-white">
             <h1 className="motion-preset-blur-up text-[80px]/none font-bold motion-duration-[1s]" style={{ animationDelay: "50ms" }}>
               Explore the unexplored
             </h1>
@@ -64,7 +65,7 @@ export default function Index({
             </p>
           </div>
           {/* Form */}
-          <div className="relative z-10 w-5/12">
+          <div className="relative z-10 w-5/12 max-w-lg">
             <div className="motion-preset-blur-up h-full rounded-xl bg-white p-10 shadow-2xl" style={{ animationDelay: "500ms" }}>
               <h2 className="text-3xl font-bold text-gray-800">Find Your Perfect Flight</h2>
               <form className="flex h-full flex-col justify-between gap-4 py-6">
