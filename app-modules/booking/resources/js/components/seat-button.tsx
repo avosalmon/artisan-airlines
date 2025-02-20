@@ -12,7 +12,7 @@ export function SeatButton({ seat, selected, onClick }: Props) {
   return (
     <Button
       variant={selected ? "default" : "outline"}
-      className={cn("h-12 w-12 rounded-lg", !seat.is_available && "cursor-not-allowed opacity-50")}
+      className={cn("h-12 w-12 rounded-lg", !seat.is_available && "pointer-events-none cursor-not-allowed bg-gray-100 text-gray-300 opacity-50")}
       disabled={!seat.is_available}
       onClick={onClick}
     >
