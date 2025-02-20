@@ -15,6 +15,7 @@ use Modules\Booking\Http\Requests\StorePaymentRequest;
 use Modules\Booking\Models\Booking;
 use Modules\Flight\Contracts\FlightRepository;
 use Modules\Flight\Contracts\SeatRepository;
+use Modules\Flight\Exceptions\SeatUnavailableException;
 use Modules\Payment\Contracts\Payment;
 use Throwable;
 
@@ -50,8 +51,12 @@ class BookingPaymentController
                     $request->input('token'),
                 );
             });
+        } catch (SeatUnavailableException $e) {
+            return redirect()
+                ->route('booking.seat.create', $booking)
+                ->with('error', 'Selected seats are no longer available. Please choose different seats.');
         } catch (Throwable $e) {
-            Log::error('Booking payment failed', [
+            Log::warning('Payment failed', [
                 'booking_id' => $booking->id,
                 'error' => $e->getMessage(),
             ]);
