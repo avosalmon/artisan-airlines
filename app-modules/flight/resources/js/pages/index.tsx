@@ -44,13 +44,13 @@ export default function Index({
 
       {/* Hero Header */}
       <section className="container relative z-10 mx-auto">
-        <div className="relative  mx-auto flex items-stretch justify-between gap-16 overflow-hidden rounded-xl p-8 pl-16">
+        <div className="relative  mx-auto flex items-stretch justify-between gap-16 overflow-hidden rounded-xl p-8 pl-24">
           {/* Content */}
           <div className="relative z-20 w-6/12 max-w-xl py-40 text-white">
-            <h1 className="motion-preset-blur-up text-[96px]/none font-bold motion-duration-[1s]" style={{ animationDelay: "50ms" }}>
+            <h1 className="motion-preset-blur-up text-[94px]/none font-bold motion-duration-[1s]" style={{ animationDelay: "50ms" }}>
               Explore the unexplored
             </h1>
-            <h3 className="motion-preset-blur-up mt-8 text-5xl font-bold motion-duration-[1s] text-balance" style={{ animationDelay: "500ms" }}>
+            <h3 className="motion-preset-blur-up mt-8 text-4xl font-bold motion-duration-[1s] text-balance" style={{ animationDelay: "500ms" }}>
               Limited Time Offers for India and Japan.
             </h3>
             <Button className="motion-preset-blur-up mt-8 motion-duration-[1s]" variant={"secondary"} size={"lg"} style={{ animationDelay: "800ms" }}>
