@@ -44,14 +44,14 @@ export default function Index({
 
       {/* Hero Header */}
       <section className="container relative z-10 mx-auto">
-        <div className="relative mx-auto flex items-stretch justify-between gap-16 overflow-hidden rounded-xl bg-[url('https://images.unsplash.com/photo-1618032593076-64793c24427d?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center p-8 pl-16">
+        <div className="relative  mx-auto flex items-stretch justify-between gap-16 overflow-hidden rounded-xl p-8 pl-16">
           {/* Content */}
-          <div className="relative z-10 w-6/12 py-40 text-white">
-            <h1 className="motion-preset-blur-up text-[80px]/none font-bold motion-duration-[1s]" style={{ animationDelay: "50ms" }}>
+          <div className="relative z-20 w-6/12 max-w-xl py-40 text-white">
+            <h1 className="motion-preset-blur-up text-[96px]/none font-bold motion-duration-[1s]" style={{ animationDelay: "50ms" }}>
               Explore the unexplored
             </h1>
-            <h3 className="motion-preset-blur-up mt-4 text-balance text-4xl font-bold motion-duration-[1s]" style={{ animationDelay: "500ms" }}>
-              Limited Time Offers to Australia and Japan.
+            <h3 className="motion-preset-blur-up mt-8 text-5xl font-bold motion-duration-[1s] text-balance" style={{ animationDelay: "500ms" }}>
+              Limited Time Offers for India and Japan.
             </h3>
             <Button className="motion-preset-blur-up mt-8 motion-duration-[1s]" variant={"secondary"} size={"lg"} style={{ animationDelay: "800ms" }}>
               View all deals <ArrowRight className="ml-2 h-4 w-4" />
@@ -65,7 +65,7 @@ export default function Index({
             </p>
           </div>
           {/* Form */}
-          <div className="relative z-10 w-5/12 max-w-lg">
+          <div className="relative z-20 w-5/12 max-w-lg">
             <div className="motion-preset-blur-up h-full rounded-xl bg-white p-10 shadow-2xl" style={{ animationDelay: "500ms" }}>
               <h2 className="text-3xl font-bold text-gray-800">Find Your Perfect Flight</h2>
               <form className="flex h-full flex-col justify-between gap-4 py-6">
@@ -169,7 +169,14 @@ export default function Index({
           </div>
 
           {/* Gradient */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-black opacity-50"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/75 to-black opacity-50 z-10" />
+          <video
+            src="/videos/hero.mp4"
+            autoPlay
+            muted
+            loop
+            className="absolute z-0 inset-0 h-full w-full object-cover"
+          />
         </div>
       </section>
 
