@@ -1,5 +1,7 @@
 # Artisan Airlines
 
+<p align="center"><img src="/art/artisan-airlines.jpg" alt="Artisan Airlines" width="300"></p>
+
 This is a fictitious airline booking application to demonstrate a modular Inertia application.
 
 ## Setup the project
@@ -20,7 +22,6 @@ composer dev
 composer test
 ```
 
-
 ## Modules
 
 The application has the following modules:
@@ -33,3 +34,9 @@ The application has the following modules:
   - Manage payments, refunds, etc
 - Check-in module
   - Manage check-ins, boarding passes, etc
+
+## Add a new module
+
+```
+php artisan make:module my-module
+```
