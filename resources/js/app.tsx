@@ -1,6 +1,7 @@
 import "../css/app.css";
 
 import { createInertiaApp } from "@inertiajs/react";
+import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 import { createRoot } from "react-dom/client";
 import { route as routeFn } from "ziggy-js";
 
@@ -13,15 +14,16 @@ const appName = import.meta.env.VITE_APP_NAME || "Artisan Airlines";
 createInertiaApp({
   title: (title) => `${title} - ${appName}`,
   resolve: (name) => {
-    const pages = import.meta.glob(["./pages/**/*.tsx", "../../app-modules/*/resources/js/pages/**/*.tsx"]);
-
     // If `name` is a `module::page`, return the page from the module
     if (name.includes("::")) {
       const [module, page] = name.split("::");
 
-      return pages[`../../app-modules/${module}/resources/js/pages/${page}.tsx`]();
+      return resolvePageComponent(
+        `../../app-modules/${module}/resources/js/pages/${page}.tsx`,
+        import.meta.glob("../../app-modules/*/resources/js/pages/**/*.tsx"),
+      );
     } else {
-      return pages[`./pages/${name}.tsx`]();
+      return resolvePageComponent(`./pages/${name}.tsx`, import.meta.glob("./pages/**/*.tsx"));
     }
   },
   setup({ el, App, props }) {
