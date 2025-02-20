@@ -17,7 +17,7 @@ export default function Show({ booking, flight }: PageProps<{ booking: Booking; 
         <div className="mb-8 text-center">
           <CheckCircle className="mx-auto mb-4 h-16 w-16 text-green-500" />
           <h1 className="mb-2 text-3xl font-bold">Thank You for Your Booking!</h1>
-          <p className="text-xl text-muted-foreground">Your flight has been successfully confirmed.</p>
+          <p className="text-xl text-muted-foreground">Your flight has been successfully booked.</p>
         </div>
 
         <Card>

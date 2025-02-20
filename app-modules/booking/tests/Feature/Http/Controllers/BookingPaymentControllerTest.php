@@ -14,7 +14,7 @@ use Modules\Payment\Exceptions\PaymentException;
 
 use function Pest\Laravel\mock;
 
-describe('store', function () {
+describe('store booking payment', function () {
     it('confirms the booking', function () {
         // Arrange
         Event::fake();
