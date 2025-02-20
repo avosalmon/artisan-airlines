@@ -31,7 +31,7 @@ class BookingPaymentController
         ]);
     }
 
-    public function store(Booking $booking, StorePaymentRequest $request, Payment $payment, SeatRepository $seatRepository): RedirectResponse
+    public function store(Booking $booking, StorePaymentRequest $request, SeatRepository $seatRepository, Payment $payment): RedirectResponse
     {
         $booking->load('passengers.seat');
 
@@ -61,7 +61,9 @@ class BookingPaymentController
                 'error' => $e->getMessage(),
             ]);
 
-            return redirect()->back()->with('error', 'Payment failed. Please try again.');
+            return redirect()
+                ->route('booking.payment.create', $booking)
+                ->with('error', 'Payment failed. Please try again.');
         }
 
         event(new BookingConfirmed($booking->id, $booking->flight_id));
