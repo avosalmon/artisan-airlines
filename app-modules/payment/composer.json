@@ -7,17 +7,17 @@
   "require": {},
   "autoload": {
     "psr-4": {
-      "Modules\\Payment\\": "src/",
-      "Modules\\Payment\\Tests\\": "tests/",
-      "Modules\\Payment\\Database\\Factories\\": "database/factories/",
-      "Modules\\Payment\\Database\\Seeders\\": "database/seeders/"
+      "ArtisanAir\\Payment\\": "src/",
+      "ArtisanAir\\Payment\\Tests\\": "tests/",
+      "ArtisanAir\\Payment\\Database\\Factories\\": "database/factories/",
+      "ArtisanAir\\Payment\\Database\\Seeders\\": "database/seeders/"
     }
   },
   "minimum-stability": "stable",
   "extra": {
     "laravel": {
       "providers": [
-        "Modules\\Payment\\Providers\\PaymentServiceProvider"
+        "ArtisanAir\\Payment\\Providers\\PaymentServiceProvider"
       ]
     }
   }

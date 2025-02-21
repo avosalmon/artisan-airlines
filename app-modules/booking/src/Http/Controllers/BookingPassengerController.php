@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Modules\Booking\Http\Controllers;
+namespace ArtisanAir\Booking\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use ArtisanAir\Booking\Enums\BookingStatus;
+use ArtisanAir\Booking\Http\Requests\StoreBookingPassengerRequest;
+use ArtisanAir\Booking\Models\Booking;
+use ArtisanAir\Flight\Contracts\FlightRepository;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
-use Modules\Booking\Enums\BookingStatus;
-use Modules\Booking\Http\Requests\StoreBookingPassengerRequest;
-use Modules\Booking\Models\Booking;
-use Modules\Flight\Contracts\FlightRepository;
 
 class BookingPassengerController extends Controller
 {

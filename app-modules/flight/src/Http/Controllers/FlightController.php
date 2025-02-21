@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Modules\Flight\Http\Controllers;
+namespace ArtisanAir\Flight\Http\Controllers;
 
+use ArtisanAir\Flight\Models\Airport;
 use Inertia\Inertia;
 use Inertia\Response;
-use Modules\Flight\Models\Airport;
 
 class FlightController
 {

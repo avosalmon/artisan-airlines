@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Flight\Models;
+namespace ArtisanAir\Flight\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;

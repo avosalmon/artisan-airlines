@@ -7,17 +7,17 @@
   "require": {},
   "autoload": {
     "psr-4": {
-      "Modules\\Booking\\": "src/",
-      "Modules\\Booking\\Tests\\": "tests/",
-      "Modules\\Booking\\Database\\Factories\\": "database/factories/",
-      "Modules\\Booking\\Database\\Seeders\\": "database/seeders/"
+      "ArtisanAir\\Booking\\": "src/",
+      "ArtisanAir\\Booking\\Tests\\": "tests/",
+      "ArtisanAir\\Booking\\Database\\Factories\\": "database/factories/",
+      "ArtisanAir\\Booking\\Database\\Seeders\\": "database/seeders/"
     }
   },
   "minimum-stability": "stable",
   "extra": {
     "laravel": {
       "providers": [
-        "Modules\\Booking\\Providers\\BookingServiceProvider"
+        "ArtisanAir\\Booking\\Providers\\BookingServiceProvider"
       ]
     }
   }

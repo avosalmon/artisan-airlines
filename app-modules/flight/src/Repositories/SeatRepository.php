@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Modules\Flight\Repositories;
+namespace ArtisanAir\Flight\Repositories;
 
-use Modules\Flight\Contracts\SeatRepository as Contract;
-use Modules\Flight\Exceptions\SeatUnavailableException;
-use Modules\Flight\Models\Seat;
+use ArtisanAir\Flight\Contracts\SeatRepository as Contract;
+use ArtisanAir\Flight\Exceptions\SeatUnavailableException;
+use ArtisanAir\Flight\Models\Seat;
 
 class SeatRepository implements Contract
 {

@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Modules\Flight\Repositories;
+namespace ArtisanAir\Flight\Repositories;
 
-use Modules\Flight\Contracts\FlightRepository as FlightRepositoryContract;
-use Modules\Flight\DataTransferObjects\Airport;
-use Modules\Flight\DataTransferObjects\Flight;
-use Modules\Flight\DataTransferObjects\Seat;
-use Modules\Flight\Models\Flight as FlightModel;
-use Modules\Flight\Models\Seat as SeatModel;
+use ArtisanAir\Flight\Contracts\FlightRepository as FlightRepositoryContract;
+use ArtisanAir\Flight\DataTransferObjects\Airport;
+use ArtisanAir\Flight\DataTransferObjects\Flight;
+use ArtisanAir\Flight\DataTransferObjects\Seat;
+use ArtisanAir\Flight\Models\Flight as FlightModel;
+use ArtisanAir\Flight\Models\Seat as SeatModel;
 
 class FlightRepository implements FlightRepositoryContract
 {

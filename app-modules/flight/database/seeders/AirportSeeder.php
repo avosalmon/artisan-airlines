@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Modules\Flight\Database\Seeders;
+namespace ArtisanAir\Flight\Database\Seeders;
 
+use ArtisanAir\Flight\Models\Airport;
 use Illuminate\Database\Seeder;
-use Modules\Flight\Models\Airport;
 
 class AirportSeeder extends Seeder
 {

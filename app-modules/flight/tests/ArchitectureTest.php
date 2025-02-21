@@ -3,12 +3,12 @@
 declare(strict_types=1);
 
 arch()
-    ->expect('Modules\Flight')
-    ->toOnlyBeUsedIn('Modules\Flight')
+    ->expect('ArtisanAir\Flight')
+    ->toOnlyBeUsedIn('ArtisanAir\Flight')
     ->ignoring([
-        'Modules\Flight\Contracts',
-        'Modules\Flight\DataTransferObjects',
-        'Modules\Flight\Events',
-        'Modules\Flight\Enums',
-        'Modules\Flight\Exceptions',
+        'ArtisanAir\Flight\Contracts',
+        'ArtisanAir\Flight\DataTransferObjects',
+        'ArtisanAir\Flight\Events',
+        'ArtisanAir\Flight\Enums',
+        'ArtisanAir\Flight\Exceptions',
     ]);

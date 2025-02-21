@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Modules\Flight\Database\Seeders;
+namespace ArtisanAir\Flight\Database\Seeders;
 
+use ArtisanAir\Flight\Enums\FlightStatus;
+use ArtisanAir\Flight\Models\AircraftType;
+use ArtisanAir\Flight\Models\Airport;
+use ArtisanAir\Flight\Models\Flight;
 use Carbon\CarbonImmutable;
 use Illuminate\Database\Seeder;
-use Modules\Flight\Enums\FlightStatus;
-use Modules\Flight\Models\AircraftType;
-use Modules\Flight\Models\Airport;
-use Modules\Flight\Models\Flight;
 
 class FlightSeeder extends Seeder
 {

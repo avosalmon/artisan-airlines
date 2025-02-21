@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Modules\Booking\Http\Controllers;
+namespace ArtisanAir\Booking\Http\Controllers;
 
+use ArtisanAir\Booking\Http\Requests\StorePendingBookingRequest;
+use ArtisanAir\Booking\Models\Booking;
+use ArtisanAir\Flight\Contracts\FlightRepository;
 use Illuminate\Http\RedirectResponse;
-use Modules\Booking\Http\Requests\StorePendingBookingRequest;
-use Modules\Booking\Models\Booking;
-use Modules\Flight\Contracts\FlightRepository;
 
 class PendingBookingController
 {

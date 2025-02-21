@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
+use ArtisanAir\Booking\Http\Controllers\BookingController;
+use ArtisanAir\Booking\Http\Controllers\BookingPassengerController;
+use ArtisanAir\Booking\Http\Controllers\BookingPaymentController;
+use ArtisanAir\Booking\Http\Controllers\PendingBookingController;
+use ArtisanAir\Booking\Http\Controllers\SeatAssignmentController;
 use Illuminate\Support\Facades\Route;
-use Modules\Booking\Http\Controllers\BookingController;
-use Modules\Booking\Http\Controllers\BookingPassengerController;
-use Modules\Booking\Http\Controllers\BookingPaymentController;
-use Modules\Booking\Http\Controllers\PendingBookingController;
-use Modules\Booking\Http\Controllers\SeatAssignmentController;
 
 Route::middleware('web')->group(function () {
     Route::post('/bookings/pending', [PendingBookingController::class, 'store'])->name('booking.pending.store');

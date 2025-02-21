@@ -7,7 +7,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | This is the PHP namespace that your modules will be created in. For
-    | example, a module called "Helpers" will be placed in \Modules\Helpers
+    | example, a module called "Helpers" will be placed in \ArtisanAir\Helpers
     | by default.
     |
     | It is *highly recommended* that you configure this to your organization
@@ -18,7 +18,7 @@ return [
     |
     */
 
-    'modules_namespace' => 'Modules',
+    'modules_namespace' => 'ArtisanAir',
 
     /*
     |--------------------------------------------------------------------------

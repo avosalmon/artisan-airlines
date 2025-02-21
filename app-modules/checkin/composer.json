@@ -7,17 +7,17 @@
   "require": {},
   "autoload": {
     "psr-4": {
-      "Modules\\Checkin\\": "src/",
-      "Modules\\Checkin\\Tests\\": "tests/",
-      "Modules\\Checkin\\Database\\Factories\\": "database/factories/",
-      "Modules\\Checkin\\Database\\Seeders\\": "database/seeders/"
+      "ArtisanAir\\Checkin\\": "src/",
+      "ArtisanAir\\Checkin\\Tests\\": "tests/",
+      "ArtisanAir\\Checkin\\Database\\Factories\\": "database/factories/",
+      "ArtisanAir\\Checkin\\Database\\Seeders\\": "database/seeders/"
     }
   },
   "minimum-stability": "stable",
   "extra": {
     "laravel": {
       "providers": [
-        "Modules\\Checkin\\Providers\\CheckinServiceProvider"
+        "ArtisanAir\\Checkin\\Providers\\CheckinServiceProvider"
       ]
     }
   }

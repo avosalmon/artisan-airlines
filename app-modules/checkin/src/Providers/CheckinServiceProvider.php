@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Checkin\Providers;
+namespace ArtisanAir\Checkin\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

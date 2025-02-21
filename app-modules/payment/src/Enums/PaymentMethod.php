@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Payment\Enums;
+namespace ArtisanAir\Payment\Enums;
 
 enum PaymentMethod: string
 {

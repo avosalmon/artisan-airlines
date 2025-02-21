@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Flight\DataTransferObjects;
+namespace ArtisanAir\Flight\DataTransferObjects;
 
 readonly class Flight
 {

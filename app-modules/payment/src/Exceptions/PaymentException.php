@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Payment\Exceptions;
+namespace ArtisanAir\Payment\Exceptions;
 
 use Exception;
 

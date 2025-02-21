@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Modules\Payment\Models;
+namespace ArtisanAir\Payment\Models;
 
+use ArtisanAir\Payment\Enums\PaymentMethod;
+use ArtisanAir\Payment\Enums\PaymentStatus;
 use Illuminate\Database\Eloquent\Model;
-use Modules\Payment\Enums\PaymentMethod;
-use Modules\Payment\Enums\PaymentStatus;
 
 class Payment extends Model
 {

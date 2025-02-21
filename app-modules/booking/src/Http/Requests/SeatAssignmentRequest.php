@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Booking\Http\Requests;
+namespace ArtisanAir\Booking\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;

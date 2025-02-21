@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Modules\Flight\Contracts;
+namespace ArtisanAir\Flight\Contracts;
 
-use Modules\Flight\Exceptions\SeatUnavailableException;
+use ArtisanAir\Flight\Exceptions\SeatUnavailableException;
 
 interface SeatRepository
 {

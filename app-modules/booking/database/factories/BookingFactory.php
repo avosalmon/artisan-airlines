@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Modules\Booking\Database\Factories;
+namespace ArtisanAir\Booking\Database\Factories;
 
+use ArtisanAir\Booking\Enums\BookingStatus;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Modules\Booking\Enums\BookingStatus;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Booking\Models\Booking>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\ArtisanAir\Booking\Models\Booking>
  */
 class BookingFactory extends Factory
 {

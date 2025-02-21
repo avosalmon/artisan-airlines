@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Flight\Http\Resources;
+namespace ArtisanAir\Flight\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;

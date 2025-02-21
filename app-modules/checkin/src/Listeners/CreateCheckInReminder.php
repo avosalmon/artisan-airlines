@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Modules\Checkin\Listeners;
+namespace ArtisanAir\Checkin\Listeners;
 
+use ArtisanAir\Booking\Events\BookingConfirmed;
+use ArtisanAir\Checkin\Models\CheckinReminder;
+use ArtisanAir\Flight\Contracts\FlightRepository;
 use Carbon\Carbon;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Modules\Booking\Events\BookingConfirmed;
-use Modules\Checkin\Models\CheckinReminder;
-use Modules\Flight\Contracts\FlightRepository;
 use RuntimeException;
 
 class CreateCheckInReminder implements ShouldQueue

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Flight\Enums;
+namespace ArtisanAir\Flight\Enums;
 
 enum FlightStatus: string
 {

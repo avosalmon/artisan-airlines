@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Flight\Database\Seeders;
+namespace ArtisanAir\Flight\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 

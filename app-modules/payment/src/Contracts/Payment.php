@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Modules\Payment\Contracts;
+namespace ArtisanAir\Payment\Contracts;
 
-use Modules\Payment\Exceptions\PaymentException;
+use ArtisanAir\Payment\Exceptions\PaymentException;
 
 interface Payment
 {

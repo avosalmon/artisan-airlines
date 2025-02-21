@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use ArtisanAir\Flight\Database\Seeders\DatabaseSeeder as FlightDatabaseSeeder;
 use Illuminate\Database\Seeder;
-use Modules\Flight\Database\Seeders\DatabaseSeeder as FlightDatabaseSeeder;
 
 class DatabaseSeeder extends Seeder
 {

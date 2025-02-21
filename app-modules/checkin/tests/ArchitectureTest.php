@@ -3,12 +3,12 @@
 declare(strict_types=1);
 
 arch()
-    ->expect('Modules\Checkin')
-    ->toOnlyBeUsedIn('Modules\Checkin')
+    ->expect('ArtisanAir\Checkin')
+    ->toOnlyBeUsedIn('ArtisanAir\Checkin')
     ->ignoring([
-        'Modules\Checkin\Contracts',
-        'Modules\Checkin\DataTransferObjects',
-        'Modules\Checkin\Events',
-        'Modules\Checkin\Enums',
-        'Modules\Checkin\Exceptions',
+        'ArtisanAir\Checkin\Contracts',
+        'ArtisanAir\Checkin\DataTransferObjects',
+        'ArtisanAir\Checkin\Events',
+        'ArtisanAir\Checkin\Enums',
+        'ArtisanAir\Checkin\Exceptions',
     ]);

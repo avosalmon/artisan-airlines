@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Modules\Flight\Http\Controllers;
+namespace ArtisanAir\Flight\Http\Controllers;
 
+use ArtisanAir\Flight\Enums\FlightStatus;
+use ArtisanAir\Flight\Http\Requests\SearchFlightRequest;
+use ArtisanAir\Flight\Http\Resources\FlightResource;
+use ArtisanAir\Flight\Models\Flight;
 use Inertia\Inertia;
 use Inertia\Response;
-use Modules\Flight\Enums\FlightStatus;
-use Modules\Flight\Http\Requests\SearchFlightRequest;
-use Modules\Flight\Http\Resources\FlightResource;
-use Modules\Flight\Models\Flight;
 
 class SearchController
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Flight\Exceptions;
+namespace ArtisanAir\Flight\Exceptions;
 
 use Exception;
 

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Modules\Flight\Providers;
+namespace ArtisanAir\Flight\Providers;
 
+use ArtisanAir\Flight\Contracts\FlightRepository as FlightRepositoryContract;
+use ArtisanAir\Flight\Contracts\SeatRepository as SeatRepositoryContract;
+use ArtisanAir\Flight\Repositories\FlightRepository;
+use ArtisanAir\Flight\Repositories\SeatRepository;
 use Illuminate\Support\ServiceProvider;
-use Modules\Flight\Contracts\FlightRepository as FlightRepositoryContract;
-use Modules\Flight\Contracts\SeatRepository as SeatRepositoryContract;
-use Modules\Flight\Repositories\FlightRepository;
-use Modules\Flight\Repositories\SeatRepository;
 
 class FlightServiceProvider extends ServiceProvider
 {

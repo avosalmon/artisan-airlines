@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Booking\Events;
+namespace ArtisanAir\Booking\Events;
 
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Foundation\Events\Dispatchable;

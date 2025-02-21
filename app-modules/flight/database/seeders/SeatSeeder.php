@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Modules\Flight\Database\Seeders;
+namespace ArtisanAir\Flight\Database\Seeders;
 
+use ArtisanAir\Flight\Models\Flight;
+use ArtisanAir\Flight\Models\Seat;
 use Illuminate\Database\Seeder;
-use Modules\Flight\Models\Flight;
-use Modules\Flight\Models\Seat;
 
 class SeatSeeder extends Seeder
 {

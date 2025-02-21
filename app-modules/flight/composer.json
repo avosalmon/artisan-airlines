@@ -7,17 +7,17 @@
   "require": {},
   "autoload": {
     "psr-4": {
-      "Modules\\Flight\\": "src/",
-      "Modules\\Flight\\Tests\\": "tests/",
-      "Modules\\Flight\\Database\\Factories\\": "database/factories/",
-      "Modules\\Flight\\Database\\Seeders\\": "database/seeders/"
+      "ArtisanAir\\Flight\\": "src/",
+      "ArtisanAir\\Flight\\Tests\\": "tests/",
+      "ArtisanAir\\Flight\\Database\\Factories\\": "database/factories/",
+      "ArtisanAir\\Flight\\Database\\Seeders\\": "database/seeders/"
     }
   },
   "minimum-stability": "stable",
   "extra": {
     "laravel": {
       "providers": [
-        "Modules\\Flight\\Providers\\FlightServiceProvider"
+        "ArtisanAir\\Flight\\Providers\\FlightServiceProvider"
       ]
     }
   }

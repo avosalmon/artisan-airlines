@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Modules\Payment\Providers;
+namespace ArtisanAir\Payment\Providers;
 
+use ArtisanAir\Payment\Contracts\Payment as PaymentContract;
+use ArtisanAir\Payment\Services\FakePaymentService;
 use Illuminate\Support\ServiceProvider;
-use Modules\Payment\Contracts\Payment as PaymentContract;
-use Modules\Payment\Services\FakePaymentService;
 
 class PaymentServiceProvider extends ServiceProvider
 {

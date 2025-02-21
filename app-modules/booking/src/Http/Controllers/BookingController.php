@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Modules\Booking\Http\Controllers;
+namespace ArtisanAir\Booking\Http\Controllers;
 
+use ArtisanAir\Booking\Enums\BookingStatus;
+use ArtisanAir\Booking\Models\Booking;
+use ArtisanAir\Flight\Contracts\FlightRepository;
 use Inertia\Inertia;
 use Inertia\Response;
-use Modules\Booking\Enums\BookingStatus;
-use Modules\Booking\Models\Booking;
-use Modules\Flight\Contracts\FlightRepository;
 
 class BookingController
 {

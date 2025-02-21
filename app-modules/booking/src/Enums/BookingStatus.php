@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Booking\Enums;
+namespace ArtisanAir\Booking\Enums;
 
 enum BookingStatus: string
 {

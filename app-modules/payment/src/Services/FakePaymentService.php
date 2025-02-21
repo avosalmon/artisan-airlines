@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Modules\Payment\Services;
+namespace ArtisanAir\Payment\Services;
 
-use Modules\Payment\Contracts\Payment as Contract;
-use Modules\Payment\Enums\PaymentMethod;
-use Modules\Payment\Enums\PaymentStatus;
-use Modules\Payment\Exceptions\PaymentException;
-use Modules\Payment\Models\Payment;
+use ArtisanAir\Payment\Contracts\Payment as Contract;
+use ArtisanAir\Payment\Enums\PaymentMethod;
+use ArtisanAir\Payment\Enums\PaymentStatus;
+use ArtisanAir\Payment\Exceptions\PaymentException;
+use ArtisanAir\Payment\Models\Payment;
 
 class FakePaymentService implements Contract
 {

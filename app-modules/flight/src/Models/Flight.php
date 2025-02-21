@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Modules\Flight\Models;
+namespace ArtisanAir\Flight\Models;
 
+use ArtisanAir\Flight\Enums\FlightStatus;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Modules\Flight\Enums\FlightStatus;
 
 class Flight extends Model
 {

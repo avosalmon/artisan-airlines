@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
+use ArtisanAir\Booking\Enums\BookingStatus;
+use ArtisanAir\Booking\Events\BookingConfirmed;
+use ArtisanAir\Booking\Models\Booking;
+use ArtisanAir\Flight\Contracts\SeatRepository;
+use ArtisanAir\Flight\Exceptions\SeatUnavailableException;
+use ArtisanAir\Payment\Contracts\Payment;
+use ArtisanAir\Payment\Exceptions\PaymentException;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Str;
-use Modules\Booking\Enums\BookingStatus;
-use Modules\Booking\Events\BookingConfirmed;
-use Modules\Booking\Models\Booking;
-use Modules\Flight\Contracts\SeatRepository;
-use Modules\Flight\Exceptions\SeatUnavailableException;
-use Modules\Payment\Contracts\Payment;
-use Modules\Payment\Exceptions\PaymentException;
 
 use function Pest\Laravel\mock;
 

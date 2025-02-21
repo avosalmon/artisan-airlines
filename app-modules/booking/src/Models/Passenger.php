@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Booking\Models;
+namespace ArtisanAir\Booking\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
