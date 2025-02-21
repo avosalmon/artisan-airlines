@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Str;
 
 use function Pest\Laravel\mock;
+use function Pest\Laravel\post;
 
 describe('store booking payment', function () {
     it('confirms the booking', function () {
@@ -30,7 +31,7 @@ describe('store booking payment', function () {
             ->once();
 
         // Act
-        $response = $this->post("/bookings/{$booking->id}/payment", [
+        $response = post("/bookings/{$booking->id}/payment", [
             'token' => Str::random(),
         ]);
 
@@ -59,7 +60,7 @@ describe('store booking payment', function () {
             ->shouldNotReceive('process');
 
         // Act
-        $response = $this->post("/bookings/{$booking->id}/payment", [
+        $response = post("/bookings/{$booking->id}/payment", [
             'token' => Str::random(),
         ]);
 
@@ -87,7 +88,7 @@ describe('store booking payment', function () {
             ->andThrow(new PaymentException);
 
         // Act
-        $response = $this->post("/bookings/{$booking->id}/payment", [
+        $response = post("/bookings/{$booking->id}/payment", [
             'token' => Str::random(),
         ]);
 
