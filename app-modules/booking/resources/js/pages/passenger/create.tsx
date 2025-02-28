@@ -72,7 +72,7 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
                   </AccordionTrigger>
                   <AccordionContent>
                     <div className="space-y-6 pt-4">
-                      <div className="grid grid-cols-2 gap-4">
+                      <div className="grid grid-cols-2 gap-4 px-1">
                         <div className="space-y-2">
                           <Label htmlFor={`first_name-${index}`}>First Name</Label>
                           <Input
@@ -100,7 +100,7 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
                         </div>
                       </div>
 
-                      <div className="space-y-2">
+                      <div className="space-y-2 px-1">
                         <Label htmlFor={`email-${index}`}>Email</Label>
                         <Input
                           id={`email-${index}`}
@@ -112,7 +112,7 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
                         {errors[`passengers.${index}.email`] && <p className="text-sm text-red-500">{errors[`passengers.${index}.email`]}</p>}
                       </div>
 
-                      <div className="space-y-2">
+                      <div className="space-y-2 px-1">
                         <Label htmlFor={`phone-${index}`}>Phone Number</Label>
                         <Input
                           id={`phone-${index}`}
@@ -124,7 +124,7 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
                         {errors[`passengers.${index}.phone`] && <p className="text-sm text-red-500">{errors[`passengers.${index}.phone`]}</p>}
                       </div>
 
-                      <div className="space-y-2">
+                      <div className="space-y-2 px-1">
                         <Label htmlFor={`date_of_birth-${index}`}>Date of Birth</Label>
                         <Input
                           id={`date_of_birth-${index}`}
@@ -139,7 +139,7 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
                         )}
                       </div>
 
-                      <div className="space-y-2">
+                      <div className="space-y-2 px-1">
                         <Label>Gender</Label>
                         <Select value={passenger.gender} onValueChange={(value) => updatePassenger(index, "gender", value)}>
                           <SelectTrigger>
@@ -154,7 +154,7 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
                         {errors[`passengers.${index}.gender`] && <p className="text-sm text-red-500">{errors[`passengers.${index}.gender`]}</p>}
                       </div>
 
-                      <div className="space-y-2">
+                      <div className="space-y-2 px-1">
                         <Label htmlFor={`nationality-${index}`}>Nationality</Label>
                         <Input
                           id={`nationality-${index}`}
@@ -167,7 +167,7 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
                         )}
                       </div>
 
-                      <div className="space-y-2">
+                      <div className="space-y-2 px-1">
                         <Label htmlFor={`passport_number-${index}`}>Passport Number</Label>
                         <Input
                           id={`passport_number-${index}`}
