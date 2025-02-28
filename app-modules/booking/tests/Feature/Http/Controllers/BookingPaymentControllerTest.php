@@ -65,8 +65,8 @@ describe('store booking payment', function () {
         ]);
 
         // Assert
-        $response->assertRedirect("/bookings/{$booking->id}/seats");
-
+        $response->assertRedirect("/bookings/{$booking->id}/seats")
+            ->assertSessionHas('error', 'Selected seats are no longer available. Please choose different seats.');
         expect($booking->refresh()->status)->toBe(BookingStatus::PENDING);
 
         Event::assertNotDispatched(BookingConfirmed::class);
@@ -93,7 +93,8 @@ describe('store booking payment', function () {
         ]);
 
         // Assert
-        $response->assertRedirect("/bookings/{$booking->id}/payment");
+        $response->assertRedirect("/bookings/{$booking->id}/payment")
+            ->assertSessionHas('error', 'Payment failed. Please try again.');
 
         expect($booking->refresh()->status)->toBe(BookingStatus::PENDING);
 
