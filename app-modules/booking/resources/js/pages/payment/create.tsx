@@ -32,6 +32,19 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
     }));
   };
 
+  const autoFillPaymentDetails = () => {
+    setFormData({
+      cardNumber: "1111222233334444",
+      expiryDate: "01/29",
+      cvv: "123",
+      name: "Ryuta Hamasaki",
+      address: "123 Main St",
+      city: "Tokyo",
+      country: "Japan",
+      zipCode: "12345",
+    });
+  };
+
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setProcessing(true);
@@ -56,7 +69,14 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
                 <div className="space-y-2">
                   <Label>Card Number</Label>
                   <div className="relative">
-                    <Input name="cardNumber" placeholder="1234 5678 9012 3456" value={formData.cardNumber} onChange={handleChange} required />
+                    <Input
+                      name="cardNumber"
+                      placeholder="1234 5678 9012 3456"
+                      value={formData.cardNumber}
+                      onChange={handleChange}
+                      onClick={autoFillPaymentDetails}
+                      required
+                    />
                     <CreditCard className="absolute right-3 top-1/2 -translate-y-1/2 transform text-gray-400" />
                   </div>
                 </div>
