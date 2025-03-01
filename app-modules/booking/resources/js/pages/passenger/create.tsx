@@ -51,6 +51,23 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
     return Object.values(passenger).every((value) => value !== "");
   };
 
+  const autoFillPassenger = (index: number) => {
+    const fake = {
+      first_name: "Ryuta",
+      last_name: "Hamasaki",
+      email: "ryuta@laravel.com",
+      phone: "12345678",
+      date_of_birth: "01/01/2025",
+      gender: "male",
+      nationality: "Japan",
+      passport_number: "AA1234567",
+    };
+    setData(
+      "passengers",
+      data.passengers.map((passenger, i) => (i === index ? fake : passenger)),
+    );
+  };
+
   return (
     <FormLayout>
       <Head title="Passenger Details" />
@@ -79,6 +96,7 @@ export default function Create({ booking, flight }: PageProps<{ booking: Booking
                             id={`first_name-${index}`}
                             value={passenger.first_name}
                             onChange={(e) => updatePassenger(index, "first_name", e.target.value)}
+                            onClick={() => autoFillPassenger(index)}
                             required
                           />
                           {errors[`passengers.${index}.first_name`] && (
