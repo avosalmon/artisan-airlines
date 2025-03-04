@@ -17,6 +17,8 @@ class SeatSeeder extends Seeder
      */
     public function run(): void
     {
+        Seat::truncate();
+
         $bar = $this->command->getOutput()->createProgressBar(Flight::count() * 90);
         $bar->start();
 
