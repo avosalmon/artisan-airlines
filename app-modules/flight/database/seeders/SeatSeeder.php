@@ -33,7 +33,8 @@ class SeatSeeder extends Seeder
                             $this->seats[] = [
                                 'flight_id' => $flight->id,
                                 'seat_number' => $row.$column,
-                                'is_available' => rand(1, 10) > 5,
+                                // The last row is always available
+                                'is_available' => $row === 15 || rand(1, 10) > 5,
                                 'created_at' => now(),
                                 'updated_at' => now(),
                             ];
